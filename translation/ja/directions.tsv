@@ -1,0 +1,14 @@
+english	japanese	aliases	status
+NORTH	北	きた 北へ	draft
+SOUTH	南	みなみ 南へ	draft
+EAST	東	ひがし 東へ	draft
+WEST	西	にし 西へ	draft
+NORTHEAST	北東	ほくとう 北東へ	draft
+NORTHWEST	北西	ほくせい 北西へ	draft
+SOUTHEAST	南東	なんとう 南東へ	draft
+SOUTHWEST	南西	なんせい 南西へ	draft
+UP	上	うえ 上へ 登る	draft
+DOWN	下	した 下へ 降りる	draft
+IN	中	なか 中へ 入る	draft
+OUT	外	そと 外へ 出る	draft
+LAND	上陸	上陸する 岸へ	draft

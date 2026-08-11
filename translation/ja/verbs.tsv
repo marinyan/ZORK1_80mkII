@@ -1,0 +1,136 @@
+verb	japanese	aliases	disposition	notes
+\\#COMMAND	コマンドファイル		omit	開発用機能
+\\#RANDOM	乱数設定		omit	開発用機能
+\\#RECORD	入力記録開始		omit	外部記録機能
+\\#UNRECORD	入力記録停止		omit	外部記録機能
+$VERIFY	データ検査		omit	初期版では省略
+ACTIVATE	作動させる	起動する 点ける	keep	""
+ANSWER	答える	返事する	keep	""
+APPLY	使う	適用する	keep	""
+ATTACK	攻撃する	戦う 殴る 傷つける	keep	""
+BACK	戻る	引き返す	keep	""
+BLAST	爆破する	吹き飛ばす	keep	""
+BLOW	吹く	息を吹く	keep	""
+BOARD	乗る	乗り込む	keep	""
+BRIEF	簡潔表示	短く	consider	表示モード
+BRUSH	磨く	掃除する こする	keep	""
+BUG	バグ	不具合	omit	開発用の遊びコマンド
+BURN	燃やす	火をつける 焼く	keep	""
+CHOMP	かじる	むしゃむしゃする	consider	遊びコマンド
+CLIMB	登る	よじ登る 上がる	keep	""
+CLOSE	閉じる	閉める	keep	""
+COMMAND	命令する	指示する	keep	""
+COUNT	数える	勘定する	keep	""
+CROSS	渡る	横切る	keep	""
+CURSE	悪態をつく	罵る ののしる	consider	""
+CUT	切る	切断する 刺す	keep	""
+DEFLATE	空気を抜く	しぼませる	keep	""
+DESTROY	壊す	破壊する 砕く	keep	""
+DIAGNOSE	診断する	状態を見る	consider	""
+DIG	掘る	穴を掘る	keep	""
+DISEMBARK	降りる	下船する	keep	""
+DISENCHANT	魔法を解く	解呪する	consider	""
+DRINK	飲む	口にする	keep	""
+DROP	置く	落とす 手放す	keep	""
+EAT	食べる	味わう かじる	keep	""
+ECHO	こだまと叫ぶ	エコー	consider	""
+ENCHANT	魔法をかける	付呪する	consider	""
+ENTER	入る	中へ入る	keep	""
+EXAMINE	調べる	見る 観察する	keep	""
+EXIT	出る	外へ出る	keep	""
+EXORCISE	祓う	退散させる 除霊する	keep	""
+EXTINGUISH	消す	火を消す	keep	""
+FILL	満たす	いっぱいにする	keep	""
+FIND	探す	見つける どこ	keep	""
+FOLLOW	追う	ついていく 追跡する	keep	""
+FROBOZZ	フロボズ		keep	作中語
+GIVE	渡す	与える 手渡す	keep	""
+HATCH	孵す	孵化させる	consider	""
+HELLO	挨拶する	こんにちは やあ	keep	""
+INCANT	唱える	詠唱する	consider	""
+INFLAT	膨らませる	空気を入れる	keep	原文は辞書長に合わせたINFLAT
+INVENTORY	持ち物を見る	持ち物 所持品	keep	""
+JUMP	跳ぶ	飛び込む 飛び越える	keep	""
+KICK	蹴る	けとばす	keep	""
+KILL	殺す	倒す 仕留める	keep	""
+KISS	キスする	口づけする	consider	""
+KNOCK	叩く	ノックする	keep	""
+LAUNCH	進水させる	出発させる	keep	""
+LEAN	寄りかかる	もたれる	keep	""
+LEAVE	去る	離れる 出る	keep	""
+LIGHT	点ける	灯す 明るくする	keep	""
+LISTEN	聞く	耳を澄ます	keep	""
+LOCK	鍵をかける	施錠する	keep	""
+LOOK	見る	見回す 見る 調べる	keep	""
+LOWER	下げる	降ろす	keep	""
+LUBRICATE	油を差す	潤滑する	keep	""
+MAKE	作る	組み立てる	consider	""
+MELT	溶かす	融かす	keep	""
+MOVE	動かす	移す ずらす	keep	""
+MUMBLE	つぶやく	ため息をつく	consider	""
+ODYSSEUS	オデュッセウス	ユリシーズ	keep	固有名詞・謎解き用
+OPEN	開ける	開く	keep	""
+PICK	拾う	選ぶ 鍵をこじ開ける	keep	構文により意味が変わる
+PLAY	演奏する	遊ぶ	keep	""
+PLUG	ふさぐ	修理する 栓をする	keep	""
+PLUGH	プラグ		keep	魔法の言葉
+POKE	つつく	突く	keep	""
+POUR	注ぐ	こぼす	keep	""
+PRAY	祈る	祈りを捧げる	keep	""
+PULL	引く	引っ張る	keep	""
+PUMP	ポンプを使う	空気を入れる	keep	""
+PUNCTURE	穴を開ける	突き刺す	keep	""
+PUSH	押す	押し込む	keep	""
+PUT	置く	入れる 載せる	keep	構文により助詞を変える
+QUIT	終了する	やめる 終わる	keep	""
+RAISE	上げる	持ち上げる	keep	""
+RAPE	襲う		omit	現代向け入力語彙からは除外候補
+READ	読む	目を通す	keep	""
+REPENT	悔い改める	反省する	consider	""
+RESTART	最初からやり直す	再開する リスタート	keep	""
+RESTORE	復元する	ロードする	defer	保存媒体の設計後に対応
+RING	鳴らす	鐘を鳴らす	keep	""
+ROLL	転がす	巻く	keep	""
+RUB	こする	触る 撫でる	keep	""
+SAVE	保存する	セーブする	defer	保存媒体の設計後に対応
+SAY	言う	唱える	keep	""
+SCORE	得点を見る	点数 成績	keep	""
+SCRIPT	記録を取る	印字する	omit	プリンタ記録機能
+SEARCH	探す	中を調べる 捜索する	keep	""
+SEND	送る	行かせる	consider	""
+SHAKE	振る	揺する	keep	""
+SKIP	跳ねる	スキップする	consider	""
+SLIDE	滑る	滑らせる	keep	""
+SMELL	嗅ぐ	匂いを嗅ぐ	keep	""
+SPIN	回す	回転させる	keep	""
+SPRAY	吹きかける	噴射する	keep	""
+SQUEEZE	絞る	握る	keep	""
+STAB	刺す	突き刺す	keep	""
+STAND	立つ	立ち上がる	keep	""
+STAY	待つ	とどまる	consider	""
+STRIKE	打つ	叩く 火をつける	keep	""
+SUPER	最短表示	超簡潔	consider	表示モード
+SWIM	泳ぐ	水浴びする 渡る	keep	""
+SWING	振る	振り回す	keep	""
+TAKE	取る	拾う 持つ	keep	""
+TALK	話す	会話する	keep	""
+TELL	尋ねる	話す 聞く	keep	構文により「命令する」も使用
+THROW	投げる	放る	keep	""
+TIE	結ぶ	縛る 取り付ける	keep	""
+TREASURE	宝物		keep	作中の特殊コマンド
+TURN	回す	ひねる 切り替える	keep	""
+UNLOCK	鍵を開ける	解錠する	keep	""
+UNSCRIPT	記録を止める	印字を止める	omit	プリンタ記録機能
+UNTIE	ほどく	外す 解放する	keep	""
+VERBOSE	詳細表示	詳しく	consider	表示モード
+VERSION	版を見る	バージョン	consider	""
+WAIT	待つ	時間を進める	keep	""
+WAKE	起こす	目覚めさせる 驚かす	keep	""
+WALK	行く	歩く 進む	keep	""
+WAVE	振る	振りかざす	keep	""
+WEAR	身につける	着る かぶる	keep	""
+WIN	勝つ	勝利する	consider	遊びコマンド
+WIND	巻く	ねじを巻く	keep	""
+WISH	願う	祈願する	consider	""
+YELL	叫ぶ	大声を出す	keep	""
+ZORK	ゾーク		keep	作中語

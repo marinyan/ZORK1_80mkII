@@ -51,6 +51,8 @@ git submodule update --init --recursive
 
 暫定的なメモリ案と圧縮実測値は[設計メモ](docs/design-notes.md)に記録しています。
 
+ZILソースから抽出したシナリオ文とコマンド、および通常の日本語による仮訳は[翻訳データ](translation/README.md)にあります。
+
 ## ライセンス
 
 本リポジトリ独自の移植コードと資料は[MIT License](LICENSE)で公開します。
