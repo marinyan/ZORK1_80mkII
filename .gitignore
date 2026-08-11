@@ -1,0 +1,21 @@
+# Local development tools (never commit these)
+/.local/
+/assembler/
+/emulator/
+/toolchain/
+
+# Generated files
+/build/
+/dist/
+/out/
+*.lst
+*.map
+*.sym
+*.cmt
+*.cas
+*.t88
+
+# Editor and OS files
+*.user
+.DS_Store
+Thumbs.db

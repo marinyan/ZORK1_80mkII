@@ -1,0 +1,6 @@
+[submodule "references/zork1"]
+	path = references/zork1
+	url = https://github.com/historicalsource/zork1.git
+[submodule "references/upkr"]
+	path = references/upkr
+	url = https://github.com/exoticorn/upkr.git
