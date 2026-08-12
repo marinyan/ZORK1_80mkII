@@ -85,7 +85,7 @@
 "object.EMERALD.DESC"	"large emerald"	"大きなエメラルド"	"draft"	"原文確認済み"	"1dungeon.zil"	"560"	"EMERALD"	"DESC"
 "object.ADVERTISEMENT.DESC"	"leaflet"	"チラシ"	"draft"	"原文確認済み"	"1dungeon.zil"	"569"	"ADVERTISEMENT"	"DESC"
 "object.ADVERTISEMENT.LDESC"	"A small leaflet is on the ground."	"小さなチラシが地面に落ちている。"	"draft"	"原文確認済み"	"1dungeon.zil"	"571"	"ADVERTISEMENT"	"LDESC"
-"object.ADVERTISEMENT.TEXT"	"""WELCOME TO ZORK!|\n|\nZORK is a game of adventure, danger, and low cunning. In it you\nwill explore some of the most amazing territory ever seen by mortals.\nNo computer should be without one!"""	"「ゾークへようこそ！|\n|\n『ゾーク』は冒険と危険、そして小賢しさのゲームである。このゲームでは、\n人間がかつて目にしたこともない驚異の世界を探検する。\nこれを備えないコンピューターなど考えられない！」"	"draft"	"原文確認済み"	"1dungeon.zil"	"573"	"ADVERTISEMENT"	"TEXT"
+"object.ADVERTISEMENT.TEXT"	"""WELCOME TO ZORK!|\n|\nZORK is a game of adventure, danger, and low cunning. In it you\nwill explore some of the most amazing territory ever seen by mortals.\nNo computer should be without one!"""	"「ゾークへようこそ！|\n|\n『ゾーク』は冒険と危険、そして知恵と機転のゲームである。このゲームでは、\n人間がかつて目にしたこともない驚異の世界を探検する。\nこれを備えないコンピューターなど考えられない！」"	"draft"	"原文確認済み"	"1dungeon.zil"	"573"	"ADVERTISEMENT"	"TEXT"
 "object.LEAK.DESC"	"leak"	"水漏れ"	"draft"	"原文確認済み"	"1dungeon.zil"	"583"	"LEAK"	"DESC"
 "object.MACHINE.DESC"	"machine"	"機械"	"draft"	"原文確認済み"	"1dungeon.zil"	"590"	"MACHINE"	"DESC"
 "object.INFLATED-BOAT.DESC"	"magic boat"	"魔法のボート"	"draft"	"原文確認済み"	"1dungeon.zil"	"598"	"INFLATED-BOAT"	"DESC"
