@@ -81,7 +81,7 @@ PULL	引く	引っ張る	keep	""
 PUMP	ポンプを使う	空気を入れる	keep	""
 PUNCTURE	穴を開ける	突き刺す	keep	""
 PUSH	押す	押し込む	keep	""
-PUT	置く	入れる 載せる	keep	構文により助詞を変える
+PUT	置く	入れる 載せる しまう	keep	構文により助詞を変える
 QUIT	終了する	やめる 終わる	keep	""
 RAISE	上げる	持ち上げる	keep	""
 RAPE	襲う		omit	現代向け入力語彙からは除外候補

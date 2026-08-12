@@ -141,8 +141,124 @@ internal interface IZMachineHost
 
 internal sealed class ConsoleHost : IZMachineHost
 {
-    public void Write(string text) => Console.Write(text);
-    public string? ReadLine() => Console.ReadLine();
+    private const string ProhibitedAtLineStart =
+        "、。，．・：；？！ー―‐／\\～〜…‥ゝゞ々〃）〕］｝〉》」』】〙〗〟’”｠»" +
+        "ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮヵヶ";
+    private const string ProhibitedAtLineEnd =
+        "（〔［｛〈《「『【〘〖〝‘“｟«";
+
+    private int _column;
+
+    public void Write(string text)
+    {
+        for (var index = 0; index < text.Length;)
+        {
+            if (text[index] == '\r')
+            {
+                index++;
+                continue;
+            }
+            if (text[index] == '\n')
+            {
+                Console.WriteLine();
+                _column = 0;
+                index++;
+                continue;
+            }
+
+            var tokenLength = KatakanaTokenLength(text, index);
+            if (tokenLength > 0)
+            {
+                var token = text.Substring(index, tokenLength);
+                var tokenWidth = DisplayWidth(token);
+                if (_column > 0 && tokenWidth <= ContentWidth && _column + tokenWidth > ContentWidth)
+                    NewLine();
+                Console.Write(token);
+                _column += tokenWidth;
+                index += tokenLength;
+                continue;
+            }
+
+            var rune = Rune.GetRuneAt(text, index);
+            var character = rune.ToString();
+            var width = DisplayWidth(rune);
+            var contentWidth = ContentWidth;
+            var lineStartProhibited = ProhibitedAtLineStart.Contains(character, StringComparison.Ordinal);
+            var lineEndProhibited = ProhibitedAtLineEnd.Contains(character, StringComparison.Ordinal);
+
+            if (_column > 0 &&
+                (_column >= contentWidth && !lineStartProhibited ||
+                 lineEndProhibited && _column + width >= contentWidth))
+                NewLine();
+
+            Console.Write(character);
+            _column += width;
+            index += rune.Utf16SequenceLength;
+        }
+    }
+
+    public string? ReadLine()
+    {
+        var line = Console.ReadLine();
+        _column = 0;
+        return line;
+    }
+
+    private static int ContentWidth
+    {
+        get
+        {
+            try
+            {
+                // 禁則文字を行末へ追い込めるよう、端末の右端に少し余白を残す。
+                return Math.Max(20, Console.WindowWidth - 4);
+            }
+            catch (IOException)
+            {
+                return 76;
+            }
+        }
+    }
+
+    private void NewLine()
+    {
+        Console.WriteLine();
+        _column = 0;
+    }
+
+    private static int KatakanaTokenLength(string text, int start)
+    {
+        var index = start;
+        var katakanaCount = 0;
+        while (index < text.Length)
+        {
+            var rune = Rune.GetRuneAt(text, index);
+            if (!IsKatakana(rune))
+                break;
+            katakanaCount++;
+            index += rune.Utf16SequenceLength;
+        }
+        return katakanaCount >= 2 ? index - start : 0;
+    }
+
+    private static bool IsKatakana(Rune rune) =>
+        rune.Value is >= 0x30a0 and <= 0x30ff or >= 0x31f0 and <= 0x31ff || rune.Value == 0x30fc;
+
+    private static int DisplayWidth(string text)
+    {
+        var width = 0;
+        foreach (var rune in text.EnumerateRunes())
+            width += DisplayWidth(rune);
+        return width;
+    }
+
+    private static int DisplayWidth(Rune rune) => rune.Value switch
+    {
+        < 0x20 => 0,
+        <= 0x7e => 1,
+        >= 0xff61 and <= 0xff9f => 1,
+        _ => 2
+    };
 }
 
 internal sealed class ScriptHost(IEnumerable<string> commands) : IZMachineHost
