@@ -1158,7 +1158,7 @@
 "message.gverbs.V-OPEN.980.02"	" opens."	"を開けた。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"980"	"V-OPEN"	"TELL"
 "message.gverbs.V-OPEN.983.01"	"Opening the "	""	"format"	"日本語語順のため空文字"	"gverbs.zil"	"983"	"V-OPEN"	"TELL"
 "message.gverbs.V-OPEN.983.02"	" reveals "	"を開けた。中身："	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"983"	"V-OPEN"	"TELL"
-"message.gverbs.V-OPEN.985.01"	"."	"。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"985"	"V-OPEN"	"TELL"
+"message.gverbs.V-OPEN.985.01"	"."	""	"format"	"「中身：」に続く列挙の末尾に句点は付けない"	"gverbs.zil"	"985"	"V-OPEN"	"TELL"
 "message.gverbs.V-OPEN.988.01"	"It is already open."	"もう開いている。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"988"	"V-OPEN"	"TELL"
 "message.gverbs.V-OPEN.990.01"	"The "	""	"format"	"日本語語順のため空文字"	"gverbs.zil"	"990"	"V-OPEN"	"TELL"
 "message.gverbs.V-OPEN.990.02"	" opens."	"が開いた。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"990"	"V-OPEN"	"TELL"

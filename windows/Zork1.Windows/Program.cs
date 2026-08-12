@@ -53,6 +53,14 @@ internal static class Program
                     Console.Error.WriteLine($"スモークテスト: 出力に必要な文字列がない: {expectation}");
                     return 2;
                 }
+                var unexpected = SplitLines(catalog?.Ui("smoke.unexpected", "") ?? "");
+                foreach (var forbidden in unexpected)
+                {
+                    if (!output.Contains(forbidden, StringComparison.Ordinal))
+                        continue;
+                    Console.Error.WriteLine($"スモークテスト: 出力に不要な文字列がある: {forbidden}");
+                    return 2;
+                }
             }
 
             return 0;

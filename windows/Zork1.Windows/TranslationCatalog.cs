@@ -15,6 +15,7 @@ internal sealed partial class TranslationCatalog
     private readonly Dictionary<string, string> _ui;
     private readonly int _ambiguousOutputCount;
     private List<(string English, string Japanese)>? _pendingSyntaxPrompt;
+    private bool _suppressNextFullStop;
 
     private TranslationCatalog(
         Dictionary<string, string> output,
@@ -179,7 +180,14 @@ internal sealed partial class TranslationCatalog
     public string TranslateOutput(string english)
     {
         if (english.Length == 1)
+        {
+            if (english[0] == '.' && _suppressNextFullStop)
+            {
+                _suppressNextFullStop = false;
+                return "";
+            }
             return TranslateCharacter(english);
+        }
         var key = NormalizeOutputKey(english);
         if (key.Equals("What do you want to ", StringComparison.Ordinal))
         {
@@ -188,6 +196,8 @@ internal sealed partial class TranslationCatalog
         }
 
         var translated = _output.GetValueOrDefault(key, _nounOutput.GetValueOrDefault(key, english));
+        if (key.Equals(" reveals ", StringComparison.Ordinal))
+            _suppressNextFullStop = translated.EndsWith('：');
         if (_pendingSyntaxPrompt is not null)
         {
             _pendingSyntaxPrompt.Add((key, translated));

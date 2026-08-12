@@ -142,6 +142,11 @@ if ($trademarkNotice.japanese -match 'Infocom, Inc\.の登録商標') {
     throw 'Startup trademark notice must not identify the defunct Infocom, Inc. as the current registrant'
 }
 
+$openContentsTerminator = $messageJa | Where-Object id -eq 'message.gverbs.V-OPEN.985.01'
+if ($openContentsTerminator.japanese -cne '' -or $openContentsTerminator.status -cne 'format') {
+    throw 'Container contents shown after 中身： must not end in a Japanese full stop'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'
