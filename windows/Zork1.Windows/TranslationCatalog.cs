@@ -14,6 +14,7 @@ internal sealed partial class TranslationCatalog
     private readonly HashSet<string> _englishVerbs;
     private readonly Dictionary<string, string> _ui;
     private readonly int _ambiguousOutputCount;
+    private List<(string English, string Japanese)>? _pendingSyntaxPrompt;
 
     private TranslationCatalog(
         Dictionary<string, string> output,
@@ -180,15 +181,27 @@ internal sealed partial class TranslationCatalog
         if (english.Length == 1)
             return TranslateCharacter(english);
         var key = NormalizeOutputKey(english);
-        if (_output.TryGetValue(key, out var translated))
-            return translated;
-        return _nounOutput.GetValueOrDefault(key, english);
+        if (key.Equals("What do you want to ", StringComparison.Ordinal))
+        {
+            _pendingSyntaxPrompt = [];
+            return "";
+        }
+
+        var translated = _output.GetValueOrDefault(key, _nounOutput.GetValueOrDefault(key, english));
+        if (_pendingSyntaxPrompt is not null)
+        {
+            _pendingSyntaxPrompt.Add((key, translated));
+            return "";
+        }
+        return translated;
     }
 
     public string TranslateInput(string line)
     {
         line = NormalizeJapanese(line).ToLowerInvariant();
-        if (line.Length == 0 || AsciiOnlyRegex().IsMatch(line))
+        if (line.Length == 0)
+            return line;
+        if (AsciiOnlyRegex().IsMatch(line))
             return line;
         if (_input.TryGetValue(line, out var exact))
             return exact;
@@ -199,11 +212,15 @@ internal sealed partial class TranslationCatalog
             var compact = string.Concat(spaced);
             foreach (var (japanese, english) in _verbs)
             {
+                if (compact.Length <= japanese.Length ||
+                    !compact.EndsWith(japanese, StringComparison.Ordinal))
+                    continue;
                 if (english is "drop" or "put" &&
-                    compact.Length > japanese.Length &&
-                    compact.EndsWith(japanese, StringComparison.Ordinal) &&
                     TryTranslatePlacement(compact[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "apply" &&
+                    TryTranslateApply(compact[..^japanese.Length], out var application))
+                    return application;
             }
             var translated = spaced
                 .Where(token => !IsParticle(token))
@@ -233,6 +250,19 @@ internal sealed partial class TranslationCatalog
                     translated.Insert(2, preposition);
                 }
             }
+            if (translated.Count == 3 && translated[0] == "apply")
+            {
+                if (IsSelfObject(translated[2]))
+                {
+                    var weapon = translated[1];
+                    translated.Clear();
+                    translated.AddRange(["attack", "me", "with", weapon]);
+                }
+                else
+                {
+                    translated.Insert(2, "to");
+                }
+            }
             if (translated.Count > 1 && translated[0] == "look")
                 translated[0] = "examine";
             return string.Join(' ', translated);
@@ -245,6 +275,9 @@ internal sealed partial class TranslationCatalog
                 if (english is "drop" or "put" &&
                     TryTranslatePlacement(line[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "apply" &&
+                    TryTranslateApply(line[..^japanese.Length], out var application))
+                    return application;
                 var noun = TrimParticle(line[..^japanese.Length]);
                 var command = english == "look" ? "examine" : english;
                 return $"{command} {TranslateNoun(noun)}".TrimEnd();
@@ -258,6 +291,46 @@ internal sealed partial class TranslationCatalog
         }
 
         return line;
+    }
+
+    private bool TryTranslateApply(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        if (arguments.EndsWith("を", StringComparison.Ordinal))
+        {
+            var targetMarker = arguments.IndexOf('に');
+            if (targetMarker > 0 && targetMarker < arguments.Length - 2)
+                return BuildApplication(
+                    arguments[(targetMarker + 1)..^1],
+                    arguments[..targetMarker],
+                    out command);
+        }
+        if (arguments.EndsWith("に", StringComparison.Ordinal))
+        {
+            var directMarker = arguments.IndexOf('を');
+            if (directMarker > 0 && directMarker < arguments.Length - 2)
+                return BuildApplication(
+                    arguments[..directMarker],
+                    arguments[(directMarker + 1)..^1],
+                    out command);
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildApplication(string directJapanese, string targetJapanese, out string command)
+    {
+        var direct = TranslateNoun(directJapanese);
+        var target = TranslateNoun(targetJapanese);
+        if (direct == directJapanese || target == targetJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = IsSelfObject(target)
+            ? $"attack me with {direct}"
+            : $"apply {direct} to {target}";
+        return true;
     }
 
     private bool TryTranslatePlacement(string arguments, out string command)
@@ -328,8 +401,47 @@ internal sealed partial class TranslationCatalog
     {
         if (character.Length != 1)
             return character;
+        if (character == "?" && _pendingSyntaxPrompt is not null)
+        {
+            var prompt = FormatSyntaxPrompt(_pendingSyntaxPrompt);
+            _pendingSyntaxPrompt = null;
+            return prompt + Ui("character.63", "？");
+        }
         return Ui($"character.{(int)character[0]}", character);
     }
+
+    private static string FormatSyntaxPrompt(IReadOnlyList<(string English, string Japanese)> parts)
+    {
+        if (parts.Count == 0)
+            return "何をするのだ";
+
+        var verb = parts[0].Japanese;
+        if (parts.Count >= 3 && TryPromptParticle(parts[^1].English, out var particle))
+        {
+            var direct = string.Concat(parts.Skip(1).Take(parts.Count - 2).Select(part => part.Japanese));
+            return $"{direct}を何{particle}{verb}";
+        }
+        return $"何を{verb}";
+    }
+
+    private static bool TryPromptParticle(string english, out string particle)
+    {
+        particle = english.Trim().ToLowerInvariant() switch
+        {
+            "with" => "で",
+            "from" => "から",
+            "in" or "inside" => "の中に",
+            "on" => "の上に",
+            "under" => "の下に",
+            "through" => "を通して",
+            "to" or "at" => "に",
+            _ => ""
+        };
+        return particle.Length != 0;
+    }
+
+    private static bool IsSelfObject(string english) =>
+        english is "me" or "myself" or "self" or "cretin" or "you";
 
     private string TranslateNoun(string noun) => _input.GetValueOrDefault(noun, noun);
 

@@ -1,6 +1,11 @@
 input	english	notes
 はい	yes	確認への肯定
 いいえ	no	確認への否定
+自分	me	プレイヤー自身を指す物体名
+自分自身	myself	プレイヤー自身の強調表現
+セルフ	self	プレイヤー自身の外来語表記
+私	me	プレイヤー自身の漢字表記
+わたし	me	プレイヤー自身のひらがな表記
 見る	look	LOOKを優先
 見回す	look	LOOKを優先
 調べる	examine	EXAMINEを優先

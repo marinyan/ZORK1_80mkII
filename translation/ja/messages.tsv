@@ -1073,7 +1073,7 @@
 "message.gverbs.V-FIND.699.01"	"Beats me."	"さあね。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"699"	"V-FIND"	"TELL"
 "message.gverbs.V-FOLLOW.702.01"	"You're nuts!"	"正気か！"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"702"	"V-FOLLOW"	"TELL"
 "message.gverbs.V-FROBOZZ.706.01"	"The FROBOZZ Corporation created, owns, and operates this dungeon."	"この地下世界を築き、所有し、運営しているのはフロボズ社である。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"706"	"V-FROBOZZ"	"TELL"
-"message.gverbs.PRE-GIVE.711.01"	"That's easy for you to say since you don't even have the "	"そんなことを言うのは簡単だ。そもそも"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"711"	"PRE-GIVE"	"TELL"
+"message.gverbs.PRE-GIVE.711.01"	"That's easy for you to say since you don't even have the "	"手元にないものは使えない："	"draft"	"後続の物体名と連結"	"gverbs.zil"	"711"	"PRE-GIVE"	"TELL"
 "message.gverbs.PRE-GIVE.711.02"	"."	"を持っていないのだから。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"711"	"PRE-GIVE"	"TELL"
 "message.gverbs.V-GIVE.715.01"	"You can't give a "	""	"format"	"日本語語順のため空文字"	"gverbs.zil"	"715"	"V-GIVE"	"TELL"
 "message.gverbs.V-GIVE.715.02"	" to a "	"を"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"715"	"V-GIVE"	"TELL"
