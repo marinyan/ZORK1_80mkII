@@ -147,6 +147,11 @@ if ($openContentsTerminator.japanese -cne '' -or $openContentsTerminator.status 
     throw 'Container contents shown after 中身： must not end in a Japanese full stop'
 }
 
+$contentsConjunction = $messageJa | Where-Object id -eq 'message.gverbs.PRINT-CONTENTS.1737.01'
+if ($contentsConjunction.japanese -cne '' -or $contentsConjunction.status -cne 'format') {
+    throw 'Japanese content lists must use only the list separator without translating and'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'

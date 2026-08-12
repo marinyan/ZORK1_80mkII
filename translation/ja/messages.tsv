@@ -1321,7 +1321,7 @@
 "message.gverbs.DESCRIBE-OBJECT.1725.01"	" (outside the "	"（"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1725"	"DESCRIBE-OBJECT"	"TELL"
 "message.gverbs.DESCRIBE-OBJECT.1725.02"	")"	"の外）"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1725"	"DESCRIBE-OBJECT"	"TELL"
 "message.gverbs.PRINT-CONTENTS.1736.01"	", "	"、"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1736"	"PRINT-CONTENTS"	"TELL"
-"message.gverbs.PRINT-CONTENTS.1737.01"	"and "	"そして"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1737"	"PRINT-CONTENTS"	"TELL"
+"message.gverbs.PRINT-CONTENTS.1737.01"	"and "	""	"format"	"日本語の列挙は読点だけでつなぐ"	"gverbs.zil"	"1737"	"PRINT-CONTENTS"	"TELL"
 "message.gverbs.PRINT-CONTENTS.1738.01"	"a "	""	"format"	"日本語語順のため空文字"	"gverbs.zil"	"1738"	"PRINT-CONTENTS"	"TELL"
 "message.gverbs.FIRSTER.1822.01"	"Your collection of treasures consists of:"	"集めた宝物："	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1822"	"FIRSTER"	"TELL"
 "message.gverbs.FIRSTER.1826.01"	"You are carrying:"	"持ち物："	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"1826"	"FIRSTER"	"TELL"
