@@ -939,7 +939,7 @@
 "message.gverbs.V-SCRIPT.88.01"	"Here begins a transcript of interaction with"	"ここから、次のゲームとの対話記録を開始する："	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"88"	"V-SCRIPT"	"TELL"
 "message.gverbs.V-UNSCRIPT.93.01"	"Here ends a transcript of interaction with"	"ここで、次のゲームとの対話記録を終了する："	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"93"	"V-UNSCRIPT"	"TELL"
 "message.gverbs.V-VERSION.100.01"	"ZORK I: The Great Underground Empire|\nInfocom interactive fiction - a fantasy story|\nCopyright (c) 1981, 1982, 1983, 1984, 1985, 1986"	"ゾークI　大地下帝国|\nInfocom インタラクティブ・フィクション――ファンタジー物語|\n著作権 (c) 1981, 1982, 1983, 1984, 1985, 1986"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"100"	"V-VERSION"	"TELL"
-"message.gverbs.V-VERSION.111.01"	" Infocom, Inc. All rights reserved."	" Infocom, Inc.　無断複製・転載を禁ず。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"111"	"V-VERSION"	"TELL"
+"message.gverbs.V-VERSION.111.01"	" Infocom, Inc. All rights reserved."	" Infocom, Inc.　無断複製・転載を禁ず。|\n日本語版 Copyright (c) 2026 marinyan|\n"	"draft"	"Windows検証版で表示。80mkII版変換時は容量削減のため除外し、紙の同梱物に記載"	"gverbs.zil"	"111"	"V-VERSION"	"TELL"
 "message.gverbs.V-VERSION.112.01"	"ZORK is a registered trademark of Infocom, Inc.|\nRelease "	"ZORKはInfocom, Inc.の登録商標である。|\nリリース "	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"112"	"V-VERSION"	"TELL"
 "message.gverbs.V-VERSION.115.01"	" / Serial number "	"／シリアル番号 "	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"115"	"V-VERSION"	"TELL"
 "message.gverbs.V-VERIFY.124.01"	"Verifying disk..."	"データを検査している……"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"124"	"V-VERIFY"	"TELL"
