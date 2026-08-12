@@ -131,6 +131,17 @@ if ($moveVerb.aliases -notmatch '(^| )どける( |$)') {
     throw 'MOVE must retain どける as an alias'
 }
 
+$versionNotice = $messageJa | Where-Object id -eq 'message.gverbs.V-VERSION.111.01'
+if ($versionNotice.japanese -notmatch 'Copyright \(c\) 2025 Microsoft' -or
+    $versionNotice.japanese -match '無断複製|転載を禁ず') {
+    throw 'Startup notice must show the Microsoft MIT copyright without the obsolete no-copy notice'
+}
+
+$trademarkNotice = $messageJa | Where-Object id -eq 'message.gverbs.V-VERSION.112.01'
+if ($trademarkNotice.japanese -match 'Infocom, Inc\.の登録商標') {
+    throw 'Startup trademark notice must not identify the defunct Infocom, Inc. as the current registrant'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'

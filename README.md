@@ -62,4 +62,4 @@ ZILソースから抽出したシナリオ文とコマンド、および通常�
 
 本リポジトリ独自の移植コードと資料は[MIT License](LICENSE)で公開します。
 
-参照submoduleと、そこから取り込んだコードには各参照元のライセンスおよび著作権表示も適用されます。Zork IはMIT License、UpkrはUnlicenseです。
+参照submoduleと、そこから取り込んだコードには各参照元のライセンスおよび著作権表示も適用されます。Zork IのソースコードはCopyright (c) 2025 MicrosoftのMIT License、UpkrはUnlicenseです。ZORKの商標・ブランド権は、このMITライセンスには含まれません。公開範囲は[Microsoftの告知](https://opensource.microsoft.com/blog/2025/11/20/preserving-code-that-shaped-generations-zork-i-ii-and-iii-go-open-source/)も参照してください。
