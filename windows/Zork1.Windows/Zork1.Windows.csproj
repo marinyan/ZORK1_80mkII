@@ -7,6 +7,16 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <AssemblyName>Zork1Japanese</AssemblyName>
     <RootNamespace>Zork1Japanese</RootNamespace>
+    <!-- ビルド番号は、この採番を導入する13番目のリポジトリ履歴から開始する。 -->
+    <PortVersionMajor>0</PortVersionMajor>
+    <PortVersionMinor>1</PortVersionMinor>
+    <PortBuildNumber>13</PortBuildNumber>
+    <Version>$(PortVersionMajor).$(PortVersionMinor).$(PortBuildNumber)</Version>
+    <AssemblyVersion>$(Version).0</AssemblyVersion>
+    <FileVersion>$(Version).0</FileVersion>
+    <InformationalVersion>$(Version)</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Product>Zork I Japanese Windows Port</Product>
   </PropertyGroup>
 
   <ItemGroup>

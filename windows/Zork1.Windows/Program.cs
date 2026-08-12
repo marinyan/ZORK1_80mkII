@@ -13,6 +13,14 @@ internal static class Program
         try
         {
             var assembly = Assembly.GetExecutingAssembly();
+            var portVersion = assembly
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?
+                .InformationalVersion ?? assembly.GetName().Version?.ToString(3) ?? "0.0.0";
+            if (args.Contains("--version", StringComparer.OrdinalIgnoreCase))
+            {
+                Console.WriteLine(portVersion);
+                return 0;
+            }
             var story = ReadResource(assembly, "Zork1Japanese.zork1.z3");
             var english = args.Contains("--english", StringComparer.OrdinalIgnoreCase);
             var catalogReport = args.Contains("--catalog-report", StringComparer.OrdinalIgnoreCase);
@@ -35,6 +43,10 @@ internal static class Program
             IZMachineHost host = smoke
                 ? new ScriptHost(smokeCommands)
                 : new ConsoleHost();
+            host.Write(catalog?.FormatUi(
+                "port.version",
+                "Windows port version {0}\n",
+                portVersion) ?? $"Windows port version {portVersion}\n");
 
             var machine = new ZMachine(story, host, catalog);
             machine.Run(smoke ? 2_000_000 : int.MaxValue);

@@ -1,4 +1,5 @@
 "key"	"value"	"notes"
+"port.version"	"Windows port version {0}\n"	"Windows port 0.1.build number"
 "status.line"	"\n[{0}  Score {1}  Moves {2}]\n"	"location, score and moves"
 "catalog.report"	"Output strings: {0}\nInput words: {1}\nAmbiguous source strings: {2}"	"catalog summary"
 "smoke.commands"	"look\nopen mailbox\ntake leaflet\nread leaflet\nnorth\neast\nopen window\nenter\nlook\nwest\nlook\ntake lamp\nlight lamp\ninventory\nquit\nyes"	"automated play commands"

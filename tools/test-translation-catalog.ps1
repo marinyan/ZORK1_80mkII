@@ -254,7 +254,7 @@ foreach ($alias in @('降りる', '下りる', '下る', '降る')) {
         throw "DOWN must retain $alias as an alias"
     }
 }
-$requiredUi = @('status.line', 'catalog.report', 'smoke.commands', 'smoke.expected')
+$requiredUi = @('port.version', 'status.line', 'catalog.report', 'smoke.commands', 'smoke.expected')
 foreach ($key in $requiredUi) {
     if ($key -notin @($uiJa.key)) {
         throw "Required Japanese UI string is missing: $key"
