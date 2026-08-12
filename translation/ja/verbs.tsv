@@ -31,7 +31,7 @@ DIG	掘る	穴を掘る	keep	""
 DISEMBARK	降りる	下船する	keep	""
 DISENCHANT	魔法を解く	解呪する	consider	""
 DRINK	飲む	口にする	keep	""
-DROP	置く	落とす 手放す	keep	""
+DROP	捨てる	落とす 手放す 置く	keep	「置く」は置き場所がなければDROP、置き場所が続けばPUT
 EAT	食べる	味わう かじる	keep	""
 ECHO	こだまと叫ぶ	エコー	consider	""
 ENCHANT	魔法をかける	付呪する	consider	""
