@@ -126,6 +126,11 @@ if ($dropVerb.japanese -cne '捨てる' -or
     throw 'DROP must use 捨てる and retain 落とす plus contextual 置く as aliases'
 }
 
+$moveVerb = $verbJa | Where-Object verb -eq 'MOVE'
+if ($moveVerb.aliases -notmatch '(^| )どける( |$)') {
+    throw 'MOVE must retain どける as an alias'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'
@@ -168,6 +173,7 @@ $requiredInputAliases = [ordered]@{
     '壁' = 'wall'
     '花崗岩の壁' = 'granite wall'
     'ボタン' = 'button'
+    'ラグ' = 'rug'
     'ランプ' = 'lamp'
     '工具箱' = 'chest'
     '棚' = 'case'

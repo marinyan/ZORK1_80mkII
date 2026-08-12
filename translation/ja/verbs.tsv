@@ -66,7 +66,7 @@ LOWER	下げる	降ろす	keep	""
 LUBRICATE	油を差す	潤滑する	keep	""
 MAKE	作る	組み立てる	consider	""
 MELT	溶かす	融かす	keep	""
-MOVE	動かす	移す ずらす	keep	""
+MOVE	動かす	移す ずらす どける	keep	""
 MUMBLE	つぶやく	ため息をつく	consider	""
 ODYSSEUS	オデュッセウス	ユリシーズ	keep	固有名詞・謎解き用
 OPEN	開ける	開く	keep	""
