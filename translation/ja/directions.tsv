@@ -7,8 +7,8 @@ NORTHEAST	北東	NE	"draft"
 NORTHWEST	北西	NW	"draft"
 SOUTHEAST	南東	SE	"draft"
 SOUTHWEST	南西	SW	"draft"
-UP	上	登る	draft
-DOWN	下	降りる	draft
+UP	上	登る 上る 昇る 上がる	draft
+DOWN	下	降りる 下りる 下る 降る	draft
 IN	中	入る	draft
 OUT	外	出る	draft
 LAND	上陸	上陸する 岸へ	draft

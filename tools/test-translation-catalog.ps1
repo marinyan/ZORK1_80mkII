@@ -226,6 +226,18 @@ if ($politeRows.Count -gt 0) {
 
 $expectedDirections = @('NORTH', 'SOUTH', 'EAST', 'WEST', 'NORTHEAST', 'NORTHWEST', 'SOUTHEAST', 'SOUTHWEST', 'UP', 'DOWN', 'IN', 'OUT', 'LAND')
 Assert-SameSet $expectedDirections @($directions.english) 'Direction'
+$upDirection = $directions | Where-Object english -eq 'UP'
+foreach ($alias in @('登る', '上る', '昇る', '上がる')) {
+    if ($upDirection.aliases -notmatch ('(^| )' + [regex]::Escape($alias) + '( |$)')) {
+        throw "UP must retain $alias as an alias"
+    }
+}
+$downDirection = $directions | Where-Object english -eq 'DOWN'
+foreach ($alias in @('降りる', '下りる', '下る', '降る')) {
+    if ($downDirection.aliases -notmatch ('(^| )' + [regex]::Escape($alias) + '( |$)')) {
+        throw "DOWN must retain $alias as an alias"
+    }
+}
 $requiredUi = @('status.line', 'catalog.report', 'smoke.commands', 'smoke.expected')
 foreach ($key in $requiredUi) {
     if ($key -notin @($uiJa.key)) {
