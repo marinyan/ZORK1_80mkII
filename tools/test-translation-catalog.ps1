@@ -158,6 +158,18 @@ if ($paintingDescription.japanese -notmatch 'あなたにも.*ならず者の仲
     throw 'Painting description must preserve the joke that the player can join the vandals'
 }
 
+$thiefBagWarning = $messageJa | Where-Object id -eq 'message.1actions.THIEF-VS-ADVENTURER.1771.01'
+if ($thiefBagWarning.japanese -notmatch '俺を殺してからにしろ' -or
+    $thiefBagWarning.japanese -match '死体を越える|口は利かない') {
+    throw 'Thief introduction must express over his dead body as a natural threat'
+}
+
+$largeBagWarning = $messageJa | Where-Object id -eq 'message.1actions.LARGE-BAG-F.2102.01'
+if ($largeBagWarning.japanese -notmatch '生きているうちは' -or
+    $largeBagWarning.japanese -match '死体を越える') {
+    throw 'Large bag warning must express that the living thief prevents taking it'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'
