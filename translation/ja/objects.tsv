@@ -96,7 +96,7 @@
 "object.MIRROR-2.DESC"	"mirror"	"鏡"	"draft"	"原文確認済み"	"1dungeon.zil"	"644"	"MIRROR-2"	"DESC"
 "object.MIRROR-1.DESC"	"mirror"	"鏡"	"draft"	"原文確認済み"	"1dungeon.zil"	"651"	"MIRROR-1"	"DESC"
 "object.PAINTING.DESC"	"painting"	"絵"	"draft"	"原文確認済み"	"1dungeon.zil"	"659"	"PAINTING"	"DESC"
-"object.PAINTING.FDESC"	"Fortunately, there is still one chance for you to be a vandal, for on\nthe far wall is a painting of unparalleled beauty."	"幸い、破壊者にもまだ手の届く宝が一つある。奥の壁に、比類ない美しさの絵画が掛かっている。"	"draft"	"原文確認済み"	"1dungeon.zil"	"663"	"PAINTING"	"FDESC"
+"object.PAINTING.FDESC"	"Fortunately, there is still one chance for you to be a vandal, for on\nthe far wall is a painting of unparalleled beauty."	"幸い、あなたにもならず者の仲間入りをする機会が、まだ一度だけ残されている。奥の壁には、比類ない美しさの絵画が一枚掛かっている。"	"draft"	"原文の皮肉とone chance、前文のvandalsの呼称を反映"	"1dungeon.zil"	"663"	"PAINTING"	"FDESC"
 "object.PAINTING.LDESC"	"A painting by a neglected genius is here."	"不遇の天才が描いた絵がある。"	"draft"	"原文確認済み"	"1dungeon.zil"	"665"	"PAINTING"	"LDESC"
 "object.CANDLES.DESC"	"pair of candles"	"一対のろうそく"	"draft"	"原文確認済み"	"1dungeon.zil"	"674"	"CANDLES"	"DESC"
 "object.CANDLES.FDESC"	"On the two ends of the altar are burning candles."	"祭壇の両端で、ろうそくが燃えている。"	"draft"	"原文確認済み"	"1dungeon.zil"	"677"	"CANDLES"	"FDESC"

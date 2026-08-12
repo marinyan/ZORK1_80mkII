@@ -152,6 +152,12 @@ if ($contentsConjunction.japanese -cne '' -or $contentsConjunction.status -cne '
     throw 'Japanese content lists must use only the list separator without translating and'
 }
 
+$paintingDescription = $objectJa | Where-Object id -eq 'object.PAINTING.FDESC'
+if ($paintingDescription.japanese -notmatch 'あなたにも.*ならず者の仲間入り' -or
+    $paintingDescription.japanese -match '破壊者にもまだ手の届く宝') {
+    throw 'Painting description must preserve the joke that the player can join the vandals'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'
@@ -226,6 +232,7 @@ $requiredInputAliases = [ordered]@{
     '青のボタン' = 'blue button'
     '死体' = 'body'
     '落ち葉' = 'leaf'
+    '絵画' = 'painting'
     '手' = 'hand'
 }
 foreach ($alias in $requiredInputAliases.Keys) {
