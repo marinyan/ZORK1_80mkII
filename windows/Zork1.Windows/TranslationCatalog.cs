@@ -9,6 +9,7 @@ internal sealed partial class TranslationCatalog
     private readonly Dictionary<string, string> _input;
     private readonly Dictionary<string, string> _nounOutput;
     private readonly List<(string Japanese, string English)> _verbs;
+    private readonly Dictionary<string, string> _verbInput;
     private readonly HashSet<string> _englishVerbs;
     private readonly Dictionary<string, string> _ui;
     private readonly int _ambiguousOutputCount;
@@ -18,6 +19,7 @@ internal sealed partial class TranslationCatalog
         Dictionary<string, string> input,
         Dictionary<string, string> nounOutput,
         List<(string Japanese, string English)> verbs,
+        Dictionary<string, string> verbInput,
         HashSet<string> englishVerbs,
         Dictionary<string, string> ui,
         int ambiguousOutputCount)
@@ -26,6 +28,7 @@ internal sealed partial class TranslationCatalog
         _input = input;
         _nounOutput = nounOutput;
         _verbs = verbs;
+        _verbInput = verbInput;
         _englishVerbs = englishVerbs;
         _ui = ui;
         _ambiguousOutputCount = ambiguousOutputCount;
@@ -42,6 +45,7 @@ internal sealed partial class TranslationCatalog
         var nounOutput = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         var explicitDictionaryOutput = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var verbs = new List<(string Japanese, string English)>();
+        var verbInput = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         var englishVerbs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var ui = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
@@ -140,7 +144,7 @@ internal sealed partial class TranslationCatalog
         }
 
         verbs.Sort((left, right) => right.Japanese.Length.CompareTo(left.Japanese.Length));
-        return new TranslationCatalog(output, input, nounOutput, verbs, englishVerbs, ui, ambiguous);
+        return new TranslationCatalog(output, input, nounOutput, verbs, verbInput, englishVerbs, ui, ambiguous);
 
         void AddVerb(string japanese, string english)
         {
@@ -148,6 +152,7 @@ internal sealed partial class TranslationCatalog
             if (japanese.Length == 0)
                 return;
             AddInput(input, japanese, english);
+            verbInput.TryAdd(japanese, english);
             verbs.Add((japanese, english));
         }
     }
@@ -175,7 +180,11 @@ internal sealed partial class TranslationCatalog
         {
             var translated = spaced
                 .Where(token => !IsParticle(token))
-                .Select(token => _input.GetValueOrDefault(TrimParticle(token), token))
+                .Select(token =>
+                {
+                    var word = TrimParticle(token);
+                    return _verbInput.GetValueOrDefault(word, _input.GetValueOrDefault(word, token));
+                })
                 .ToList();
             var verbIndex = translated.FindIndex(token => _englishVerbs.Contains(token));
             if (verbIndex > 0)
