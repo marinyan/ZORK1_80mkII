@@ -101,6 +101,7 @@ dotnet run --project windows/Zork1.Windows/Zork1.Windows.csproj -- `
 - `ランプを取る`のような「物体名＋助詞＋動詞」
 - `取る ランプ`のような空白区切り
 - `置く 卵 棚`、`置く 卵 棚の中`、`棚の中に卵を置く`のような配置命令
+- `剣 使う トロール`、`剣をトロールに使う`のような武器による攻撃
 
 語彙は`verbs.tsv`、`directions.tsv`、`objects.tsv`、`input.tsv`から起動時に取り込みます。
 `input.tsv`の「棚の中→in case」のよな対応を使い、対象一つの「置く」はDROP、

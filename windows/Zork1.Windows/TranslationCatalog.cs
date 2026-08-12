@@ -262,16 +262,9 @@ internal sealed partial class TranslationCatalog
             }
             if (translated.Count == 3 && translated[0] == "apply")
             {
-                if (IsSelfObject(translated[2]))
-                {
-                    var weapon = translated[1];
-                    translated.Clear();
-                    translated.AddRange(["attack", "me", "with", weapon]);
-                }
-                else
-                {
-                    translated.Insert(2, "to");
-                }
+                var application = BuildApplicationCommand(translated[1], translated[2]);
+                translated.Clear();
+                translated.AddRange(application.Split(' '));
             }
             if (translated.Count > 1 && translated[0] == "look")
                 translated[0] = "examine";
@@ -337,10 +330,17 @@ internal sealed partial class TranslationCatalog
             command = "";
             return false;
         }
-        command = IsSelfObject(target)
-            ? $"attack me with {direct}"
-            : $"apply {direct} to {target}";
+        command = BuildApplicationCommand(direct, target);
         return true;
+    }
+
+    private static string BuildApplicationCommand(string direct, string target)
+    {
+        if (IsSelfObject(target))
+            return $"attack me with {direct}";
+        return IsWeaponObject(direct)
+            ? $"attack {target} with {direct}"
+            : $"apply {direct} to {target}";
     }
 
     private bool TryTranslatePlacement(string arguments, out string command)
@@ -452,6 +452,9 @@ internal sealed partial class TranslationCatalog
 
     private static bool IsSelfObject(string english) =>
         english is "me" or "myself" or "self" or "cretin" or "you";
+
+    private static bool IsWeaponObject(string english) =>
+        english is "axe" or "sceptre" or "knife" or "stiletto" or "sword";
 
     private string TranslateNoun(string noun) => _input.GetValueOrDefault(noun, noun);
 

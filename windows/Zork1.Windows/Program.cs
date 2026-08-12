@@ -29,6 +29,15 @@ internal static class Program
                 ? TranslationCatalog.Load(languageDirectory)
                 : null;
 
+            var inputToTranslate = OptionValue(args, "--translate-input");
+            if (inputToTranslate is not null)
+            {
+                if (catalog is null)
+                    throw new ArgumentException("--translate-input cannot be combined with --english.");
+                Console.WriteLine(catalog.TranslateInput(inputToTranslate));
+                return 0;
+            }
+
             if (catalogReport)
             {
                 Console.WriteLine($"言語パック: {languageDirectory}");
