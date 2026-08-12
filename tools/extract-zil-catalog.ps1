@@ -442,9 +442,17 @@ foreach ($file in Get-ChildItem -LiteralPath $SourceRoot -Filter '*.zil' | Sort-
 }
 
 $descriptionProperties = @('DESC', 'LDESC', 'FDESC', 'TEXT')
+$roomMessageProperties = @(
+    'NORTH', 'SOUTH', 'EAST', 'WEST',
+    'NORTHEAST', 'NORTHWEST', 'SOUTHEAST', 'SOUTHWEST',
+    'UP', 'DOWN', 'IN', 'OUT', 'LAND'
+)
 $rooms = @(
     $allStrings |
-        Where-Object { $_.top_kind -eq 'ROOM' -and $_.paren_parent -in $descriptionProperties } |
+        Where-Object {
+            $_.top_kind -eq 'ROOM' -and
+            $_.paren_parent -in @($descriptionProperties + $roomMessageProperties)
+        } |
         ForEach-Object {
             [pscustomobject]@{
                 id          = ('room.{0}.{1}' -f $_.top_name, $_.paren_parent)

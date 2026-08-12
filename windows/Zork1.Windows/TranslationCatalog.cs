@@ -340,8 +340,6 @@ internal sealed partial class TranslationCatalog
         {
             if (value.EndsWith(particle, StringComparison.Ordinal))
                 return value[..^particle.Length];
-            if (value.StartsWith(particle, StringComparison.Ordinal))
-                return value[particle.Length..];
         }
         return value;
     }

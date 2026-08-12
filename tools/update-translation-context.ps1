@@ -35,7 +35,7 @@ function Write-Tsv {
 
     $path = Join-Path $RepoRoot $RelativePath
     $lines = [System.Collections.Generic.List[string]]::new()
-    $lines.Add(($Columns -join "`t"))
+    $lines.Add((($Columns | ForEach-Object { ConvertTo-TsvField $_ }) -join "`t"))
     foreach ($row in $Rows) {
         $values = foreach ($column in $Columns) {
             ConvertTo-TsvField $row.$column
@@ -65,14 +65,20 @@ function Update-TranslationFile {
         $translationById[$row.id] = $row
     }
 
-    $missing = @($catalog | Where-Object { -not $translationById.ContainsKey($_.id) })
     $extra = @($translation | Where-Object { $_.id -notin @($catalog.id) })
-    if ($missing.Count -gt 0 -or $extra.Count -gt 0) {
-        throw "$TranslationPath ID mismatch. Missing=[$($missing.id -join ', ')] Extra=[$($extra.id -join ', ')]"
+    if ($extra.Count -gt 0) {
+        throw "$TranslationPath contains IDs absent from its catalog: $($extra.id -join ', ')"
     }
 
     $rows = foreach ($source in $catalog) {
         $translated = $translationById[$source.id]
+        if ($null -eq $translated) {
+            $translated = [pscustomobject]@{
+                japanese = ''
+                status = 'machine-draft'
+                notes = '新規抽出・要翻訳'
+            }
+        }
         $notes = if ($translated.PSObject.Properties.Name -contains 'notes') { $translated.notes } else { '' }
         $values = [ordered]@{
             id          = $source.id
