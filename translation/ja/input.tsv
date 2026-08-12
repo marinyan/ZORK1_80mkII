@@ -13,6 +13,7 @@ input	english	notes
 終了	quit	単独コマンド
 あける	open	ひらがな動詞
 メールボックス	mailbox	物体名の短縮形
+郵便受け	mailbox	物体名「メールボックス」の同義語
 家	house	物体名「白い家」の短縮形
 幽霊たち	ghosts	物体名の明示的な対応
 幽霊	ghosts	物体名「幽霊たち」の単数形

@@ -177,6 +177,7 @@ foreach ($row in $inputJa) {
 }
 $requiredInputAliases = [ordered]@{
     '家' = 'house'
+    '郵便受け' = 'mailbox'
     '自分' = 'me'
     '自分自身' = 'myself'
     'セルフ' = 'self'
