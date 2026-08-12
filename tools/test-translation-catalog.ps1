@@ -119,6 +119,13 @@ Assert-SameSet @($objectCatalog.id) @($objectJa.id) 'Object translation ID'
 Assert-SameSet @($messageCatalog.id) @($messageJa.id) 'Message translation ID'
 Assert-SameSet @($commandCatalog.verb) @($verbJa.verb) 'Command verb'
 
+$dropVerb = $verbJa | Where-Object verb -eq 'DROP'
+if ($dropVerb.japanese -cne '捨てる' -or
+    $dropVerb.aliases -notmatch '(^| )落とす( |$)' -or
+    $dropVerb.aliases -notmatch '(^| )置く( |$)') {
+    throw 'DROP must use 捨てる and retain 落とす plus contextual 置く as aliases'
+}
+
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'
 Assert-CatalogContext $messageCatalog $messageJa @('english', 'source_file', 'line', 'routine', 'container') 'Message translation'
