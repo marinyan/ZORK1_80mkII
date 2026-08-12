@@ -1051,7 +1051,7 @@
 "message.gverbs.HIT-SPOT.523.01"	"Thank you very much. I was rather thirsty (from all this talking,\nprobably)."	"どうも。ずいぶん喉が渇いていた。たぶん、しゃべりすぎたせいだ。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"523"	"HIT-SPOT"	"TELL"
 "message.gverbs.V-ECHO.536.01"	"..."	"……"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"536"	"V-ECHO"	"TELL"
 "message.gverbs.V-ECHO.545.01"	" "	" "	"format"	"日本語語順のため空文字"	"gverbs.zil"	"545"	"V-ECHO"	"TELL"
-"message.gverbs.V-ECHO.546.01"	"echo echo ..."	"こだま、こだま……"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"546"	"V-ECHO"	"TELL"
+"message.gverbs.V-ECHO.546.01"	"echo echo ..."	"音が反響している……"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"546"	"V-ECHO"	"TELL"
 "message.gverbs.REMOVE-CAREFULLY.617.01"	"You are left in the dark..."	"暗闇に取り残された……"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"617"	"REMOVE-CAREFULLY"	"TELL"
 "message.gverbs.V-EXAMINE.630.01"	"There's nothing special about the "	""	"format"	"日本語語順のため空文字"	"gverbs.zil"	"630"	"V-EXAMINE"	"TELL"
 "message.gverbs.V-EXAMINE.630.02"	"."	"には、これといって変わったところはない。"	"draft"	"原文・ルーチン確認済み"	"gverbs.zil"	"630"	"V-EXAMINE"	"TELL"

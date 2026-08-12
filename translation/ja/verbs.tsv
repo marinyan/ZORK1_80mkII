@@ -33,7 +33,7 @@ DISENCHANT	魔法を解く	解呪する	consider	""
 DRINK	飲む	口にする	keep	""
 DROP	捨てる	落とす 手放す 置く	keep	「置く」は置き場所がなければDROP、置き場所が続けばPUT
 EAT	食べる	味わう かじる	keep	""
-ECHO	こだまと叫ぶ	エコー	consider	""
+ECHO	叫ぶ	こだまと叫ぶ エコー	consider	""
 ENCHANT	魔法をかける	付呪する	consider	""
 ENTER	入る	中へ入る	keep	""
 EXAMINE	調べる	見る 観察する	keep	""
