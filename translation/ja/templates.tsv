@@ -1,2 +1,46 @@
 key	english	translation	notes
 hero-melee-knockout	The haft of your {0} knocks out the {1}.	{0}の柄で{1}を殴り、気絶させた。	戦闘メッセージの武器名と敵名を日本語語順へ並べ替える
+teeth-with	A nice idea, but with a {0}?	悪くない考えだが、{0}でだと？	疑問符断片に埋め込まれていた助詞を全文へ移す
+water-puddle	There is now a puddle in the bottom of the {0}.	{0}の底に水たまりができた。	句点断片に埋め込まれていた述語を全文へ移す
+grate-unlock-with	Can you unlock a grating with a {0}?	{0}で鉄格子の鍵を開けられるとでも？	疑問符断片に埋め込まれていた述語を全文へ移す
+mirror-tingling	You feel a faint tingling transmitted through the {0}.	{0}を通して、かすかな痺れが伝わってくる。	句点断片に埋め込まれていた述語を全文へ移す
+bolt-turn-with	The bolt won't turn using the {0}.	{0}を使っても、ボルトは回らない。	句点断片に埋め込まれていた述語を全文へ移す
+with-question	With a {0}?	{0}でだと？	疑問符断片に埋め込まれていた助詞を全文へ移す
+light-expired	You'd better have more light than from the {0}.	{0}より明るい光を用意した方がいい。	句点断片に埋め込まれていた述語を全文へ移す
+rope-tie-question	Why would you tie up a {0}?	なぜ{0}を縛ろうとするのだ？	疑問符断片に埋め込まれていた述語を全文へ移す
+villain-still-armed	Fortunately, you still have a {0}.	幸い、まだ{0}を持っている。	句点断片に埋め込まれていた述語を全文へ移す
+dumb-container-examine	It looks pretty much like a {0}.	見たところ、ほぼ{0}そのものだ。	句点断片に埋め込まれていた述語を全文へ移す
+attack-strange	I've known strange people, but fighting a {0}?	変わった人間はいろいろ見てきたが、{0}と戦うだって？	疑問符断片に埋め込まれていた述語を全文へ移す
+attack-not-holding	You aren't even holding the {0}.	あなたは{0}を持ってすらいない。	句点断片に埋め込まれていた述語を全文へ移す
+board-already	You are already in the {0}!	すでに{0}に乗っている！	感嘆符断片に埋め込まれていた述語を全文へ移す
+board-now	You are now in the {0}.	{0}に乗った。	句点断片に埋め込まれていた述語を全文へ移す
+burn-cannot	You can't burn a {0}.	{0}を燃やすことはできない。	句点断片に埋め込まれていた述語を全文へ移す
+climb-onto-cannot	You can't climb onto the {0}.	{0}には登れない。	句点断片に埋め込まれていた述語を全文へ移す
+close-open-how	You must tell me how to do that to a {0}.	{0}をどうするのか、指定が必要だ。	開閉で同一になる原文をどちらにも通る表現にする
+examine-nothing-special	There's nothing special about the {0}.	{0}には、これといって変わったところはない。	句点断片に埋め込まれていた述語を全文へ移す
+find-on	It's on the {0}.	{0}の上にある。	句点断片に埋め込まれていた述語を全文へ移す
+find-in	It's in the {0}.	{0}の中にある。	句点断片に埋め込まれていた述語を全文へ移す
+give-not-held	That's easy for you to say since you don't even have the {0}.	そんなことを言っても、{0}を持っていないのだから。	句点断片に埋め込まれていた述語を全文へ移す
+give-invalid-target	You can't give a {0} to a {1}!	{0}を{1}に渡すことはできない！	二つの物体名を日本語語順へ並べ替える
+hello-object	It's a well known fact that only schizophrenics say ""Hello"" to a {0}.	物に「こんにちは」と言うのは統合失調症患者だけだというのは、よく知られた事実だ。相手は{0}である。	句点断片に埋め込まれていた述語を全文へ移す
+knock-why	Why knock on a {0}?	{0}をノックしてどうする？	疑問符断片に埋め込まれていた述語を全文へ移す
+look-behind	There is nothing behind the {0}.	{0}の後ろには何もない。	句点断片に埋め込まれていた述語を全文へ移す
+look-inside-cannot	You can't look inside a {0}.	{0}の中を見ることはできない。	句点断片に埋め込まれていた述語を全文へ移す
+move-cannot	You can't move the {0}.	{0}は動かせない。	句点断片に埋め込まれていた述語を全文へ移す
+pump-with	Pump it up with a {0}?	{0}で膨らませるだって？	疑問符断片に埋め込まれていた述語を全文へ移す
+put-already-in	The {0} is already in the {1}.	{0}はすでに{1}の中にある。	二つの物体名を日本語語順へ並べ替える
+put-not-held	You don't have the {0}.	{0}を持っていない。	句点断片に埋め込まれていた述語を全文へ移す
+put-on-no-surface	There's no good surface on the {0}.	{0}には物を載せられる面がない。	句点断片に埋め込まれていた述語を全文へ移す
+read-through	How does one look through a {0}?	{0}を通して、どうやって見るというのだ？	疑問符断片に埋め込まれていた述語を全文へ移す
+read-cannot	How does one read a {0}?	{0}をどうやって読むというのだ？	疑問符断片に埋め込まれていた述語を全文へ移す
+send-for	Why would you send for the {0}?	{0}を呼び寄せてどうする？	疑問符断片に埋め込まれていた述語を全文へ移す
+shake-contents	It sounds like there is something inside the {0}.	{0}の中で何かが音を立てているようだ。	句点断片に埋め込まれていた述語を全文へ移す
+smell	It smells like a {0}.	{0}の匂いがする。	句点断片に埋め込まれていた述語を全文へ移す
+swim	Swimming isn't usually allowed in the {0}.	通常、{0}で泳ぐことは禁止されている。	句点断片に埋め込まれていた述語を全文へ移す
+take-from-wrong-container	The {0} isn't in the {1}.	{0}は{1}の中にはない。	二つの物体名を日本語語順へ並べ替える
+take-wearing	You are now wearing the {0}.	{0}を身につけた。	句点断片に埋め込まれていた述語を全文へ移す
+tell-cannot	You can't talk to the {0}!	{0}には話しかけられない！	感嘆符断片に埋め込まれていた述語を全文へ移す
+wear-cannot	You can't wear the {0}.	{0}は身につけられない。	句点断片に埋め込まれていた述語を全文へ移す
+wind-cannot	You cannot wind up a {0}.	{0}のぜんまいを巻くことはできない。	句点断片に埋め込まれていた述語を全文へ移す
+drop-not-carried	You're not carrying the {0}.	{0}は持っていない。	句点断片に埋め込まれていた述語を全文へ移す
+travel-in-vehicle	You can't go there in a {0}.	{0}ではそこへ行けない。	句点断片に埋め込まれていた述語を全文へ移す
