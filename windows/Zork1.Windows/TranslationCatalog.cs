@@ -73,7 +73,7 @@ internal sealed partial class TranslationCatalog
                     AddInput(input, translated, noun);
                     foreach (var alias in SingularJapaneseAliases(translated))
                         AddInput(input, alias, noun);
-                    nounOutput.TryAdd(noun, translated == english ? noun : translated);
+                    AddDictionaryOutput(nounOutput, noun, translated == english ? noun : translated);
                 }
             }
         }
@@ -87,9 +87,9 @@ internal sealed partial class TranslationCatalog
             if (english.Length == 0)
                 continue;
             englishVerbs.Add(english);
-            AddVerb(
-                row.GetValueOrDefault("input", row.GetValueOrDefault("japanese", "")),
-                english);
+            var japanese = row.GetValueOrDefault("input", row.GetValueOrDefault("japanese", ""));
+            AddVerb(japanese, english);
+            AddDictionaryOutput(nounOutput, english, japanese);
             foreach (var alias in SplitAliases(row.GetValueOrDefault("aliases", "")))
                 AddVerb(alias, english);
         }
@@ -97,10 +97,11 @@ internal sealed partial class TranslationCatalog
         foreach (var row in ReadTable(languageDirectory, "directions.tsv"))
         {
             var english = row.GetValueOrDefault("english", "").ToLowerInvariant();
-            AddInput(
-                input,
-                row.GetValueOrDefault("input", row.GetValueOrDefault("japanese", "")),
-                english);
+            var japanese = row.GetValueOrDefault("input", row.GetValueOrDefault("japanese", ""));
+            AddInput(input, japanese, english);
+            AddDictionaryOutput(nounOutput, english, japanese);
+            foreach (var alias in SplitAliases(row.GetValueOrDefault("aliases", "")))
+                input[NormalizeJapanese(alias)] = english;
         }
 
         foreach (var row in ReadTable(languageDirectory, "input.tsv"))
@@ -112,9 +113,7 @@ internal sealed partial class TranslationCatalog
                 input[NormalizeJapanese(phrase)] = english.Trim().ToLowerInvariant();
                 english = english.Trim().ToLowerInvariant();
                 if (!english.Contains(' ') && explicitDictionaryOutput.Add(english))
-                {
-                    nounOutput[english] = NormalizeJapanese(phrase);
-                }
+                    AddDictionaryOutput(nounOutput, english, phrase, overwrite: true);
             }
         }
 
@@ -255,6 +254,25 @@ internal sealed partial class TranslationCatalog
         english = english.Trim().ToLowerInvariant();
         if (japanese.Length != 0 && english.Length != 0)
             input.TryAdd(japanese, english);
+    }
+
+    private static void AddDictionaryOutput(
+        Dictionary<string, string> output,
+        string english,
+        string japanese,
+        bool overwrite = false)
+    {
+        english = english.Trim().ToLowerInvariant();
+        japanese = NormalizeJapanese(japanese);
+        if (english.Length == 0 || japanese.Length == 0)
+            return;
+        foreach (var key in new[] { english, english[..Math.Min(6, english.Length)] }.Distinct())
+        {
+            if (overwrite)
+                output[key] = japanese;
+            else
+                output.TryAdd(key, japanese);
+        }
     }
 
     private static IEnumerable<string> SplitAliases(string aliases) =>
