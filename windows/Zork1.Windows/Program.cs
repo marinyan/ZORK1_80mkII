@@ -38,6 +38,15 @@ internal static class Program
                 return 0;
             }
 
+            var outputLineToTranslate = OptionValue(args, "--translate-output-line");
+            if (outputLineToTranslate is not null)
+            {
+                if (catalog is null)
+                    throw new ArgumentException("--translate-output-line cannot be combined with --english.");
+                Console.WriteLine(catalog.TranslateOutputLine(outputLineToTranslate));
+                return 0;
+            }
+
             if (catalogReport)
             {
                 Console.WriteLine($"言語パック: {languageDirectory}");

@@ -55,8 +55,9 @@ lang/
     directions.tsv
     input.tsv
     ui.tsv
+    templates.tsv
   en/
-    （同じ7ファイル）
+    （templates.tsvを除く同じ7ファイル）
 ```
 
 別のパック名は`--language`で、任意のディレクトリは`--language-dir`で指定できます。
@@ -80,6 +81,15 @@ dotnet run --project windows/Zork1.Windows/Zork1.Windows.csproj -- `
 - `verbs.tsv`、`directions.tsv`: 入力する動詞と方角
 - `input.tsv`: 「はい」「終了」など、優先したい入力語
 - `ui.tsv`: ステータス行などWindows実行系固有の表示
+- `templates.tsv`: 動的な物体名などを含む一文を日本語語順へ組み替える任意テンプレート
+
+`templates.tsv`は、原文の一文を`{0}`、`{1}`などの可変部分付きで照合し、訳文側の
+任意位置へ差し込みます。テンプレートに一致しない文は、従来どおり各TSVの断片訳を使います。
+
+```powershell
+dotnet run --project windows/Zork1.Windows/Zork1.Windows.csproj -- `
+  --translate-output-line "The haft of your sword knocks out the troll."
+```
 
 表示用TSVは`english`と`translation`列を使います。既存の日本語パックだけは従来の
 `japanese`列も後方互換で読み込めます。動詞と方角は`input`列を使い、日本語パックの

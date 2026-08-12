@@ -13,6 +13,7 @@ internal sealed partial class TranslationCatalog
     private readonly Dictionary<string, string> _placementPrepositions;
     private readonly HashSet<string> _englishVerbs;
     private readonly Dictionary<string, string> _ui;
+    private readonly List<OutputTemplate> _outputTemplates;
     private readonly int _ambiguousOutputCount;
     private List<(string English, string Japanese)>? _pendingSyntaxPrompt;
     private bool _suppressNextFullStop;
@@ -26,6 +27,7 @@ internal sealed partial class TranslationCatalog
         Dictionary<string, string> placementPrepositions,
         HashSet<string> englishVerbs,
         Dictionary<string, string> ui,
+        List<OutputTemplate> outputTemplates,
         int ambiguousOutputCount)
     {
         _output = output;
@@ -36,6 +38,7 @@ internal sealed partial class TranslationCatalog
         _placementPrepositions = placementPrepositions;
         _englishVerbs = englishVerbs;
         _ui = ui;
+        _outputTemplates = outputTemplates;
         _ambiguousOutputCount = ambiguousOutputCount;
     }
 
@@ -54,6 +57,7 @@ internal sealed partial class TranslationCatalog
         var placementPrepositions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         var englishVerbs = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         var ui = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var outputTemplates = new List<OutputTemplate>();
 
         foreach (var resource in new[] { "messages", "objects", "rooms" })
         {
@@ -139,6 +143,18 @@ internal sealed partial class TranslationCatalog
                 ui[key] = Unescape(row.GetValueOrDefault("value", ""));
         }
 
+        var templatesPath = Path.Combine(languageDirectory, "templates.tsv");
+        if (File.Exists(templatesPath))
+        {
+            foreach (var row in ReadTable(languageDirectory, "templates.tsv"))
+            {
+                var english = Unescape(row.GetValueOrDefault("english", ""));
+                var translation = Unescape(row.GetValueOrDefault("translation", ""));
+                if (english.Length != 0 && translation.Length != 0)
+                    outputTemplates.Add(OutputTemplate.Create(english, translation));
+            }
+        }
+
         var output = new Dictionary<string, string>(StringComparer.Ordinal);
         var ambiguous = 0;
         foreach (var (english, values) in candidates)
@@ -164,6 +180,7 @@ internal sealed partial class TranslationCatalog
             placementPrepositions,
             englishVerbs,
             ui,
+            outputTemplates,
             ambiguous);
 
         void AddVerb(string japanese, string english)
@@ -204,6 +221,34 @@ internal sealed partial class TranslationCatalog
             return "";
         }
         return translated;
+    }
+
+    public string TranslateOutputLine(string english)
+    {
+        foreach (var template in _outputTemplates)
+        {
+            var match = template.Pattern.Match(english);
+            if (!match.Success)
+                continue;
+            var translated = template.Translation;
+            for (var index = 0; index < template.PlaceholderCount; index++)
+            {
+                var value = TranslateTemplateValue(match.Groups[$"value{index}"].Value);
+                translated = translated.Replace($"{{{index}}}", value, StringComparison.Ordinal);
+            }
+            return translated;
+        }
+        return english;
+    }
+
+    private string TranslateTemplateValue(string english)
+    {
+        var key = NormalizeOutputKey(english);
+        if (_nounOutput.TryGetValue(key, out var noun))
+            return noun;
+        if (_output.TryGetValue(key, out var output))
+            return output;
+        return english.Length == 1 ? TranslateCharacter(english) : english;
     }
 
     public string TranslateInput(string line)
@@ -529,6 +574,32 @@ internal sealed partial class TranslationCatalog
     private static string NormalizeOutputKey(string value) =>
         OutputWhitespaceRegex().Replace(value, " ");
 
+    private sealed record OutputTemplate(Regex Pattern, string Translation, int PlaceholderCount)
+    {
+        public static OutputTemplate Create(string english, string translation)
+        {
+            var pattern = new StringBuilder("^");
+            var placeholderCount = 0;
+            var cursor = 0;
+            foreach (Match match in TemplatePlaceholderRegex().Matches(english))
+            {
+                pattern.Append(Regex.Escape(english[cursor..match.Index]));
+                var index = int.Parse(match.Groups[1].Value);
+                if (index != placeholderCount)
+                    throw new InvalidDataException($"出力テンプレートのプレースホルダー順が不正: {english}");
+                pattern.Append($"(?<value{index}>.+?)");
+                placeholderCount++;
+                cursor = match.Index + match.Length;
+            }
+            pattern.Append(Regex.Escape(english[cursor..]));
+            pattern.Append('$');
+            return new OutputTemplate(
+                new Regex(pattern.ToString(), RegexOptions.CultureInvariant),
+                translation,
+                placeholderCount);
+        }
+    }
+
     private static List<Dictionary<string, string>> ReadTable(string languageDirectory, string fileName)
     {
         var path = Path.Combine(languageDirectory, fileName);
@@ -596,4 +667,7 @@ internal sealed partial class TranslationCatalog
 
     [GeneratedRegex("[ \\t\\r\\n]+")]
     private static partial Regex OutputWhitespaceRegex();
+
+    [GeneratedRegex("\\{(\\d+)\\}")]
+    private static partial Regex TemplatePlaceholderRegex();
 }

@@ -11,6 +11,7 @@ internal sealed class ZMachine
     private readonly Stack<Frame> _frames = new();
     private readonly Queue<char> _inputEchoCharacters = new();
     private readonly StringBuilder _printCharacterBuffer = new();
+    private readonly List<ScreenSegment> _screenLine = [];
     private byte[] _memory;
     private Random _seededRandom = new();
     private int _pc;
@@ -41,6 +42,7 @@ internal sealed class ZMachine
         for (var count = 0; _running && count < instructionLimit; count++)
             Step();
         FlushPrintCharacterBuffer();
+        FlushScreenLine();
         if (_running && instructionLimit != int.MaxValue)
             throw new InvalidOperationException($"命令数上限({instructionLimit:N0})に達した。PC=${_pc:x4}");
     }
@@ -54,6 +56,7 @@ internal sealed class ZMachine
         _screenEnabled = true;
         _memoryStream = null;
         _printCharacterBuffer.Clear();
+        _screenLine.Clear();
     }
 
     private void Step()
@@ -571,7 +574,8 @@ internal sealed class ZMachine
         var propertyTable = PropertyTableAddress(number);
         if (ReadByte(propertyTable) == 0)
             return;
-        PrintZString(propertyTable + 1);
+        var text = DecodeZString(propertyTable + 1, out _);
+        WriteText(text, true);
     }
 
     private void PrintZString(int address)
@@ -672,10 +676,60 @@ internal sealed class ZMachine
         FlushPrintCharacterBuffer();
         if (!_screenEnabled)
             return;
-        var text = translate && _translation is not null
-            ? _translation.TranslateOutput(english)
-            : english;
-        _host.Write(text.Replace("\n", Environment.NewLine, StringComparison.Ordinal));
+        WriteScreenText(english, translate);
+    }
+
+    private void WriteScreenText(string english, bool translate)
+    {
+        if (_translation is null)
+        {
+            _host.Write(english.Replace("\n", Environment.NewLine, StringComparison.Ordinal));
+            return;
+        }
+        var fallback = translate ? _translation.TranslateOutput(english) : english;
+        if (english.Count(character => character == '\n') !=
+            fallback.Count(character => character == '\n'))
+        {
+            FlushScreenLine();
+            _host.Write(fallback.Replace("\n", Environment.NewLine, StringComparison.Ordinal));
+            return;
+        }
+        var fallbackStart = 0;
+        var start = 0;
+        for (var index = 0; index < english.Length; index++)
+        {
+            if (english[index] != '\n')
+                continue;
+            var fallbackNewline = fallback.IndexOf('\n', fallbackStart);
+            if (index > start)
+                _screenLine.Add(new ScreenSegment(
+                    english[start..index],
+                    fallback[fallbackStart..fallbackNewline]));
+            FlushScreenLine();
+            _host.Write(Environment.NewLine);
+            start = index + 1;
+            fallbackStart = fallbackNewline + 1;
+        }
+        if (start < english.Length)
+            _screenLine.Add(new ScreenSegment(english[start..], fallback[fallbackStart..]));
+    }
+
+    private void FlushScreenLine()
+    {
+        if (_screenLine.Count == 0)
+            return;
+        var english = string.Concat(_screenLine.Select(segment => segment.Text));
+        var composed = _translation?.TranslateOutputLine(english) ?? english;
+        if (!composed.Equals(english, StringComparison.Ordinal))
+        {
+            _host.Write(composed);
+        }
+        else
+        {
+            foreach (var segment in _screenLine)
+                _host.Write(segment.Fallback);
+        }
+        _screenLine.Clear();
     }
 
     private void WriteCharacter(string character)
@@ -705,7 +759,7 @@ internal sealed class ZMachine
         var word = _printCharacterBuffer.ToString();
         _printCharacterBuffer.Clear();
         var text = _translation?.TranslateOutput(word) ?? word;
-        _host.Write(text);
+        WriteScreenText(text, false);
         return text != word;
     }
 
@@ -880,6 +934,8 @@ internal sealed class ZMachine
 
     private void ShowStatus()
     {
+        FlushPrintCharacterBuffer();
+        FlushScreenLine();
         var location = ReadWord(GlobalsAddress);
         if (location == 0)
             return;
@@ -898,6 +954,8 @@ internal sealed class ZMachine
                 moves);
         _host.Write(status);
     }
+
+    private readonly record struct ScreenSegment(string Text, string Fallback);
 
     private string DecodeObjectName(ushort number)
     {
