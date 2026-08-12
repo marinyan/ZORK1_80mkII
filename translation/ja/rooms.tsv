@@ -1,198 +1,198 @@
-id	japanese	status
-room.WEST-OF-HOUSE.DESC	家の西側	draft
-room.STONE-BARROW.LDESC	あなたは巨大な石塚の前に立っている。東側には巨大な石の扉があり、開いている。墓室の暗がりの中までは見通せない。	draft
-room.STONE-BARROW.DESC	石塚	draft
-room.NORTH-OF-HOUSE.LDESC	あなたは白い家の北側にいる。ここに扉はなく、窓はすべて板でふさがれている。北へは、木々の間を縫う細い道が続いている。	draft
-room.NORTH-OF-HOUSE.DESC	家の北側	draft
-room.SOUTH-OF-HOUSE.LDESC	あなたは白い家の南側にいる。ここに扉はなく、窓はすべて板でふさがれている。	draft
-room.SOUTH-OF-HOUSE.DESC	家の南側	draft
-room.EAST-OF-HOUSE.DESC	家の裏側	draft
-room.FOREST-1.LDESC	ここは森の中だ。どの方角にも木々が立ち並んでいる。東の方には陽光が見えるようだ。	draft
-room.FOREST-1.DESC	森	draft
-room.FOREST-2.LDESC	ここは薄暗い森で、周囲を大きな木々に囲まれている。	draft
-room.FOREST-2.DESC	森	draft
-room.MOUNTAINS.LDESC	森がまばらになり、その先に越えることのできない山々が姿を現している。	draft
-room.MOUNTAINS.DESC	森	draft
-room.FOREST-3.LDESC	ここは薄暗い森で、周囲を大きな木々に囲まれている。	draft
-room.FOREST-3.DESC	森	draft
-room.PATH.LDESC	ここは薄暗い森を曲がりくねって進む小道だ。道はここから南北へ伸びている。道端には、低い枝を張ったひときわ大きな木が立っている。	draft
-room.PATH.DESC	森の小道	draft
-room.UP-A-TREE.DESC	木の上	draft
-room.GRATING-CLEARING.DESC	空き地	draft
-room.CLEARING.LDESC	ここは、はっきり踏み固められた森の小道にある小さな空き地だ。小道は東西へ伸びている。	draft
-room.CLEARING.DESC	空き地	draft
-room.KITCHEN.DESC	台所	draft
-room.ATTIC.LDESC	ここは屋根裏部屋だ。出口は下へ続く階段だけである。	draft
-room.ATTIC.DESC	屋根裏部屋	draft
-room.LIVING-ROOM.DESC	居間	draft
-room.CELLAR.DESC	地下室	draft
-room.TROLL-ROOM.LDESC	ここは小さな部屋で、東と南へ通路が伸び、西には不気味な穴が口を開けている。壁には血の跡と深い傷が刻まれている。斧でつけられたものかもしれない。	draft
-room.TROLL-ROOM.DESC	トロールの部屋	draft
-room.EAST-OF-CHASM.LDESC	あなたは底の見えない裂け目の東端にいる。細い通路が北へ伸び、足元の道は東へ続いている。	draft
-room.EAST-OF-CHASM.DESC	裂け目の東側	draft
-room.GALLERY.LDESC	ここは美術展示室だ。絵のほとんどは、並外れた審美眼を持つ何者かに盗まれている。盗人は北か西の出口から立ち去ったようだ。	draft
-room.GALLERY.DESC	展示室	draft
-room.STUDIO.LDESC	ここはかつて画家の仕事場だったらしい。壁と床には69色もの絵の具が飛び散っている。不思議なことに、価値のありそうな物は何も掛かっていない。部屋の南端には開いた扉があり、それも絵の具まみれだ。暖炉からは暗く細い煙突が上へ伸びている。登ることはできそうだが、降りて戻るのは難しそうだ。	draft
-room.STUDIO.DESC	画家の仕事場	draft
-room.MAZE-1.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-1.DESC	迷路	draft
-room.MAZE-2.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-2.DESC	迷路	draft
-room.MAZE-3.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-3.DESC	迷路	draft
-room.MAZE-4.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-4.DESC	迷路	draft
-room.DEAD-END-1.DESC	行き止まり	draft
-room.DEAD-END-1.LDESC	迷路の行き止まりに来てしまった。	draft
-room.MAZE-5.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。運の悪い冒険者のなれの果てらしい骸骨が横たわっている。	draft
-room.MAZE-5.DESC	迷路	draft
-room.DEAD-END-2.DESC	行き止まり	draft
-room.DEAD-END-2.LDESC	迷路の行き止まりに来てしまった。	draft
-room.MAZE-6.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-6.DESC	迷路	draft
-room.MAZE-7.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-7.DESC	迷路	draft
-room.MAZE-8.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-8.DESC	迷路	draft
-room.DEAD-END-3.DESC	行き止まり	draft
-room.DEAD-END-3.LDESC	迷路の行き止まりに来てしまった。	draft
-room.MAZE-9.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-9.DESC	迷路	draft
-room.MAZE-10.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-10.DESC	迷路	draft
-room.MAZE-11.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-11.DESC	迷路	draft
-room.GRATING-ROOM.DESC	鉄格子の部屋	draft
-room.MAZE-12.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-12.DESC	迷路	draft
-room.DEAD-END-4.DESC	行き止まり	draft
-room.DEAD-END-4.LDESC	迷路の行き止まりに来てしまった。	draft
-room.MAZE-13.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-13.DESC	迷路	draft
-room.MAZE-14.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-14.DESC	迷路	draft
-room.MAZE-15.LDESC	ここは曲がりくねった小さな通路の迷路の一部で、どれも同じに見える。	draft
-room.MAZE-15.DESC	迷路	draft
-room.CYCLOPS-ROOM.DESC	サイクロプスの部屋	draft
-room.STRANGE-PASSAGE.LDESC	ここは長い通路だ。西に入口が一つある。東には古い木の扉があり、サイクロプスほどの大きさの者が通れそうな大穴が開いている。	draft
-room.STRANGE-PASSAGE.DESC	奇妙な通路	draft
-room.TREASURE-ROOM.LDESC	ここは広い部屋で、東の壁は一枚岩の花崗岩だ。床には捨てられた袋がいくつも散らばっているが、触れると崩れてしまう。階段を下りる出口がある。	draft
-room.TREASURE-ROOM.DESC	宝物庫	draft
-room.RESERVOIR-SOUTH.DESC	貯水池南岸	draft
-room.RESERVOIR.DESC	貯水池	draft
-room.RESERVOIR-NORTH.DESC	貯水池北岸	draft
-room.STREAM-VIEW.LDESC	あなたは穏やかに流れる小川のそばの道に立っている。道は西から東へ流れる小川に沿って続いている。	draft
-room.STREAM-VIEW.DESC	小川のほとり	draft
-room.IN-STREAM.LDESC	あなたは穏やかに流れる小川の上にいる。上流は狭すぎて進めず、下流は曲がりくねった壁の陰になって見えない。上陸できそうな細い岸がある。	draft
-room.IN-STREAM.DESC	小川	draft
-room.MIRROR-ROOM-1.DESC	鏡の部屋	draft
-room.MIRROR-ROOM-2.DESC	鏡の部屋	draft
-room.SMALL-CAVE.LDESC	ここは小さな洞窟で、西と北に入口があり、下へ続く階段もある。	draft
-room.SMALL-CAVE.DESC	洞窟	draft
-room.TINY-CAVE.LDESC	ここは小さな洞窟で、西と北に入口があり、暗く不気味な階段が下へ続いている。	draft
-room.TINY-CAVE.DESC	洞窟	draft
-room.COLD-PASSAGE.LDESC	ここは冷たく湿った廊下で、東西に伸びる長い通路が南向きの道へ折れている。	draft
-room.COLD-PASSAGE.DESC	冷たい通路	draft
-room.NARROW-PASSAGE.LDESC	ここは長く狭い廊下で、南北に伸びる通路が一時的にさらに細くなっている。	draft
-room.NARROW-PASSAGE.DESC	細い通路	draft
-room.WINDING-PASSAGE.LDESC	ここは曲がりくねった通路だ。出口は東と北にしかないようだ。	draft
-room.WINDING-PASSAGE.DESC	曲がりくねった通路	draft
-room.TWISTING-PASSAGE.LDESC	ここは曲がりくねった通路だ。出口は東と北にしかないようだ。	draft
-room.TWISTING-PASSAGE.DESC	ねじれた通路	draft
-room.ATLANTIS-ROOM.LDESC	ここは長い間水中に沈んでいた古代の部屋だ。南に出口があり、上へ続く階段もある。	draft
-room.ATLANTIS-ROOM.DESC	アトランティスの部屋	draft
-room.EW-PASSAGE.LDESC	ここは東西に伸びる細い通路だ。北端には下へ続く細い階段がある。	draft
-room.EW-PASSAGE.DESC	東西通路	draft
-room.ROUND-ROOM.LDESC	ここは円形の石室で、あらゆる方角へ通路が伸びている。残念ながら、そのうちいくつかは落盤でふさがれている。	draft
-room.ROUND-ROOM.DESC	円形の部屋	draft
-room.DEEP-CANYON.DESC	深い峡谷	draft
-room.DAMP-CAVE.LDESC	この洞窟には西と東に出口があり、南へ行くほど細くなって裂け目になっている。ここは土がとりわけ湿っている。	draft
-room.DAMP-CAVE.DESC	湿った洞窟	draft
-room.LOUD-ROOM.DESC	轟音の部屋	draft
-room.NS-PASSAGE.LDESC	ここは天井の高い南北通路で、北東へ枝分かれしている。	draft
-room.NS-PASSAGE.DESC	南北通路	draft
-room.CHASM-ROOM.LDESC	裂け目が南西から北東へ走り、道はそれに沿って続いている。あなたは裂け目の南側におり、岩の割れ目が通路へ開いている。	draft
-room.CHASM-ROOM.DESC	裂け目	draft
-room.ENTRANCE-TO-HADES.DESC	冥府への入口	draft
-room.LAND-OF-LIVING-DEAD.LDESC	あなたは生ける死者の国へ足を踏み入れた。何千もの迷える魂が泣き叫び、うめく声が聞こえる。隅には、あなたほど幸運でなかった何十人もの冒険者の亡骸が積み上げられている。北へ通路が続いている。	draft
-room.LAND-OF-LIVING-DEAD.DESC	死者の国	draft
-room.ENGRAVINGS-CAVE.LDESC	あなたは天井の低い洞窟に入った。通路は北西と東へ続いている。	draft
-room.ENGRAVINGS-CAVE.DESC	壁画の洞窟	draft
-room.EGYPT-ROOM.LDESC	ここはエジプトの墓室のように見える。西には上へ続く階段がある。	draft
-room.EGYPT-ROOM.DESC	エジプトの部屋	draft
-room.DOME-ROOM.DESC	丸天井の部屋	draft
-room.TORCH-ROOM.DESC	松明の部屋	draft
-room.NORTH-TEMPLE.LDESC	ここは大きな神殿の北端だ。東の壁には、とうに忘れ去られた言語で書かれた祈りらしき古代の碑文がある。その下には階段があり、下へ続いている。西の壁は一枚岩の花崗岩だ。部屋の北側への出口は巨大な大理石の柱の間を通っている。	draft
-room.NORTH-TEMPLE.DESC	神殿	draft
-room.SOUTH-TEMPLE.LDESC	ここは大きな神殿の南端だ。目の前には祭壇らしきものがある。隅には床に小さな穴があり、暗闇へ続いている。そこへ下りたら、おそらく戻っては来られないだろう。	draft
-room.SOUTH-TEMPLE.DESC	祭壇	draft
-room.DAM-ROOM.DESC	ダム	draft
-room.DAM-LOBBY.LDESC	ここはダム見学者のための待合室だったらしい。北と東には「関係者以外立入禁止」と書かれた開いた戸口があり、南へはダムの上を渡る道が続いている。	draft
-room.DAM-LOBBY.DESC	ダムのロビー	draft
-room.MAINTENANCE-ROOM.LDESC	ここは第3洪水調整ダムの整備室だったらしい。最近荒らされたようで、価値のある機材はほとんど持ち去られている。正面の壁には青、黄、茶、赤のボタンが並んでいる。西と南に戸口がある。	draft
-room.MAINTENANCE-ROOM.DESC	整備室	draft
-room.DAM-BASE.LDESC	あなたは第3洪水調整ダムのふもとにいる。巨大なダムが北側にそびえている。ここにはフリジッド川が流れている。川沿いには白い断崖がそびえ、下流へ曲がりくねる川の両岸で、南北に伸びる巨大な壁を形作っているようだ。	draft
-room.DAM-BASE.DESC	ダムのふもと	draft
-room.RIVER-1.LDESC	あなたはダム近くのフリジッド川にいる。ここでは川は静かに流れている。西岸に船着き場がある。	draft
-room.RIVER-1.DESC	フリジッド川	draft
-room.RIVER-2.LDESC	川はここで曲がっており、ダムはもう見えない。東岸には白い断崖がそびえ、西岸には大岩があって上陸できない。	draft
-room.RIVER-2.DESC	フリジッド川	draft
-room.RIVER-3.LDESC	川はここから谷へ下っている。西岸の断崖の下には細い砂浜がある。遠くから、かすかな轟きが聞こえる。	draft
-room.RIVER-3.DESC	フリジッド川	draft
-room.WHITE-CLIFFS-NORTH.LDESC	あなたは白い断崖のふもとに沿って伸びる細い砂浜にいる。断崖沿いに南へ向かう細道と、断崖の中へ西向きに入る狭い通路がある。	draft
-room.WHITE-CLIFFS-NORTH.DESC	白い断崖の浜	draft
-room.WHITE-CLIFFS-SOUTH.LDESC	あなたは断崖のそばにある岩だらけの細い浜にいる。岸沿いに北へ細道が続いている。	draft
-room.WHITE-CLIFFS-SOUTH.DESC	白い断崖の浜	draft
-room.RIVER-4.LDESC	ここでは川の流れが速くなり、前方から激しい水音が聞こえてくる。東岸には砂浜がある。西岸の断崖の下にも小さな浜が見える。	draft
-room.RIVER-4.DESC	フリジッド川	draft
-room.RIVER-5.LDESC	ここでは激流の音が耐えがたいほど大きい。東岸には広い上陸場所がある。	draft
-room.RIVER-5.DESC	フリジッド川	draft
-room.SHORE.LDESC	あなたは川の東岸にいる。ここの水面はいささか危険そうだ。道は南北に伸び、南端ですぐ鋭く曲がっている。	draft
-room.SHORE.DESC	川岸	draft
-room.SANDY-BEACH.LDESC	あなたは流れの速い川の東岸にある広い砂浜にいる。川沿いの道が南へ続き、北東には砂に半ば埋もれた通路がある。	draft
-room.SANDY-BEACH.DESC	砂浜	draft
-room.SANDY-CAVE.LDESC	ここは砂で満たされた洞窟で、出口は南西にある。	draft
-room.SANDY-CAVE.DESC	砂の洞窟	draft
-room.ARAGAIN-FALLS.DESC	アラゲイン滝	draft
-room.ON-RAINBOW.LDESC	あなたは虹の上にいる。まさか虹の上を歩くことになるとは思わなかっただろう。ここからは滝の壮大な眺めを楽しめる。虹は東西へ伸びている。	draft
-room.ON-RAINBOW.DESC	虹の上	draft
-room.END-OF-RAINBOW.LDESC	あなたは滝を越えて続くフリジッド川の、小さな岩浜にいる。白い断崖が迫っているため浜は細い。ここでは川の峡谷が開け、上から陽光が差し込んでいる。東では虹が滝をまたぎ、細い道が南西へ続いている。	draft
-room.END-OF-RAINBOW.DESC	虹の果て	draft
-room.CANYON-BOTTOM.LDESC	あなたは川の峡谷の壁の下にいる。この辺りなら登れそうだ。眼下にはアラゲイン滝から分かれた小さな流れが通っている。北へ細道が続いている。	draft
-room.CANYON-BOTTOM.DESC	峡谷の底	draft
-room.CLIFF-MIDDLE.LDESC	あなたは川の峡谷の壁を半分ほど登った岩棚にいる。ここから見ると、アラゲイン滝の本流は曲がりくねった通路へ流れ込んでおり、そこへ入ることはできない。下には峡谷の底があり、上にはまだ登れそうな崖が続いている。	draft
-room.CLIFF-MIDDLE.DESC	岩棚	draft
-room.CANYON-VIEW.LDESC	あなたは大峡谷の西壁、その頂にいる。ここからは峡谷と、上流のフリジッド川の一部を見渡すことができる。峡谷の向こうでは、白い断崖が東方のフラットヘッド山脈の雄大な山壁と一つになっている。峡谷を北へ、上流へとたどれば、虹をまとったアラゲイン滝が見える。雄大なフリジッド川は巨大な暗い洞窟から流れ出している。西と南には、何キロにもわたって広がる果てしない森が見える。道が北西へ続いている。ここから峡谷へ下りることもできそうだ。	draft
-room.CANYON-VIEW.DESC	峡谷の眺め	draft
-room.MINE-ENTRANCE.LDESC	あなたはかつて炭鉱だったらしい場所の入口に立っている。坑道は西の壁へ入り、部屋の南端にも出口がある。	draft
-room.MINE-ENTRANCE.DESC	炭鉱入口	draft
-room.SQUEEKY-ROOM.LDESC	ここは小さな部屋だ。北端の通路から奇妙なキーキー音が聞こえてくる。東へ逃げることもできる。	draft
-room.SQUEEKY-ROOM.DESC	きしむ部屋	draft
-room.BAT-ROOM.DESC	コウモリの部屋	draft
-room.SHAFT-ROOM.LDESC	ここは広い部屋で、中央には床を貫いて暗闇へ下る小さな縦穴がある。西と北に出口がある。縦穴の上には金属製の枠組みが設けられ、そこに重い鉄の鎖が取り付けられている。	draft
-room.SHAFT-ROOM.DESC	縦穴の部屋	draft
-room.SMELLY-ROOM.LDESC	ここは特徴のない小部屋だ。しかし、下へ続く小さな階段の方からひどい悪臭が漂ってくる。南には細いトンネルがある。	draft
-room.SMELLY-ROOM.DESC	悪臭の部屋	draft
-room.GAS-ROOM.LDESC	ここは石炭ガスの強い臭いがする小部屋だ。短い階段を上る道と、東へ続く細いトンネルがある。	draft
-room.GAS-ROOM.DESC	ガスの部屋	draft
-room.LADDER-TOP.LDESC	ここはとても小さな部屋だ。隅には壊れかけた木のはしごがあり、下へ続いている。降りても大丈夫かもしれない。上へ続く階段もある。	draft
-room.LADDER-TOP.DESC	はしごの上	draft
-room.LADDER-BOTTOM.LDESC	ここはやや広い部屋だ。片側には細い木のはしごの下端がある。西と南には部屋を出る通路がある。	draft
-room.LADDER-BOTTOM.DESC	はしごの下	draft
-room.DEAD-END-5.DESC	行き止まり	draft
-room.DEAD-END-5.LDESC	炭鉱の行き止まりに来てしまった。	draft
-room.TIMBER-ROOM.LDESC	ここは長く細い通路で、折れた坑木が散乱している。東から来た広い通路は部屋の西端で折れ、非常に細い通路になっている。西からは強い風が吹いてくる。	draft
-room.TIMBER-ROOM.DESC	坑木の部屋	draft
-room.LOWER-SHAFT.LDESC	ここは風の吹き込む小部屋で、長い縦穴の底にあたる。南には通路、東には非常に細い通路がある。縦穴には重い鉄の鎖が見える。	draft
-room.LOWER-SHAFT.DESC	風の吹く部屋	draft
-room.MACHINE-ROOM.DESC	機械室	draft
-room.MINE-1.LDESC	ここは何の変哲もない炭鉱の一角だ。	draft
-room.MINE-1.DESC	炭鉱	draft
-room.MINE-2.LDESC	ここは何の変哲もない炭鉱の一角だ。	draft
-room.MINE-2.DESC	炭鉱	draft
-room.MINE-3.LDESC	ここは何の変哲もない炭鉱の一角だ。	draft
-room.MINE-3.DESC	炭鉱	draft
-room.MINE-4.LDESC	ここは何の変哲もない炭鉱の一角だ。	draft
-room.MINE-4.DESC	炭鉱	draft
-room.SLIDE-ROOM.LDESC	ここは炭鉱の一部だったらしい小部屋だ。南の壁には「花崗岩の壁」という文字が岩に刻まれている。東には長い通路があり、急な金属製の滑り台がねじれながら下へ続いている。北には小さな開口部がある。	draft
-room.SLIDE-ROOM.DESC	滑り台の部屋	draft
+"id"	"english"	"japanese"	"status"	"notes"	"source_file"	"line"	"room"	"property"
+"room.WEST-OF-HOUSE.DESC"	"West of House"	"家の西側"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1241"	"WEST-OF-HOUSE"	"DESC"
+"room.STONE-BARROW.LDESC"	"You are standing in front of a massive barrow of stone. In the east face\nis a huge stone door which is open. You cannot see into the dark of the tomb."	"巨大な石塚の前に立っている。東面には巨大な石の扉があり、開いている。墓室の奥は暗くて見通せない。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1257"	"STONE-BARROW"	"LDESC"
+"room.STONE-BARROW.DESC"	"Stone Barrow"	"石塚"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1259"	"STONE-BARROW"	"DESC"
+"room.NORTH-OF-HOUSE.LDESC"	"You are facing the north side of a white house. There is no door here,\nand all the windows are boarded up. To the north a narrow path winds through\nthe trees."	"白い家の北側にいる。ここには扉がなく、窓はすべて板でふさがれている。北へは木々の間を縫う細い道が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1267"	"NORTH-OF-HOUSE"	"LDESC"
+"room.NORTH-OF-HOUSE.DESC"	"North of House"	"家の北側"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1270"	"NORTH-OF-HOUSE"	"DESC"
+"room.SOUTH-OF-HOUSE.LDESC"	"You are facing the south side of a white house. There is no door here,\nand all the windows are boarded."	"白い家の南側にいる。ここには扉がなく、窓はすべて板でふさがれている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1283"	"SOUTH-OF-HOUSE"	"LDESC"
+"room.SOUTH-OF-HOUSE.DESC"	"South of House"	"家の南側"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1285"	"SOUTH-OF-HOUSE"	"DESC"
+"room.EAST-OF-HOUSE.DESC"	"Behind House"	"家の裏側"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1297"	"EAST-OF-HOUSE"	"DESC"
+"room.FOREST-1.LDESC"	"This is a forest, with trees in all directions. To the east,\nthere appears to be sunlight."	"ここは森の中だ。どちらを向いても木々が立ち並んでいる。東からは陽光が差しているようだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1312"	"FOREST-1"	"LDESC"
+"room.FOREST-1.DESC"	"Forest"	"森"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1314"	"FOREST-1"	"DESC"
+"room.FOREST-2.LDESC"	"This is a dimly lit forest, with large trees all around."	"ここは薄暗い森で、周囲を大きな木々に囲まれている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1326"	"FOREST-2"	"LDESC"
+"room.FOREST-2.DESC"	"Forest"	"森"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1327"	"FOREST-2"	"DESC"
+"room.MOUNTAINS.LDESC"	"The forest thins out, revealing impassable mountains."	"木々がまばらになり、その先に越えられない山々が姿を現している。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1339"	"MOUNTAINS"	"LDESC"
+"room.MOUNTAINS.DESC"	"Forest"	"森"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1340"	"MOUNTAINS"	"DESC"
+"room.FOREST-3.LDESC"	"This is a dimly lit forest, with large trees all around."	"ここは薄暗い森で、周囲を大きな木々に囲まれている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1351"	"FOREST-3"	"LDESC"
+"room.FOREST-3.DESC"	"Forest"	"森"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1352"	"FOREST-3"	"DESC"
+"room.PATH.LDESC"	"This is a path winding through a dimly lit forest. The path heads\nnorth-south here. One particularly large tree with some low branches\nstands at the edge of the path."	"ここは薄暗い森を曲がりくねって進む小道だ。道は南北へ伸びている。道端には、低い枝を張ったひときわ大きな木が立っている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1366"	"PATH"	"LDESC"
+"room.PATH.DESC"	"Forest Path"	"森の小道"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1369"	"PATH"	"DESC"
+"room.UP-A-TREE.DESC"	"Up a Tree"	"木の上"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1381"	"UP-A-TREE"	"DESC"
+"room.GRATING-CLEARING.DESC"	"Clearing"	"空き地"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1390"	"GRATING-CLEARING"	"DESC"
+"room.CLEARING.LDESC"	"You are in a small clearing in a well marked forest path that\nextends to the east and west."	"ここは、はっきりと踏み固められた森の小道にある小さな空き地だ。小道は東西へ伸びている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1413"	"CLEARING"	"LDESC"
+"room.CLEARING.DESC"	"Clearing"	"空き地"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1415"	"CLEARING"	"DESC"
+"room.KITCHEN.DESC"	"Kitchen"	"台所"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1431"	"KITCHEN"	"DESC"
+"room.ATTIC.LDESC"	"This is the attic. The only exit is a stairway leading down."	"ここは屋根裏部屋だ。出口は下へ続く階段だけだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1445"	"ATTIC"	"LDESC"
+"room.ATTIC.DESC"	"Attic"	"屋根裏部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1446"	"ATTIC"	"DESC"
+"room.LIVING-ROOM.DESC"	"Living Room"	"居間"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1453"	"LIVING-ROOM"	"DESC"
+"room.CELLAR.DESC"	"Cellar"	"地下室"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1468"	"CELLAR"	"DESC"
+"room.TROLL-ROOM.LDESC"	"This is a small room with passages to the east and south and a\nforbidding hole leading west. Bloodstains and deep scratches\n(perhaps made by an axe) mar the walls."	"ここは小さな部屋だ。通路が東と南へ伸び、西には不気味な穴が口を開けている。壁には血痕と深い引っかき傷が残っている。斧でつけられたものかもしれない。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1482"	"TROLL-ROOM"	"LDESC"
+"room.TROLL-ROOM.DESC"	"The Troll Room"	"トロールの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1485"	"TROLL-ROOM"	"DESC"
+"room.EAST-OF-CHASM.LDESC"	"You are on the east edge of a chasm, the bottom of which cannot be\nseen. A narrow passage goes north, and the path you are on continues\nto the east."	"底の見えない深淵の東端にいる。細い通路が北へ伸び、今いる道は東へ続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1497"	"EAST-OF-CHASM"	"LDESC"
+"room.EAST-OF-CHASM.DESC"	"East of Chasm"	"裂け目の東側"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1500"	"EAST-OF-CHASM"	"DESC"
+"room.GALLERY.LDESC"	"This is an art gallery. Most of the paintings have been stolen by\nvandals with exceptional taste. The vandals left through either the\nnorth or west exits."	"ここは美術展示室だ。絵のほとんどは、並外れた審美眼を持つならず者たちに盗まれている。彼らは北か西の出口から立ち去った。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1510"	"GALLERY"	"LDESC"
+"room.GALLERY.DESC"	"Gallery"	"美術展示室"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1513"	"GALLERY"	"DESC"
+"room.STUDIO.LDESC"	"This appears to have been an artist's studio. The walls and floors are\nsplattered with paints of 69 different colors. Strangely enough, nothing\nof value is hanging here. At the south end of the room is an open door\n(also covered with paint). A dark and narrow chimney leads up from a\nfireplace; although you might be able to get up it, it seems unlikely\nyou could get back down."	"ここはかつて画家の仕事場だったらしい。壁と床には何色もの絵の具が飛び散っている。不思議なことに、価値のある物は何も掛かっていない。部屋の南端には開いた扉があり、それも絵の具まみれだ。暖炉からは暗く細い煙突が上へ伸びている。登ることはできそうだが、降りて戻るのは難しそうだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1521"	"STUDIO"	"LDESC"
+"room.STUDIO.DESC"	"Studio"	"画家の仕事場"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1527"	"STUDIO"	"DESC"
+"room.MAZE-1.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1540"	"MAZE-1"	"LDESC"
+"room.MAZE-1.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1541"	"MAZE-1"	"DESC"
+"room.MAZE-2.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1550"	"MAZE-2"	"LDESC"
+"room.MAZE-2.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1551"	"MAZE-2"	"DESC"
+"room.MAZE-3.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1559"	"MAZE-3"	"LDESC"
+"room.MAZE-3.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1560"	"MAZE-3"	"DESC"
+"room.MAZE-4.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1568"	"MAZE-4"	"LDESC"
+"room.MAZE-4.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1569"	"MAZE-4"	"DESC"
+"room.DEAD-END-1.DESC"	"Dead End"	"行き止まり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1577"	"DEAD-END-1"	"DESC"
+"room.DEAD-END-1.LDESC"	"You have come to a dead end in the maze."	"迷路の行き止まりだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1578"	"DEAD-END-1"	"LDESC"
+"room.MAZE-5.LDESC"	"This is part of a maze of twisty little passages, all alike.\nA skeleton, probably the remains of a luckless adventurer, lies here."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。運の悪い冒険者の亡骸らしい骸骨が横たわっている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1584"	"MAZE-5"	"LDESC"
+"room.MAZE-5.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1586"	"MAZE-5"	"DESC"
+"room.DEAD-END-2.DESC"	"Dead End"	"行き止まり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1594"	"DEAD-END-2"	"DESC"
+"room.DEAD-END-2.LDESC"	"You have come to a dead end in the maze."	"迷路の行き止まりだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1595"	"DEAD-END-2"	"LDESC"
+"room.MAZE-6.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1601"	"MAZE-6"	"LDESC"
+"room.MAZE-6.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1602"	"MAZE-6"	"DESC"
+"room.MAZE-7.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1611"	"MAZE-7"	"LDESC"
+"room.MAZE-7.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1612"	"MAZE-7"	"DESC"
+"room.MAZE-8.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1622"	"MAZE-8"	"LDESC"
+"room.MAZE-8.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1623"	"MAZE-8"	"DESC"
+"room.DEAD-END-3.DESC"	"Dead End"	"行き止まり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1631"	"DEAD-END-3"	"DESC"
+"room.DEAD-END-3.LDESC"	"You have come to a dead end in the maze."	"迷路の行き止まりだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1632"	"DEAD-END-3"	"LDESC"
+"room.MAZE-9.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1638"	"MAZE-9"	"LDESC"
+"room.MAZE-9.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1639"	"MAZE-9"	"DESC"
+"room.MAZE-10.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1650"	"MAZE-10"	"LDESC"
+"room.MAZE-10.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1651"	"MAZE-10"	"DESC"
+"room.MAZE-11.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1659"	"MAZE-11"	"LDESC"
+"room.MAZE-11.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1660"	"MAZE-11"	"DESC"
+"room.GRATING-ROOM.DESC"	"Grating Room"	"鉄格子の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1669"	"GRATING-ROOM"	"DESC"
+"room.MAZE-12.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1679"	"MAZE-12"	"LDESC"
+"room.MAZE-12.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1680"	"MAZE-12"	"DESC"
+"room.DEAD-END-4.DESC"	"Dead End"	"行き止まり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1690"	"DEAD-END-4"	"DESC"
+"room.DEAD-END-4.LDESC"	"You have come to a dead end in the maze."	"迷路の行き止まりだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1691"	"DEAD-END-4"	"LDESC"
+"room.MAZE-13.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1697"	"MAZE-13"	"LDESC"
+"room.MAZE-13.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1698"	"MAZE-13"	"DESC"
+"room.MAZE-14.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1707"	"MAZE-14"	"LDESC"
+"room.MAZE-14.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1708"	"MAZE-14"	"DESC"
+"room.MAZE-15.LDESC"	"This is part of a maze of twisty little passages, all alike."	"ここは曲がりくねった小さな通路の迷路の一部だ。どれもそっくりに見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1717"	"MAZE-15"	"LDESC"
+"room.MAZE-15.DESC"	"Maze"	"迷路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1718"	"MAZE-15"	"DESC"
+"room.CYCLOPS-ROOM.DESC"	"Cyclops Room"	"サイクロプスの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1730"	"CYCLOPS-ROOM"	"DESC"
+"room.STRANGE-PASSAGE.LDESC"	"This is a long passage. To the west is one entrance. On the\neast there is an old wooden door, with a large opening in it (about\ncyclops sized)."	"ここは長い通路だ。西に入口が一つある。東には古い木の扉があり、サイクロプスほど大きな者も通れそうな穴が開いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1743"	"STRANGE-PASSAGE"	"LDESC"
+"room.STRANGE-PASSAGE.DESC"	"Strange Passage"	"奇妙な通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1746"	"STRANGE-PASSAGE"	"DESC"
+"room.TREASURE-ROOM.LDESC"	"This is a large room, whose east wall is solid granite. A number\nof discarded bags, which crumble at your touch, are scattered about\non the floor. There is an exit down a staircase."	"ここは広い部屋で、東の壁は堅い花崗岩だ。床には捨てられた袋がいくつも散らばっているが、触れると崩れてしまう。階段を下りる出口がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1755"	"TREASURE-ROOM"	"LDESC"
+"room.TREASURE-ROOM.DESC"	"Treasure Room"	"宝物庫"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1758"	"TREASURE-ROOM"	"DESC"
+"room.RESERVOIR-SOUTH.DESC"	"Reservoir South"	"貯水池南岸"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1771"	"RESERVOIR-SOUTH"	"DESC"
+"room.RESERVOIR.DESC"	"Reservoir"	"貯水池"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1785"	"RESERVOIR"	"DESC"
+"room.RESERVOIR-NORTH.DESC"	"Reservoir North"	"貯水池北岸"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1798"	"RESERVOIR-NORTH"	"DESC"
+"room.STREAM-VIEW.LDESC"	"You are standing on a path beside a gently flowing stream. The path\nfollows the stream, which flows from west to east."	"あなたは穏やかに流れる小川のそばの道に立っている。道は西から東へ流れる小川に沿って続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1810"	"STREAM-VIEW"	"LDESC"
+"room.STREAM-VIEW.DESC"	"Stream View"	"小川のほとり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1812"	"STREAM-VIEW"	"DESC"
+"room.IN-STREAM.LDESC"	"You are on the gently flowing stream. The upstream route is too narrow\nto navigate, and the downstream route is invisible due to twisting\nwalls. There is a narrow beach to land on."	"穏やかに流れる小川の上にいる。上流は狭すぎて進めず、下流は曲がりくねった壁に隠れて見えない。上陸できる細い岸がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1822"	"IN-STREAM"	"LDESC"
+"room.IN-STREAM.DESC"	"Stream"	"小川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1825"	"IN-STREAM"	"DESC"
+"room.MIRROR-ROOM-1.DESC"	"Mirror Room"	"鏡の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1841"	"MIRROR-ROOM-1"	"DESC"
+"room.MIRROR-ROOM-2.DESC"	"Mirror Room"	"鏡の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1850"	"MIRROR-ROOM-2"	"DESC"
+"room.SMALL-CAVE.LDESC"	"This is a tiny cave with entrances west and north, and a staircase\nleading down."	"ここは小さな洞窟で、西と北に入口があり、下へ続く階段もある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1860"	"SMALL-CAVE"	"LDESC"
+"room.SMALL-CAVE.DESC"	"Cave"	"洞窟"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1862"	"SMALL-CAVE"	"DESC"
+"room.TINY-CAVE.LDESC"	"This is a tiny cave with entrances west and north, and a dark,\nforbidding staircase leading down."	"ここは小さな洞窟で、西と北に入口があり、暗く不気味な階段が下へ続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1873"	"TINY-CAVE"	"LDESC"
+"room.TINY-CAVE.DESC"	"Cave"	"洞窟"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1875"	"TINY-CAVE"	"DESC"
+"room.COLD-PASSAGE.LDESC"	"This is a cold and damp corridor where a long east-west passageway\nturns into a southward path."	"ここは冷たく湿った廊下で、東西に伸びる長い通路が南向きの道へ折れている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1886"	"COLD-PASSAGE"	"LDESC"
+"room.COLD-PASSAGE.DESC"	"Cold Passage"	"冷たい通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1888"	"COLD-PASSAGE"	"DESC"
+"room.NARROW-PASSAGE.LDESC"	"This is a long and narrow corridor where a long north-south passageway\nbriefly narrows even further."	"ここは長く狭い廊下で、南北に伸びる通路が一時的にさらに細くなっている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1896"	"NARROW-PASSAGE"	"LDESC"
+"room.NARROW-PASSAGE.DESC"	"Narrow Passage"	"細い通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1898"	"NARROW-PASSAGE"	"DESC"
+"room.WINDING-PASSAGE.LDESC"	"This is a winding passage. It seems that there are only exits\non the east and north."	"ここは曲がりくねった通路だ。出口は東と北にしかないようだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1906"	"WINDING-PASSAGE"	"LDESC"
+"room.WINDING-PASSAGE.DESC"	"Winding Passage"	"曲がりくねった通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1908"	"WINDING-PASSAGE"	"DESC"
+"room.TWISTING-PASSAGE.LDESC"	"This is a winding passage. It seems that there are only exits\non the east and north."	"ここは曲がりくねった通路だ。出口は東と北にしかないようだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1916"	"TWISTING-PASSAGE"	"LDESC"
+"room.TWISTING-PASSAGE.DESC"	"Twisting Passage"	"ねじれた通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1918"	"TWISTING-PASSAGE"	"DESC"
+"room.ATLANTIS-ROOM.LDESC"	"This is an ancient room, long under water. There is an exit to\nthe south and a staircase leading up."	"ここは長い間水中に沈んでいた古代の部屋だ。南に出口があり、上へ続く階段もある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1926"	"ATLANTIS-ROOM"	"LDESC"
+"room.ATLANTIS-ROOM.DESC"	"Atlantis Room"	"アトランティスの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1928"	"ATLANTIS-ROOM"	"DESC"
+"room.EW-PASSAGE.LDESC"	"This is a narrow east-west passageway. There is a narrow stairway\nleading down at the north end of the room."	"ここは東西に伸びる細い通路だ。北端には下へ続く細い階段がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1941"	"EW-PASSAGE"	"LDESC"
+"room.EW-PASSAGE.DESC"	"East-West Passage"	"東西通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1943"	"EW-PASSAGE"	"DESC"
+"room.ROUND-ROOM.LDESC"	"This is a circular stone room with passages in all directions. Several\nof them have unfortunately been blocked by cave-ins."	"ここは円形の石室で、あらゆる方角へ通路が伸びている。残念ながら、そのうちいくつかは落盤でふさがれている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1955"	"ROUND-ROOM"	"LDESC"
+"room.ROUND-ROOM.DESC"	"Round Room"	"円形の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1957"	"ROUND-ROOM"	"DESC"
+"room.DEEP-CANYON.DESC"	"Deep Canyon"	"深い峡谷"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1967"	"DEEP-CANYON"	"DESC"
+"room.DAMP-CAVE.LDESC"	"This cave has exits to the west and east, and narrows to a crack toward\nthe south. The earth is particularly damp here."	"この洞窟には西と東に出口があり、南へ行くほど細くなって裂け目になっている。ここは土がとりわけ湿っている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1979"	"DAMP-CAVE"	"LDESC"
+"room.DAMP-CAVE.DESC"	"Damp Cave"	"湿った洞窟"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1981"	"DAMP-CAVE"	"DESC"
+"room.LOUD-ROOM.DESC"	"Loud Room"	"轟音の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"1990"	"LOUD-ROOM"	"DESC"
+"room.NS-PASSAGE.LDESC"	"This is a high north-south passage, which forks to the northeast."	"ここは天井の高い南北通路で、北東へ枝分かれしている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2001"	"NS-PASSAGE"	"LDESC"
+"room.NS-PASSAGE.DESC"	"North-South Passage"	"南北通路"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2002"	"NS-PASSAGE"	"DESC"
+"room.CHASM-ROOM.LDESC"	"A chasm runs southwest to northeast and the path follows it. You are\non the south side of the chasm, where a crack opens into a passage."	"裂け目が南西から北東へ走り、道はそれに沿って続いている。あなたは裂け目の南側におり、岩の割れ目が通路へ開いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2011"	"CHASM-ROOM"	"LDESC"
+"room.CHASM-ROOM.DESC"	"Chasm"	"裂け目"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2013"	"CHASM-ROOM"	"DESC"
+"room.ENTRANCE-TO-HADES.DESC"	"Entrance to Hades"	"冥府への入口"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2029"	"ENTRANCE-TO-HADES"	"DESC"
+"room.LAND-OF-LIVING-DEAD.LDESC"	"You have entered the Land of the Living Dead. Thousands of lost souls\ncan be heard weeping and moaning. In the corner are stacked the remains\nof dozens of previous adventurers less fortunate than yourself.\nA passage exits to the north."	"あなたは生ける死者の国へ足を踏み入れた。何千もの迷える魂が泣き叫び、うめき声が聞こえる。隅には、あなたほど幸運でなかった何十人もの冒険者の亡骸が積み上げられている。北へ通路が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2043"	"LAND-OF-LIVING-DEAD"	"LDESC"
+"room.LAND-OF-LIVING-DEAD.DESC"	"Land of the Dead"	"死者の国"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2047"	"LAND-OF-LIVING-DEAD"	"DESC"
+"room.ENGRAVINGS-CAVE.LDESC"	"You have entered a low cave with passages leading northwest and east."	"あなたは天井の低い洞窟に入った。通路は北西と東へ続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2060"	"ENGRAVINGS-CAVE"	"LDESC"
+"room.ENGRAVINGS-CAVE.DESC"	"Engravings Cave"	"彫刻の洞窟"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2061"	"ENGRAVINGS-CAVE"	"DESC"
+"room.EGYPT-ROOM.LDESC"	"This is a room which looks like an Egyptian tomb. There is an\nascending staircase to the west."	"ここはエジプトの墓室のように見える。西には上へ続く階段がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2069"	"EGYPT-ROOM"	"LDESC"
+"room.EGYPT-ROOM.DESC"	"Egyptian Room"	"エジプトの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2071"	"EGYPT-ROOM"	"DESC"
+"room.DOME-ROOM.DESC"	"Dome Room"	"丸天井の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2079"	"DOME-ROOM"	"DESC"
+"room.TORCH-ROOM.DESC"	"Torch Room"	"松明の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2089"	"TORCH-ROOM"	"DESC"
+"room.NORTH-TEMPLE.LDESC"	"This is the north end of a large temple. On the east wall is an\nancient inscription, probably a prayer in a long-forgotten language.\nBelow the prayer is a staircase leading down. The west wall is solid\ngranite. The exit to the north end of the room is through huge\nmarble pillars."	"ここは大きな神殿の北端だ。東の壁には、とうに忘れ去られた言語で祈りを記したらしい古代の碑文がある。その下には階段があり、下へ続いている。西の壁は堅い花崗岩だ。部屋北端の出口は、巨大な大理石の柱の間を抜けている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2101"	"NORTH-TEMPLE"	"LDESC"
+"room.NORTH-TEMPLE.DESC"	"Temple"	"神殿"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2106"	"NORTH-TEMPLE"	"DESC"
+"room.SOUTH-TEMPLE.LDESC"	"This is the south end of a large temple. In front of you is what\nappears to be an altar. In one corner is a small hole in the floor\nwhich leads into darkness. You probably could not get back up it."	"ここは大きな神殿の南端だ。目の前には祭壇らしきものがある。隅には床に小さな穴があり、暗闇へ続いている。そこへ下りたら、おそらく戻っては来られないだろう。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2120"	"SOUTH-TEMPLE"	"LDESC"
+"room.SOUTH-TEMPLE.DESC"	"Altar"	"祭壇"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2123"	"SOUTH-TEMPLE"	"DESC"
+"room.DAM-ROOM.DESC"	"Dam"	"ダム"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2137"	"DAM-ROOM"	"DESC"
+"room.DAM-LOBBY.LDESC"	"This room appears to have been the waiting room for groups touring\nthe dam. There are open doorways here to the north and east marked\n""Private"", and there is a path leading south over the top of the dam."	"ここはダム見学者のための待合室だったらしい。北と東には「PRIVATE」と記された開いた戸口があり、南へはダムの頂上を渡る道が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2150"	"DAM-LOBBY"	"LDESC"
+"room.DAM-LOBBY.DESC"	"Dam Lobby"	"ダムの待合室"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2153"	"DAM-LOBBY"	"DESC"
+"room.MAINTENANCE-ROOM.LDESC"	"This is what appears to have been the maintenance room for Flood\nControl Dam #3. Apparently, this room has been ransacked recently, for\nmost of the valuable equipment is gone. On the wall in front of you is a\ngroup of buttons colored blue, yellow, brown, and red. There are doorways to\nthe west and south."	"ここは第3洪水調整ダムの整備室だったらしい。最近荒らされたようで、価値のある機材はほとんどなくなっている。正面の壁には青、黄、茶、赤のボタンが並んでいる。西と南に戸口がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2162"	"MAINTENANCE-ROOM"	"LDESC"
+"room.MAINTENANCE-ROOM.DESC"	"Maintenance Room"	"整備室"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2167"	"MAINTENANCE-ROOM"	"DESC"
+"room.DAM-BASE.LDESC"	"You are at the base of Flood Control Dam #3, which looms above you\nand to the north. The river Frigid is flowing by here. Along the\nriver are the White Cliffs which seem to form giant walls stretching\nfrom north to south along the shores of the river as it winds its\nway downstream."	"第3洪水調整ダムのふもとにいる。巨大なダムが北側の頭上へそびえている。ここにはフリジッド川が流れている。川沿いには白い断崖がそびえ、下流へ曲がりくねる川の両岸で、南北に伸びる巨大な壁を形作っているようだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2179"	"DAM-BASE"	"LDESC"
+"room.DAM-BASE.DESC"	"Dam Base"	"ダムのふもと"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2184"	"DAM-BASE"	"DESC"
+"room.RIVER-1.LDESC"	"You are on the Frigid River in the vicinity of the Dam. The river\nflows quietly here. There is a landing on the west shore."	"あなたはダム近くのフリジッド川にいる。ここでは川は静かに流れている。西岸に船着き場がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2193"	"RIVER-1"	"LDESC"
+"room.RIVER-1.DESC"	"Frigid River"	"フリジッド川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2195"	"RIVER-1"	"DESC"
+"room.RIVER-2.LDESC"	"The river turns a corner here making it impossible to see the\nDam. The White Cliffs loom on the east bank and large rocks prevent\nlanding on the west."	"川はここで曲がっており、ダムはもはや見えない。東岸には白い断崖がそびえ、西岸には大岩があって上陸できない。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2207"	"RIVER-2"	"LDESC"
+"room.RIVER-2.DESC"	"Frigid River"	"フリジッド川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2210"	"RIVER-2"	"DESC"
+"room.RIVER-3.LDESC"	"The river descends here into a valley. There is a narrow beach on the\nwest shore below the cliffs. In the distance a faint rumbling can be\nheard."	"川はここから谷へ下っている。西岸の断崖の下には細い砂浜がある。遠くから、かすかな轟きが聞こえる。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2222"	"RIVER-3"	"LDESC"
+"room.RIVER-3.DESC"	"Frigid River"	"フリジッド川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2225"	"RIVER-3"	"DESC"
+"room.WHITE-CLIFFS-NORTH.LDESC"	"You are on a narrow strip of beach which runs along the base of the\nWhite Cliffs. There is a narrow path heading south along the Cliffs\nand a tight passage leading west into the cliffs themselves."	"あなたは白い断崖のふもとに沿って伸びる細い砂浜にいる。断崖沿いに南へ向かう細道と、断崖の中へ西向きに入る狭い通路がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2236"	"WHITE-CLIFFS-NORTH"	"LDESC"
+"room.WHITE-CLIFFS-NORTH.DESC"	"White Cliffs Beach"	"白い断崖の浜"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2239"	"WHITE-CLIFFS-NORTH"	"DESC"
+"room.WHITE-CLIFFS-SOUTH.LDESC"	"You are on a rocky, narrow strip of beach beside the Cliffs. A\nnarrow path leads north along the shore."	"あなたは断崖のそばにある岩だらけの細い浜にいる。岸沿いに北へ細道が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2249"	"WHITE-CLIFFS-SOUTH"	"LDESC"
+"room.WHITE-CLIFFS-SOUTH.DESC"	"White Cliffs Beach"	"白い断崖の浜"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2251"	"WHITE-CLIFFS-SOUTH"	"DESC"
+"room.RIVER-4.LDESC"	"The river is running faster here and the sound ahead appears to be\nthat of rushing water. On the east shore is a sandy beach. A small\narea of beach can also be seen below the cliffs on the west shore."	"ここでは川の流れが速くなり、前方から激しい水音が聞こえてくる。東岸には砂浜がある。西岸の断崖の下にも小さな浜が見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2261"	"RIVER-4"	"LDESC"
+"room.RIVER-4.DESC"	"Frigid River"	"フリジッド川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2264"	"RIVER-4"	"DESC"
+"room.RIVER-5.LDESC"	"The sound of rushing water is nearly unbearable here. On the east\nshore is a large landing area."	"ここでは激流の音が耐えがたいほど大きい。東岸には広い上陸場所がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2277"	"RIVER-5"	"LDESC"
+"room.RIVER-5.DESC"	"Frigid River"	"フリジッド川"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2279"	"RIVER-5"	"DESC"
+"room.SHORE.LDESC"	"You are on the east shore of the river. The water here seems somewhat\ntreacherous. A path travels from north to south here, the south end\nquickly turning around a sharp corner."	"あなたは川の東岸にいる。ここの水面はいささか危険そうだ。道は南北に伸び、南端ですぐ鋭く曲がっている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2289"	"SHORE"	"LDESC"
+"room.SHORE.DESC"	"Shore"	"川岸"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2292"	"SHORE"	"DESC"
+"room.SANDY-BEACH.LDESC"	"You are on a large sandy beach on the east shore of the river, which is\nflowing quickly by. A path runs beside the river to the south here, and\na passage is partially buried in sand to the northeast."	"あなたは流れの速い川の東岸にある広い砂浜にいる。川沿いの道が南へ続き、北東には砂に半ば埋もれた通路がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2302"	"SANDY-BEACH"	"LDESC"
+"room.SANDY-BEACH.DESC"	"Sandy Beach"	"砂浜"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2305"	"SANDY-BEACH"	"DESC"
+"room.SANDY-CAVE.LDESC"	"This is a sand-filled cave whose exit is to the southwest."	"ここは砂で満たされた洞窟で、出口は南西にある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2314"	"SANDY-CAVE"	"LDESC"
+"room.SANDY-CAVE.DESC"	"Sandy Cave"	"砂の洞窟"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2315"	"SANDY-CAVE"	"DESC"
+"room.ARAGAIN-FALLS.DESC"	"Aragain Falls"	"アラゲイン滝"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2321"	"ARAGAIN-FALLS"	"DESC"
+"room.ON-RAINBOW.LDESC"	"You are on top of a rainbow (I bet you never thought you would walk\non a rainbow), with a magnificent view of the Falls. The rainbow\ntravels east-west here."	"虹の上にいる。まさか虹の上を歩くことになるとは思わなかっただろう。ここからは滝の壮大な眺めを楽しめる。虹は東西へ伸びている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2333"	"ON-RAINBOW"	"LDESC"
+"room.ON-RAINBOW.DESC"	"On the Rainbow"	"虹の上"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2336"	"ON-RAINBOW"	"DESC"
+"room.END-OF-RAINBOW.LDESC"	"You are on a small, rocky beach on the continuation of the Frigid\nRiver past the Falls. The beach is narrow due to the presence of the\nWhite Cliffs. The river canyon opens here and sunlight shines in\nfrom above. A rainbow crosses over the falls to the east and a narrow\npath continues to the southwest."	"あなたは滝を越えて続くフリジッド川の、小さな岩浜にいる。白い断崖が迫っているため浜は細い。ここでは川の峡谷が開け、上から陽光が差し込んでいる。東では虹が滝をまたぎ、細い道が南西へ続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2345"	"END-OF-RAINBOW"	"LDESC"
+"room.END-OF-RAINBOW.DESC"	"End of Rainbow"	"虹の果て"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2350"	"END-OF-RAINBOW"	"DESC"
+"room.CANYON-BOTTOM.LDESC"	"You are beneath the walls of the river canyon which may be climbable\nhere. The lesser part of the runoff of Aragain Falls flows by below.\nTo the north is a narrow path."	"川の峡谷の壁の下にいる。この辺りなら壁を登れそうだ。眼下にはアラゲイン滝から分かれた小さな流れが通っている。北へ細道が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2361"	"CANYON-BOTTOM"	"LDESC"
+"room.CANYON-BOTTOM.DESC"	"Canyon Bottom"	"峡谷の底"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2364"	"CANYON-BOTTOM"	"DESC"
+"room.CLIFF-MIDDLE.LDESC"	"You are on a ledge about halfway up the wall of the river canyon.\nYou can see from here that the main flow from Aragain Falls twists\nalong a passage which it is impossible for you to enter. Below you is the\ncanyon bottom. Above you is more cliff, which appears\nclimbable."	"あなたは川の峡谷の壁を半分ほど登った岩棚にいる。ここから見ると、アラゲイン滝の本流は曲がりくねった通路へ流れ込んでおり、そこへ入ることはできない。下には峡谷の底があり、上にはまだ登れそうな崖が続いている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2373"	"CLIFF-MIDDLE"	"LDESC"
+"room.CLIFF-MIDDLE.DESC"	"Rocky Ledge"	"岩棚"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2378"	"CLIFF-MIDDLE"	"DESC"
+"room.CANYON-VIEW.LDESC"	"You are at the top of the Great Canyon on its west wall. From here\nthere is a marvelous view of the canyon and parts of the Frigid River\nupstream. Across the canyon, the walls of the White Cliffs join the\nmighty ramparts of the Flathead Mountains to the east. Following the\nCanyon upstream to the north, Aragain Falls may be seen, complete with\nrainbow. The mighty Frigid River flows out from a great dark cavern. To\nthe west and south can be seen an immense forest, stretching for miles\naround. A path leads northwest. It is possible to climb down into\nthe canyon from here."	"大峡谷の西壁、その頂にいる。ここからは峡谷と、上流のフリジッド川の一部を見渡せる。峡谷の向こうでは、白い断崖が東方のフラットヘッド山脈の雄大な山壁と連なっている。峡谷を北の上流へたどれば、虹をまとったアラゲイン滝が見える。雄大なフリジッド川は巨大な暗い洞窟から流れ出している。西と南には、何マイルにもわたって広がる果てしない森が見える。道が北西へ続いている。ここから峡谷へ下りることもできる。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2387"	"CANYON-VIEW"	"LDESC"
+"room.CANYON-VIEW.DESC"	"Canyon View"	"峡谷の眺め"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2396"	"CANYON-VIEW"	"DESC"
+"room.MINE-ENTRANCE.LDESC"	"You are standing at the entrance of what might have been a coal mine.\nThe shaft enters the west wall, and there is another exit on the south\nend of the room."	"あなたはかつて炭鉱だったらしい場所の入口に立っている。坑道は西の壁へ入り、部屋の南端にも出口がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2422"	"MINE-ENTRANCE"	"LDESC"
+"room.MINE-ENTRANCE.DESC"	"Mine Entrance"	"炭鉱入口"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2425"	"MINE-ENTRANCE"	"DESC"
+"room.SQUEEKY-ROOM.LDESC"	"You are in a small room. Strange squeaky sounds may be heard coming\nfrom the passage at the north end. You may also escape to the east."	"ここは小さな部屋だ。北端の通路から奇妙なキーキー音が聞こえてくる。東にも出口がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2434"	"SQUEEKY-ROOM"	"LDESC"
+"room.SQUEEKY-ROOM.DESC"	"Squeaky Room"	"キーキー音の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2436"	"SQUEEKY-ROOM"	"DESC"
+"room.BAT-ROOM.DESC"	"Bat Room"	"コウモリの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2443"	"BAT-ROOM"	"DESC"
+"room.SHAFT-ROOM.LDESC"	"This is a large room, in the middle of which is a small shaft\ndescending through the floor into darkness below. To the west and\nthe north are exits from this room. Constructed over the top of the\nshaft is a metal framework to which a heavy iron chain is attached."	"ここは広い部屋で、中央には床を貫いて暗闇へ下る小さな縦穴がある。西と北に出口がある。縦穴の上には金属製の枠組みが設けられ、そこに重い鉄の鎖が取り付けられている。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2452"	"SHAFT-ROOM"	"LDESC"
+"room.SHAFT-ROOM.DESC"	"Shaft Room"	"縦穴の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2456"	"SHAFT-ROOM"	"DESC"
+"room.SMELLY-ROOM.LDESC"	"This is a small nondescript room. However, from the direction\nof a small descending staircase a foul odor can be detected. To the\nsouth is a narrow tunnel."	"ここは特徴のない小部屋だ。しかし、下へ続く小さな階段の方からひどい悪臭が漂ってくる。南には細いトンネルがある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2466"	"SMELLY-ROOM"	"LDESC"
+"room.SMELLY-ROOM.DESC"	"Smelly Room"	"悪臭の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2469"	"SMELLY-ROOM"	"DESC"
+"room.GAS-ROOM.LDESC"	"This is a small room which smells strongly of coal gas. There is a\nshort climb up some stairs and a narrow tunnel leading east."	"ここは石炭ガスの強い臭いがする小部屋だ。短い階段を上る道と、東へ続く細いトンネルがある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2479"	"GAS-ROOM"	"LDESC"
+"room.GAS-ROOM.DESC"	"Gas Room"	"ガスの部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2481"	"GAS-ROOM"	"DESC"
+"room.LADDER-TOP.LDESC"	"This is a very small room. In the corner is a rickety wooden\nladder, leading downward. It might be safe to descend. There is\nalso a staircase leading upward."	"ここはとても小さな部屋だ。隅には壊れかけた木のはしごがあり、下へ続いている。降りても大丈夫かもしれない。上へ続く階段もある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2492"	"LADDER-TOP"	"LDESC"
+"room.LADDER-TOP.DESC"	"Ladder Top"	"はしごの上"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2495"	"LADDER-TOP"	"DESC"
+"room.LADDER-BOTTOM.LDESC"	"This is a rather wide room. On one side is the bottom of a\nnarrow wooden ladder. To the west and the south are passages\nleaving the room."	"ここはやや広い部屋だ。片側には細い木のはしごの下端がある。西と南には部屋を出る通路がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2504"	"LADDER-BOTTOM"	"LDESC"
+"room.LADDER-BOTTOM.DESC"	"Ladder Bottom"	"はしごの下"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2507"	"LADDER-BOTTOM"	"DESC"
+"room.DEAD-END-5.DESC"	"Dead End"	"行き止まり"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2516"	"DEAD-END-5"	"DESC"
+"room.DEAD-END-5.LDESC"	"You have come to a dead end in the mine."	"炭鉱の行き止まりだ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2517"	"DEAD-END-5"	"LDESC"
+"room.TIMBER-ROOM.LDESC"	"This is a long and narrow passage, which is cluttered with broken\ntimbers. A wide passage comes from the east and turns at the\nwest end of the room into a very narrow passageway. From the west\ncomes a strong draft."	"ここは長く細い通路で、折れた坑木が散乱している。東から来た広い通路は部屋の西端で折れ、非常に細い通路になっている。西からは強い風が吹いてくる。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2524"	"TIMBER-ROOM"	"LDESC"
+"room.TIMBER-ROOM.DESC"	"Timber Room"	"坑木の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2528"	"TIMBER-ROOM"	"DESC"
+"room.LOWER-SHAFT.LDESC"	"This is a small drafty room in which is the bottom of a long\nshaft. To the south is a passageway and to the east a very narrow\npassage. In the shaft can be seen a heavy iron chain."	"ここは風の吹き込む小部屋で、長い縦穴の底にあたる。南には通路、東には非常に細い通路がある。縦穴には重い鉄の鎖が見える。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2539"	"LOWER-SHAFT"	"LDESC"
+"room.LOWER-SHAFT.DESC"	"Drafty Room"	"風の吹く部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2542"	"LOWER-SHAFT"	"DESC"
+"room.MACHINE-ROOM.DESC"	"Machine Room"	"機械室"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2556"	"MACHINE-ROOM"	"DESC"
+"room.MINE-1.LDESC"	"This is a nondescript part of a coal mine."	"ここは何の変哲もない炭鉱の一角だ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2567"	"MINE-1"	"LDESC"
+"room.MINE-1.DESC"	"Coal Mine"	"炭鉱"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2568"	"MINE-1"	"DESC"
+"room.MINE-2.LDESC"	"This is a nondescript part of a coal mine."	"ここは何の変哲もない炭鉱の一角だ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2576"	"MINE-2"	"LDESC"
+"room.MINE-2.DESC"	"Coal Mine"	"炭鉱"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2577"	"MINE-2"	"DESC"
+"room.MINE-3.LDESC"	"This is a nondescript part of a coal mine."	"ここは何の変哲もない炭鉱の一角だ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2585"	"MINE-3"	"LDESC"
+"room.MINE-3.DESC"	"Coal Mine"	"炭鉱"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2586"	"MINE-3"	"DESC"
+"room.MINE-4.LDESC"	"This is a nondescript part of a coal mine."	"ここは何の変哲もない炭鉱の一角だ。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2594"	"MINE-4"	"LDESC"
+"room.MINE-4.DESC"	"Coal Mine"	"炭鉱"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2595"	"MINE-4"	"DESC"
+"room.SLIDE-ROOM.LDESC"	"This is a small chamber, which appears to have been part of a\ncoal mine. On the south wall of the chamber the letters ""Granite\nWall"" are etched in the rock. To the east is a long passage, and\nthere is a steep metal slide twisting downward. To the north is\na small opening."	"ここは炭鉱の一部だったらしい小部屋だ。南の壁には「花崗岩の壁」という文字が刻まれている。東には長い通路があり、急な金属製の滑り台がねじれながら下へ続いている。北には小さな穴がある。"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2604"	"SLIDE-ROOM"	"LDESC"
+"room.SLIDE-ROOM.DESC"	"Slide Room"	"滑り台の部屋"	"draft"	"原文確認済み・全面再翻訳"	"1dungeon.zil"	"2609"	"SLIDE-ROOM"	"DESC"
