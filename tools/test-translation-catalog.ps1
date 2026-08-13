@@ -158,6 +158,12 @@ if ($paintingDescription.japanese -notmatch 'あなたにも.*ならず者の仲
     throw 'Painting description must preserve the joke that the player can join the vandals'
 }
 
+$damLobbyDescription = $roomJa | Where-Object id -eq 'room.DAM-LOBBY.LDESC'
+if ($damLobbyDescription.japanese -notmatch '関係者以外立入禁止.*開け放し' -or
+    $damLobbyDescription.japanese -match 'PRIVATE') {
+    throw 'Dam lobby must localize Private while preserving the open-doorway contrast'
+}
+
 $thiefBagWarning = $messageJa | Where-Object id -eq 'message.1actions.THIEF-VS-ADVENTURER.1771.01'
 if ($thiefBagWarning.japanese -notmatch '俺を殺してからにしろ' -or
     $thiefBagWarning.japanese -match '死体を越える|口は利かない') {
