@@ -681,12 +681,17 @@ internal sealed class ZMachine
 
     private void WriteScreenText(string english, bool translate)
     {
+        var fallback = translate ? _translation?.TranslateOutput(english) ?? english : english;
+        WriteScreenText(english, fallback);
+    }
+
+    private void WriteScreenText(string english, string fallback)
+    {
         if (_translation is null)
         {
             _host.Write(english.Replace("\n", Environment.NewLine, StringComparison.Ordinal));
             return;
         }
-        var fallback = translate ? _translation.TranslateOutput(english) : english;
         if (english.Count(character => character == '\n') !=
             fallback.Count(character => character == '\n'))
         {
@@ -748,8 +753,11 @@ internal sealed class ZMachine
         }
         var translatedWord = FlushPrintCharacterBuffer();
         if (character == " " && translatedWord)
+        {
+            WriteScreenText(character, "");
             return;
-        WriteText(_translation?.TranslateCharacter(character) ?? character, false);
+        }
+        WriteScreenText(character, _translation?.TranslateCharacter(character) ?? character);
     }
 
     private bool FlushPrintCharacterBuffer()
@@ -759,7 +767,7 @@ internal sealed class ZMachine
         var word = _printCharacterBuffer.ToString();
         _printCharacterBuffer.Clear();
         var text = _translation?.TranslateOutput(word) ?? word;
-        WriteScreenText(text, false);
+        WriteScreenText(word, text);
         return text != word;
     }
 
