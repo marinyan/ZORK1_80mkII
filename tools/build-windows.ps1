@@ -32,7 +32,12 @@ if ($Smoke) {
         @{ Input = '剣をトロールに使う'; Expected = 'attack troll with sword' },
         @{ Input = 'トロールに剣を使う'; Expected = 'attack troll with sword' },
         @{ Input = '使う 剣 自分'; Expected = 'attack me with sword' },
-        @{ Input = '剣 使う セルフ'; Expected = 'attack me with sword' }
+        @{ Input = '剣 使う セルフ'; Expected = 'attack me with sword' },
+        @{ Input = '回す ボルト'; Expected = 'turn bolt' },
+        @{ Input = '使う レンチ ボルト'; Expected = 'turn bolt with wrench' },
+        @{ Input = '回す ボルト レンチ'; Expected = 'turn bolt with wrench' },
+        @{ Input = 'レンチでボルトを回す'; Expected = 'turn bolt with wrench' },
+        @{ Input = 'ボルトをレンチで回す'; Expected = 'turn bolt with wrench' }
     )
     foreach ($case in $parserCases) {
         $actual = dotnet run --no-build --project $project -c Release -- `

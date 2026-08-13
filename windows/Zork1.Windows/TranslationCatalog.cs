@@ -273,6 +273,9 @@ internal sealed partial class TranslationCatalog
                 if (english is "drop" or "put" &&
                     TryTranslatePlacement(compact[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "turn" &&
+                    TryTranslateTurn(compact[..^japanese.Length], out var turn))
+                    return turn;
                 if (english == "apply" &&
                     TryTranslateApply(compact[..^japanese.Length], out var application))
                     return application;
@@ -311,6 +314,8 @@ internal sealed partial class TranslationCatalog
                 translated.Clear();
                 translated.AddRange(application.Split(' '));
             }
+            if (translated.Count == 3 && translated[0] == "turn")
+                translated.Insert(2, "with");
             if (translated.Count > 1 && translated[0] == "look")
                 translated[0] = "examine";
             return string.Join(' ', translated);
@@ -323,6 +328,9 @@ internal sealed partial class TranslationCatalog
                 if (english is "drop" or "put" &&
                     TryTranslatePlacement(line[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "turn" &&
+                    TryTranslateTurn(line[..^japanese.Length], out var turn))
+                    return turn;
                 if (english == "apply" &&
                     TryTranslateApply(line[..^japanese.Length], out var application))
                     return application;
@@ -383,9 +391,52 @@ internal sealed partial class TranslationCatalog
     {
         if (IsSelfObject(target))
             return $"attack me with {direct}";
+        if (direct == "wrench" && target == "bolt")
+            return $"turn {target} with {direct}";
         return IsWeaponObject(direct)
             ? $"attack {target} with {direct}"
             : $"apply {direct} to {target}";
+    }
+
+    private bool TryTranslateTurn(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        if (arguments.EndsWith("を", StringComparison.Ordinal))
+        {
+            var toolMarker = arguments.IndexOf('で');
+            if (toolMarker > 0 && toolMarker < arguments.Length - 2)
+                return BuildTurn(
+                    arguments[(toolMarker + 1)..^1],
+                    arguments[..toolMarker],
+                    out command);
+        }
+        if (arguments.EndsWith("で", StringComparison.Ordinal))
+        {
+            var targetMarker = arguments.IndexOf('を');
+            if (targetMarker > 0 && targetMarker < arguments.Length - 2)
+                return BuildTurn(
+                    arguments[..targetMarker],
+                    arguments[(targetMarker + 1)..^1],
+                    out command);
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildTurn(
+        string targetJapanese,
+        string toolJapanese,
+        out string command)
+    {
+        var target = TranslateNoun(targetJapanese);
+        var tool = TranslateNoun(toolJapanese);
+        if (target == targetJapanese || tool == toolJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = $"turn {target} with {tool}";
+        return true;
     }
 
     private bool TryTranslatePlacement(string arguments, out string command)

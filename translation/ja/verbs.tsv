@@ -102,7 +102,7 @@ SHAKE	振る	揺する	keep	""
 SKIP	跳ねる	スキップする	consider	""
 SLIDE	滑る	滑らせる	keep	""
 SMELL	嗅ぐ	匂いを嗅ぐ	keep	""
-SPIN	回す	回転させる	keep	""
+SPIN	回転させる	ぐるぐる回す	keep	TURNの「回す」と区別する
 SPRAY	吹きかける	噴射する	keep	""
 SQUEEZE	絞る	握る	keep	""
 STAB	刺す	突き刺す	keep	""
