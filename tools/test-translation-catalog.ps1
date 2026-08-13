@@ -220,6 +220,7 @@ $requiredInputAliases = [ordered]@{
     'ボタン' = 'button'
     'ラグ' = 'rug'
     'ランプ' = 'lamp'
+    'マッチ' = 'match'
     '工具箱' = 'chest'
     '棚' = 'case'
     'ケース' = 'case'
