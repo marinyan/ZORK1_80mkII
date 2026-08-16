@@ -43,7 +43,23 @@ if ($Smoke) {
         @{ Input = '使う レンチ ボルト'; Expected = 'turn bolt with wrench' },
         @{ Input = '回す ボルト レンチ'; Expected = 'turn bolt with wrench' },
         @{ Input = 'レンチでボルトを回す'; Expected = 'turn bolt with wrench' },
-        @{ Input = 'ボルトをレンチで回す'; Expected = 'turn bolt with wrench' }
+        @{ Input = 'ボルトをレンチで回す'; Expected = 'turn bolt with wrench' },
+        @{ Input = '手すりにロープを結ぶ'; Expected = 'tie rope to railing' },
+        @{ Input = 'ロープを手すりに結ぶ'; Expected = 'tie rope to railing' },
+        @{ Input = 'ロープを手すりに結びつける'; Expected = 'tie rope to railing' },
+        @{ Input = '松明を取る'; Expected = 'take torch' },
+        @{ Input = '蝋燭を取る'; Expected = 'take candles' },
+        @{ Input = '鐘を鳴らす'; Expected = 'ring bell' },
+        @{ Input = 'マッチを擦る'; Expected = 'light match' },
+        @{ Input = 'マッチをこする'; Expected = 'light match' },
+        @{ Input = 'ねじ回しを落とす'; Expected = 'drop screwdriver' },
+        @{ Input = '王笏を振る'; Expected = 'wave sceptre' },
+        @{ Input = '王笏を振りかざす'; Expected = 'wave sceptre' },
+        @{ Input = '王笏を揺らす'; Expected = 'shake sceptre' },
+        @{ Input = '王笏を振り回す'; Expected = 'swing sceptre' },
+        @{ Input = 'どくろを取る'; Expected = 'take skull' },
+        @{ Input = 'ドクロを取る'; Expected = 'take skull' },
+        @{ Input = '髑髏を取る'; Expected = 'take skull' }
     )
     foreach ($case in $parserCases) {
         $actual = dotnet run --no-build --project $project -c Release -- `
@@ -53,6 +69,13 @@ if ($Smoke) {
             Write-Error "入力変換テスト失敗: $($case.Input) -> $actual (期待値: $($case.Expected))"
             exit 2
         }
+    }
+    $echoOutput = dotnet run --no-build --project $project -c Release -- `
+        --translate-output-line 'echo echo ...'
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    if ($echoOutput -cne '叫ぶ、叫ぶ……') {
+        Write-Error "出力変換テスト失敗: echo echo ... -> $echoOutput"
+        exit 2
     }
     $smokeLogRoot = Join-Path $root 'build/smoke-logs'
     $smokeLogDirectory = Join-Path $smokeLogRoot ([Guid]::NewGuid().ToString('N'))

@@ -282,6 +282,9 @@ internal sealed partial class TranslationCatalog
                 if (english == "apply" &&
                     TryTranslateApply(compact[..^japanese.Length], out var application))
                     return application;
+                if (english == "tie" &&
+                    TryTranslateTie(compact[..^japanese.Length], out var tie))
+                    return tie;
             }
             var translated = spaced
                 .Where(token => !IsParticle(token))
@@ -342,6 +345,9 @@ internal sealed partial class TranslationCatalog
                 if (english == "apply" &&
                     TryTranslateApply(line[..^japanese.Length], out var application))
                     return application;
+                if (english == "tie" &&
+                    TryTranslateTie(line[..^japanese.Length], out var tie))
+                    return tie;
                 var noun = TrimParticle(line[..^japanese.Length]);
                 var command = english == "look" ? "examine" : english;
                 return $"{command} {TranslateNoun(noun)}".TrimEnd();
@@ -487,6 +493,50 @@ internal sealed partial class TranslationCatalog
             return false;
         }
         command = $"turn {target} with {tool}";
+        return true;
+    }
+
+    private bool TryTranslateTie(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        foreach (var marker in new[] { "に", "へ" })
+        {
+            if (arguments.EndsWith("を", StringComparison.Ordinal))
+            {
+                var targetMarker = arguments.IndexOf(marker, StringComparison.Ordinal);
+                if (targetMarker > 0 && targetMarker < arguments.Length - 2 &&
+                    BuildTie(
+                        arguments[(targetMarker + marker.Length)..^1],
+                        arguments[..targetMarker],
+                        out command))
+                    return true;
+            }
+
+            if (arguments.EndsWith(marker, StringComparison.Ordinal))
+            {
+                var directMarker = arguments.IndexOf('を');
+                if (directMarker > 0 && directMarker < arguments.Length - marker.Length - 1 &&
+                    BuildTie(
+                        arguments[..directMarker],
+                        arguments[(directMarker + 1)..^marker.Length],
+                        out command))
+                    return true;
+            }
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildTie(string directJapanese, string targetJapanese, out string command)
+    {
+        var direct = TranslateNoun(directJapanese);
+        var target = TranslateNoun(targetJapanese);
+        if (direct == directJapanese || target == targetJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = $"tie {direct} to {target}";
         return true;
     }
 

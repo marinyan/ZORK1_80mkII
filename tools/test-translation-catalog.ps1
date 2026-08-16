@@ -81,6 +81,7 @@ $verbJa = Read-Tsv 'translation/ja/verbs.tsv'
 $directions = Read-Tsv 'translation/ja/directions.tsv'
 $inputJa = Read-Tsv 'translation/ja/input.tsv'
 $uiJa = Read-Tsv 'translation/ja/ui.tsv'
+$templatesJa = Read-Tsv 'translation/ja/templates.tsv'
 
 $expectedCounts = @{
     strings  = 2152
@@ -113,6 +114,7 @@ Assert-UniqueValues $verbJa 'verb' 'Japanese verb translations'
 Assert-UniqueValues $directions 'english' 'Japanese direction translations'
 Assert-UniqueValues $inputJa 'input' 'Japanese input overrides'
 Assert-UniqueValues $uiJa 'key' 'Japanese UI strings'
+Assert-UniqueValues $templatesJa 'key' 'Japanese output templates'
 
 Assert-SameSet @($roomCatalog.id) @($roomJa.id) 'Room translation ID'
 Assert-SameSet @($objectCatalog.id) @($objectJa.id) 'Object translation ID'
@@ -129,6 +131,26 @@ if ($dropVerb.japanese -cne '捨てる' -or
 $moveVerb = $verbJa | Where-Object verb -eq 'MOVE'
 if ($moveVerb.aliases -notmatch '(^| )どける( |$)') {
     throw 'MOVE must retain どける as an alias'
+}
+
+$ringVerb = $verbJa | Where-Object verb -eq 'RING'
+if ($ringVerb.japanese -cne '鳴らす' -or $ringVerb.aliases -match '鐘を鳴らす') {
+    throw 'RING must leave 鐘 as the command object instead of absorbing it into a verb alias'
+}
+
+$shakeVerb = $verbJa | Where-Object verb -eq 'SHAKE'
+$swingVerb = $verbJa | Where-Object verb -eq 'SWING'
+$waveVerb = $verbJa | Where-Object verb -eq 'WAVE'
+if ($shakeVerb.japanese -cne '揺らす' -or
+    $swingVerb.japanese -cne '振り回す' -or
+    $waveVerb.japanese -cne '振る' -or
+    $waveVerb.aliases -notmatch '(^| )振りかざす( |$)') {
+    throw 'SHAKE, SWING, and WAVE must use distinct primary Japanese input verbs'
+}
+
+$tieVerb = $verbJa | Where-Object verb -eq 'TIE'
+if ($tieVerb.aliases -notmatch '(^| )結びつける( |$)') {
+    throw 'TIE must retain 結びつける as an alias'
 }
 
 $versionNotice = $messageJa | Where-Object id -eq 'message.gverbs.V-VERSION.111.01'
@@ -174,6 +196,33 @@ $largeBagWarning = $messageJa | Where-Object id -eq 'message.1actions.LARGE-BAG-
 if ($largeBagWarning.japanese -notmatch '生きているうちは' -or
     $largeBagWarning.japanese -match '死体を越える') {
     throw 'Large bag warning must express that the living thief prevents taking it'
+}
+
+$torchRoomDescription = $messageJa | Where-Object id -eq 'message.1actions.TORCH-ROOM-FCN.1021.01'
+if ($torchRoomDescription.japanese -notmatch '床から約二十フィートの高さにあるその縁' -or
+    $torchRoomDescription.japanese -match '高さ二十フィートの木製手すり') {
+    throw 'Torch Room must identify the dome edge, not the railing, as twenty feet up'
+}
+
+$loudRoomDescription = $messageJa | Where-Object id -eq 'message.1actions.LOUD-ROOM-FCN.1670.01'
+$quietLoudRoomDescription = $messageJa | Where-Object id -eq 'message.1actions.LOUD-ROOM-FCN.1668.01'
+if ($loudRoomDescription.japanese.StartsWith(' ', [StringComparison]::Ordinal) -or
+    $quietLoudRoomDescription.japanese.StartsWith(' ', [StringComparison]::Ordinal)) {
+    throw 'Loud Room continuation must not begin with an English-style separator space'
+}
+
+$heroBlowSeparator = $messageJa | Where-Object id -eq 'message.1actions.HERO-BLOW.3506.01'
+if ($heroBlowSeparator.japanese -cne '' -or $heroBlowSeparator.status -cne 'format') {
+    throw 'Combat adjective and villain name must not be separated by a space in Japanese'
+}
+$heroBlowEnding = $messageJa | Where-Object id -eq 'message.1actions.HERO-BLOW.3507.01'
+if ($heroBlowEnding.japanese -cne 'は身を守れず、そのまま死んだ。') {
+    throw 'Combat death fragment must join naturally after the translated villain name'
+}
+
+$echoTemplate = $templatesJa | Where-Object key -eq 'echo-command'
+if ($echoTemplate.english -cne 'echo echo ...' -or $echoTemplate.translation -cne '叫ぶ、叫ぶ……') {
+    throw 'Dynamic ECHO output must use a readable Japanese separator'
 }
 
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
@@ -227,12 +276,20 @@ $requiredInputAliases = [ordered]@{
     'ラグ' = 'rug'
     'ランプ' = 'lamp'
     'マッチ' = 'match'
+    'マッチを擦る' = 'light match'
+    'マッチをこする' = 'light match'
     '工具箱' = 'chest'
     '棚' = 'case'
     'ケース' = 'case'
     'ニンニク' = 'garlic'
     'にんにく' = 'garlic'
     'ろうそく' = 'candles'
+    '蝋燭' = 'candles'
+    '松明' = 'torch'
+    'ねじ回し' = 'screwdriver'
+    'どくろ' = 'skull'
+    'ドクロ' = 'skull'
+    '髑髏' = 'skull'
     '石炭' = 'coal'
     'プラスチック' = 'plastic'
     '空気' = 'air'

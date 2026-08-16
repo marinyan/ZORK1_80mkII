@@ -1,4 +1,5 @@
 key	english	translation	notes
+echo-command	echo echo ...	叫ぶ、叫ぶ……	動的に反復されるECHO入力を自然な日本語で表示する
 hero-melee-knockout	The haft of your {0} knocks out the {1}.	{0}の柄で{1}を殴り、気絶させた。	戦闘メッセージの武器名と敵名を日本語語順へ並べ替える
 teeth-with	A nice idea, but with a {0}?	悪くない考えだが、{0}でだと？	疑問符断片に埋め込まれていた助詞を全文へ移す
 water-puddle	There is now a puddle in the bottom of the {0}.	{0}の底に水たまりができた。	句点断片に埋め込まれていた述語を全文へ移す
