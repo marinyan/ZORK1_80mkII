@@ -58,38 +58,71 @@ internal static class Program
             var smokeCommands = SplitLines(catalog?.Ui(
                 "smoke.commands",
                 "look\nopen mailbox\ntake leaflet\nread leaflet\nnorth\neast\nopen window\nenter\nlook\nwest\nlook\ntake lamp\nlight lamp\ninventory\nquit\nyes") ?? "");
-            IZMachineHost host = smoke
-                ? new ScriptHost(smokeCommands)
-                : new ConsoleHost();
-            host.Write(catalog?.FormatUi(
-                "port.version",
-                "Windows port version {0}\n",
-                portVersion) ?? $"Windows port version {portVersion}\n");
-
-            var machine = new ZMachine(story, host, catalog);
-            machine.Run(smoke ? 2_000_000 : int.MaxValue);
-
-            if (smoke)
+            var scriptHost = smoke ? new ScriptHost(smokeCommands) : null;
+            IZMachineHost host = scriptHost is not null ? scriptHost : new ConsoleHost();
+            var logDirectoryOption = OptionValue(args, "--log-dir");
+            SessionLogHost? sessionLog = null;
+            if (!args.Contains("--no-log", StringComparer.OrdinalIgnoreCase) &&
+                (!smoke || logDirectoryOption is not null))
             {
-                var output = ((ScriptHost)host).Output;
-                Console.Write(output);
-                var expectations = SplitLines(catalog?.Ui(
-                    "smoke.expected",
-                    "West of House\nmailbox\nleaflet\nKitchen\nLiving Room\nlamp") ?? "");
-                foreach (var expectation in expectations)
+                var logDirectory = string.IsNullOrWhiteSpace(logDirectoryOption)
+                    ? Path.Combine(AppContext.BaseDirectory, "logs")
+                    : Path.GetFullPath(logDirectoryOption, Environment.CurrentDirectory);
+                try
                 {
-                    if (output.Contains(expectation, StringComparison.Ordinal))
-                        continue;
-                    Console.Error.WriteLine($"スモークテスト: 出力に必要な文字列がない: {expectation}");
-                    return 2;
+                    var language = english
+                        ? "source-en"
+                        : OptionValue(args, "--language")
+                          ?? OptionValue(args, "--lang")
+                          ?? Path.GetFileName(languageDirectory);
+                    sessionLog = new SessionLogHost(
+                        host,
+                        logDirectory,
+                        portVersion,
+                        "faithful",
+                        language,
+                        english);
+                    host = sessionLog;
+                    Console.Error.WriteLine($"プレイログ: {sessionLog.FilePath}");
                 }
-                var unexpected = SplitLines(catalog?.Ui("smoke.unexpected", "") ?? "");
-                foreach (var forbidden in unexpected)
+                catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
                 {
-                    if (!output.Contains(forbidden, StringComparison.Ordinal))
-                        continue;
-                    Console.Error.WriteLine($"スモークテスト: 出力に不要な文字列がある: {forbidden}");
-                    return 2;
+                    Console.Error.WriteLine($"警告: プレイログを作成できない: {ex.Message}");
+                }
+            }
+
+            using (sessionLog)
+            {
+                host.Write(catalog?.FormatUi(
+                    "port.version",
+                    "Windows port version {0}\n",
+                    portVersion) ?? $"Windows port version {portVersion}\n");
+
+                var machine = new ZMachine(story, host, catalog);
+                machine.Run(smoke ? 2_000_000 : int.MaxValue);
+
+                if (smoke)
+                {
+                    var output = scriptHost!.Output;
+                    Console.Write(output);
+                    var expectations = SplitLines(catalog?.Ui(
+                        "smoke.expected",
+                        "West of House\nmailbox\nleaflet\nKitchen\nLiving Room\nlamp") ?? "");
+                    foreach (var expectation in expectations)
+                    {
+                        if (output.Contains(expectation, StringComparison.Ordinal))
+                            continue;
+                        Console.Error.WriteLine($"スモークテスト: 出力に必要な文字列がない: {expectation}");
+                        return 2;
+                    }
+                    var unexpected = SplitLines(catalog?.Ui("smoke.unexpected", "") ?? "");
+                    foreach (var forbidden in unexpected)
+                    {
+                        if (!output.Contains(forbidden, StringComparison.Ordinal))
+                            continue;
+                        Console.Error.WriteLine($"スモークテスト: 出力に不要な文字列がある: {forbidden}");
+                        return 2;
+                    }
                 }
             }
 

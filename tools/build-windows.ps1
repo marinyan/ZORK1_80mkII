@@ -48,8 +48,45 @@ if ($Smoke) {
             exit 2
         }
     }
-    dotnet run --no-build --project $project -c Release -- --smoke
-    exit $LASTEXITCODE
+    $smokeLogRoot = Join-Path $root 'build/smoke-logs'
+    $smokeLogDirectory = Join-Path $smokeLogRoot ([Guid]::NewGuid().ToString('N'))
+    dotnet run --no-build --project $project -c Release -- `
+        --smoke --log-dir $smokeLogDirectory
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    $logFile = Get-ChildItem -LiteralPath $smokeLogDirectory -Filter '*.jsonl' |
+        Sort-Object LastWriteTime -Descending |
+        Select-Object -First 1
+    if (-not $logFile) {
+        Write-Error 'プレイログテスト失敗: JSON Linesログが生成されていない'
+        exit 2
+    }
+    $events = Get-Content -LiteralPath $logFile.FullName |
+        ForEach-Object { $_ | ConvertFrom-Json }
+    $session = $events | Where-Object type -eq 'session' | Select-Object -First 1
+    if (-not $session -or $session.edition -cne 'faithful' -or $session.language -cne 'ja') {
+        Write-Error 'プレイログテスト失敗: 忠実版または言語パックの識別情報が正しくない'
+        exit 2
+    }
+    $translatedLook = $events | Where-Object {
+        $_.type -eq 'input' -and
+        $_.rawInput -ceq '見る' -and
+        $_.translatedInput -ceq 'look' -and
+        $_.zMachineInput -ceq 'look' -and
+        $_.inputKind -ceq 'japanese'
+    } | Select-Object -First 1
+    if (-not $translatedLook) {
+        Write-Error 'プレイログテスト失敗: 日本語入力と変換後コマンドが記録されていない'
+        exit 2
+    }
+    if (-not ($events | Where-Object type -eq 'output' | Select-Object -First 1)) {
+        Write-Error 'プレイログテスト失敗: 応答が記録されていない'
+        exit 2
+    }
+    if (-not ($events | Where-Object type -eq 'session-end' | Select-Object -First 1)) {
+        Write-Error 'プレイログテスト失敗: セッション終了が記録されていない'
+        exit 2
+    }
+    exit 0
 }
 
 if ($Run) {

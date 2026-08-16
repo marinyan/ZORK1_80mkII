@@ -28,6 +28,28 @@ Windows検証版のバージョンは`0.1.ビルド番号`で管理します。�
 ./tools/build-windows.ps1 -Smoke
 ```
 
+## プレイログ
+
+通常プレイでは、EXEと同じ場所の`logs`ディレクトリへセッションごとのJSON Linesログを
+自動保存します。`output`イベントと`input`イベントが発生順に並び、入力イベントには
+入力した文字列、Zorkへ渡した英語コマンド、日本語・英語・混在の区分が入ります。
+セッション情報には忠実版を示す`edition: faithful`と、実行した言語パックも記録します。
+
+```json
+{"type":"input","rawInput":"レンチでボルトを回す","translatedInput":"turn bolt with wrench","zMachineInput":"turn bolt with wrench","inputKind":"japanese","translationApplied":true}
+```
+
+保存先は`--log-dir`で変更でき、`--no-log`を指定すると記録しません。
+
+```powershell
+./Zork1Japanese.exe --log-dir C:\work\zork-play-logs
+./Zork1Japanese.exe --no-log
+```
+
+後段解析では、英語入力そのものを日本語入力の断念とは見なしません。序盤などを最初から
+英語で進めた場合は除外し、同じ場所・対象で日本語入力を試して進展せず、その直後の英語入力で
+状態が変わった一連の操作だけを「日本語入力を諦めた」候補として扱います。
+
 フレームワーク依存の単一EXEは`build/windows-x64/Zork1Japanese.exe`へ、既定の日本語
 パックは`build/windows-x64/lang/ja`へ生成します。
 

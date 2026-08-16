@@ -822,17 +822,20 @@ internal sealed class ZMachine
             _running = false;
             entered = "quit";
         }
-        var input = (_translation?.TranslateInput(entered) ?? entered).ToLowerInvariant();
+        var translatedInput = (_translation?.TranslateInput(entered) ?? entered).ToLowerInvariant();
         _inputEchoCharacters.Clear();
-        foreach (var character in input)
+        foreach (var character in translatedInput)
         {
             if (character > 0x7f)
                 _inputEchoCharacters.Enqueue(character);
         }
-        input = new string(input.Select(character => character <= 0x7f ? character : '?').ToArray());
+        var input = new string(translatedInput.Select(
+            character => character <= 0x7f ? character : '?').ToArray());
         var maximum = ReadByte(textBuffer);
         if (input.Length > maximum)
             input = input[..maximum];
+        if (_host is ITranslatedInputObserver inputObserver)
+            inputObserver.InputTranslated(entered, translatedInput, input);
         for (var index = 0; index < input.Length; index++)
             WriteByte(textBuffer + 1 + index, (byte)input[index]);
         WriteByte(textBuffer + 1 + input.Length, 0);
