@@ -273,6 +273,9 @@ internal sealed partial class TranslationCatalog
                 if (english is "drop" or "put" &&
                     TryTranslatePlacement(compact[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "attack" &&
+                    TryTranslateAttack(compact[..^japanese.Length], out var attack))
+                    return attack;
                 if (english == "turn" &&
                     TryTranslateTurn(compact[..^japanese.Length], out var turn))
                     return turn;
@@ -314,6 +317,8 @@ internal sealed partial class TranslationCatalog
                 translated.Clear();
                 translated.AddRange(application.Split(' '));
             }
+            if (translated.Count == 3 && translated[0] == "attack")
+                translated.Insert(2, "with");
             if (translated.Count == 3 && translated[0] == "turn")
                 translated.Insert(2, "with");
             if (translated.Count > 1 && translated[0] == "look")
@@ -328,6 +333,9 @@ internal sealed partial class TranslationCatalog
                 if (english is "drop" or "put" &&
                     TryTranslatePlacement(line[..^japanese.Length], out var placement))
                     return placement;
+                if (english == "attack" &&
+                    TryTranslateAttack(line[..^japanese.Length], out var attack))
+                    return attack;
                 if (english == "turn" &&
                     TryTranslateTurn(line[..^japanese.Length], out var turn))
                     return turn;
@@ -396,6 +404,49 @@ internal sealed partial class TranslationCatalog
         return IsWeaponObject(direct)
             ? $"attack {target} with {direct}"
             : $"apply {direct} to {target}";
+    }
+
+    private bool TryTranslateAttack(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        if (arguments.EndsWith("を", StringComparison.Ordinal))
+        {
+            var weaponMarker = arguments.IndexOf('で');
+            if (weaponMarker > 0 && weaponMarker < arguments.Length - 2)
+                return BuildAttack(
+                    arguments[(weaponMarker + 1)..^1],
+                    arguments[..weaponMarker],
+                    out command);
+        }
+        if (arguments.EndsWith("で", StringComparison.Ordinal))
+        {
+            var targetMarker = arguments.IndexOf('を');
+            if (targetMarker > 0 && targetMarker < arguments.Length - 2)
+                return BuildAttack(
+                    arguments[..targetMarker],
+                    arguments[(targetMarker + 1)..^1],
+                    out command);
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildAttack(
+        string targetJapanese,
+        string weaponJapanese,
+        out string command)
+    {
+        var target = TranslateNoun(targetJapanese);
+        var weapon = TranslateNoun(weaponJapanese);
+        if (target == targetJapanese ||
+            weapon == weaponJapanese ||
+            !IsWeaponObject(weapon))
+        {
+            command = "";
+            return false;
+        }
+        command = $"attack {target} with {weapon}";
+        return true;
     }
 
     private bool TryTranslateTurn(string arguments, out string command)

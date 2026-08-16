@@ -7,7 +7,7 @@ $VERIFY	データ検査		omit	初期版では省略
 ACTIVATE	作動させる	起動する 点ける	keep	""
 ANSWER	答える	返事する	keep	""
 APPLY	使う	適用する	keep	""
-ATTACK	攻撃する	戦う 殴る 傷つける	keep	""
+ATTACK	攻撃する	攻撃 戦う 殴る 傷つける	keep	「攻撃」だけでも動詞として扱う
 BACK	戻る	引き返す	keep	""
 BLAST	爆破する	吹き飛ばす	keep	""
 BLOW	吹く	息を吹く	keep	""
