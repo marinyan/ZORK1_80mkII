@@ -107,7 +107,7 @@ SPRAY	吹きかける	噴射する	keep	""
 SQUEEZE	絞る	握る	keep	""
 STAB	刺す	突き刺す	keep	""
 STAND	立つ	立ち上がる	keep	""
-STAY	待つ	とどまる	consider	""
+STAY	とどまる	その場にいる	consider	WAITの「待つ」と区別する
 STRIKE	打つ	叩く 火をつける	keep	""
 SUPER	最短表示	超簡潔	consider	表示モード
 SWIM	泳ぐ	水浴びする 渡る	keep	""

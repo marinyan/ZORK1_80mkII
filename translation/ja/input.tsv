@@ -70,6 +70,7 @@ input	english	notes
 絵画	painting	物体名「絵」の説明文中の呼び名
 卵	egg	修飾語付き物体名の短縮形
 カナリア	canary	修飾語付き物体名の短縮形
+カナリアのぜんまい	canary	ぜんまいを巻く自然な日本語名詞句
 手	hand	複数・数量表現付き物体名の短縮形
 球	bubble	修飾語付き物体名の短縮形
 瓶	bottle	修飾語付き物体名の短縮形
@@ -77,6 +78,7 @@ input	english	notes
 置物	figurine	修飾語付き物体名の短縮形
 滃	slag	修飾語付き物体名の短縮形
 プラスチック	plastic	修飾語付き物体名の短縮形
+機械の蓋	machine	石炭変換機の開閉部分を指す名詞句
 延べ棒	bar	修飾語付き物体名の短縮形
 壺	pot	修飾語付き物体名の短縮形
 手すり	railing	修飾語付き物体名の短縮形
@@ -124,3 +126,4 @@ input	english	notes
 青色の	blue	色形容詞の言い換え
 白い	white	原作が単語で表示する形容語
 花崗岩の	granite	原作が単語で表示する形容語
+進水	launch boat	ボートの取扱説明に記した単独コマンド

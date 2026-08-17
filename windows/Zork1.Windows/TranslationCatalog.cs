@@ -285,6 +285,18 @@ internal sealed partial class TranslationCatalog
                 if (english == "tie" &&
                     TryTranslateTie(compact[..^japanese.Length], out var tie))
                     return tie;
+                if (english == "give" &&
+                    TryTranslateGive(compact[..^japanese.Length], out var give))
+                    return give;
+                if (english == "take" &&
+                    TryTranslateTake(compact[..^japanese.Length], out var take))
+                    return take;
+                if (english is "inflat" or "light" &&
+                    TryTranslateWithInstrument(
+                        compact[..^japanese.Length],
+                        english,
+                        out var instrumentCommand))
+                    return instrumentCommand;
             }
             var translated = spaced
                 .Where(token => !IsParticle(token))
@@ -348,6 +360,18 @@ internal sealed partial class TranslationCatalog
                 if (english == "tie" &&
                     TryTranslateTie(line[..^japanese.Length], out var tie))
                     return tie;
+                if (english == "give" &&
+                    TryTranslateGive(line[..^japanese.Length], out var give))
+                    return give;
+                if (english == "take" &&
+                    TryTranslateTake(line[..^japanese.Length], out var take))
+                    return take;
+                if (english is "inflat" or "light" &&
+                    TryTranslateWithInstrument(
+                        line[..^japanese.Length],
+                        english,
+                        out var instrumentCommand))
+                    return instrumentCommand;
                 var noun = TrimParticle(line[..^japanese.Length]);
                 var command = english == "look" ? "examine" : english;
                 return $"{command} {TranslateNoun(noun)}".TrimEnd();
@@ -537,6 +561,133 @@ internal sealed partial class TranslationCatalog
             return false;
         }
         command = $"tie {direct} to {target}";
+        return true;
+    }
+
+    private bool TryTranslateGive(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        if (arguments.EndsWith("を", StringComparison.Ordinal))
+        {
+            var recipientMarker = arguments.IndexOf('に');
+            if (recipientMarker > 0 && recipientMarker < arguments.Length - 2)
+                return BuildGive(
+                    arguments[(recipientMarker + 1)..^1],
+                    arguments[..recipientMarker],
+                    out command);
+        }
+        if (arguments.EndsWith("に", StringComparison.Ordinal))
+        {
+            var directMarker = arguments.IndexOf('を');
+            if (directMarker > 0 && directMarker < arguments.Length - 2)
+                return BuildGive(
+                    arguments[..directMarker],
+                    arguments[(directMarker + 1)..^1],
+                    out command);
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildGive(string directJapanese, string recipientJapanese, out string command)
+    {
+        var direct = TranslateNoun(directJapanese);
+        var recipient = TranslateNoun(recipientJapanese);
+        if (direct == directJapanese || recipient == recipientJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = $"give {direct} to {recipient}";
+        return true;
+    }
+
+    private bool TryTranslateTake(string arguments, out string command)
+    {
+        arguments = arguments.Trim();
+        var sourceMarker = arguments.IndexOf("から", StringComparison.Ordinal);
+        if (sourceMarker <= 0)
+        {
+            command = "";
+            return false;
+        }
+
+        if (arguments.EndsWith("を", StringComparison.Ordinal) &&
+            sourceMarker < arguments.Length - 3)
+            return BuildTake(
+                arguments[(sourceMarker + 2)..^1],
+                arguments[..sourceMarker],
+                out command);
+
+        var directMarker = arguments.IndexOf('を');
+        if (arguments.EndsWith("から", StringComparison.Ordinal) &&
+            directMarker > 0 && directMarker < sourceMarker)
+            return BuildTake(
+                arguments[..directMarker],
+                arguments[(directMarker + 1)..sourceMarker],
+                out command);
+
+        command = "";
+        return false;
+    }
+
+    private bool BuildTake(string directJapanese, string sourceJapanese, out string command)
+    {
+        var direct = TranslateNoun(directJapanese);
+        var source = TranslateNoun(sourceJapanese);
+        if (direct == directJapanese || source == sourceJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = $"take {direct} from {source}";
+        return true;
+    }
+
+    private bool TryTranslateWithInstrument(
+        string arguments,
+        string verb,
+        out string command)
+    {
+        arguments = arguments.Trim();
+        if (arguments.EndsWith("を", StringComparison.Ordinal))
+        {
+            var toolMarker = arguments.IndexOf('で');
+            if (toolMarker > 0 && toolMarker < arguments.Length - 2)
+                return BuildWithInstrument(
+                    arguments[(toolMarker + 1)..^1],
+                    arguments[..toolMarker],
+                    verb,
+                    out command);
+        }
+        if (arguments.EndsWith("で", StringComparison.Ordinal))
+        {
+            var directMarker = arguments.IndexOf('を');
+            if (directMarker > 0 && directMarker < arguments.Length - 2)
+                return BuildWithInstrument(
+                    arguments[..directMarker],
+                    arguments[(directMarker + 1)..^1],
+                    verb,
+                    out command);
+        }
+        command = "";
+        return false;
+    }
+
+    private bool BuildWithInstrument(
+        string directJapanese,
+        string toolJapanese,
+        string verb,
+        out string command)
+    {
+        var direct = TranslateNoun(directJapanese);
+        var tool = TranslateNoun(toolJapanese);
+        if (direct == directJapanese || tool == toolJapanese)
+        {
+            command = "";
+            return false;
+        }
+        command = $"{verb} {direct} with {tool}";
         return true;
     }
 
