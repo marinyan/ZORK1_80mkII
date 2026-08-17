@@ -660,6 +660,7 @@ internal sealed class ZMachine
     private static string ZsciiToString(ushort zscii) => zscii switch
     {
         0 => "",
+        9 => "\t",
         13 => "\n",
         >= 32 and <= 126 => ((char)zscii).ToString(),
         _ => "?"

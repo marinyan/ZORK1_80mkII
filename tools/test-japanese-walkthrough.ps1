@@ -2,6 +2,7 @@
 param(
     [int]$Successes = 3,
     [int]$MaxAttempts = 30,
+    [switch]$Explore,
     [string]$WalkthroughPath,
     [string]$RepoRoot
 )
@@ -20,7 +21,7 @@ if (-not (Test-Path -LiteralPath $WalkthroughPath)) {
     throw "Walkthrough was not found: $WalkthroughPath"
 }
 
-$logRoot = Join-Path $RepoRoot 'build/full-play-logs'
+$logRoot = Join-Path $RepoRoot $(if ($Explore) { 'build/exploration-logs' } else { 'build/full-play-logs' })
 $nouns = @{
     'axe' = '斧'
     'bauble' = '飾り玉'
@@ -170,6 +171,47 @@ if ($steps.Japanese | Where-Object { $_ -match '[A-Za-z]' }) {
     throw 'Walkthrough still contains an ASCII word after Japanese conversion.'
 }
 
+$explorationCommands = @{
+    3 = @('巣を調べる', '卵を調べる', '卵を嗅ぐ', '聞く')
+    8 = @('窓を調べる', '家を調べる', '窓を叩く')
+    10 = @('袋を調べる', '袋を嗅ぐ', '袋を振る')
+    11 = @('瓶を調べる', '水を調べる')
+    15 = @('棚を調べる', '剣を調べる', 'ランプを調べる', 'ラグを調べる')
+    19 = @('見る', 'ロープを調べる', 'テーブルを調べる', 'ナイフを調べる')
+    25 = @('ラグを調べる', '落とし戸を調べる', '蓋を調べる')
+    32 = @('見る', '絵画を調べる', '絵を調べる')
+    53 = @('聞く', '壁を調べる')
+    60 = @('マッチを調べる', '案内を読む')
+    62 = @('工具箱を調べる', 'ボタンを調べる', '黄色いボタンを調べる', '歯磨き粉を調べる', 'チューブを調べる')
+    67 = @('ボルトを調べる', '制御盤を調べる', '球を調べる', '貯水池を調べる', '水門を調べる')
+    81 = @('サイクロプスを調べる', 'サイクロプスに挨拶する')
+    98 = @('手すりを調べる', 'ドームを調べる', 'ロープを調べる')
+    101 = @('たいまつを調べる', '台座を調べる')
+    103 = @('鐘を調べる')
+    106 = @('本を調べる', '蝋燭を調べる', '祭壇を調べる', '碑文を読む')
+    117 = @('どくろを調べる', '死体を調べる', '幽霊を調べる')
+    150 = @('棺を調べる')
+    151 = @('杖を調べる')
+    163 = @('虹を調べる', '滝を調べる', '杖を調べる')
+    194 = @('三叉槍を調べる')
+    237 = @('鏡を調べる')
+    243 = @('翡翠の置物を調べる', '置物を調べる')
+    249 = @('腕輪を調べる')
+    257 = @('石炭を調べる')
+    287 = @('機械を調べる', '機械の蓋を調べる', 'スイッチを調べる')
+    293 = @('ダイヤモンドを調べる')
+    335 = @('プラスチックを調べる', 'ポンプを調べる', 'ラベルを読む', '取扱説明書を読む')
+    339 = @('ボートを調べる')
+    345 = @('ブイを調べる')
+    348 = @('シャベルを調べる', '砂を調べる')
+    354 = @('スカラベ像を調べる')
+    358 = @('エメラルドを調べる')
+    383 = @('硬貨の詰まった革袋を調べる')
+    405 = @('カナリアを調べる', '卵を調べる', '聖杯を調べる')
+    420 = @('小鳥を調べる', '飾り玉を調べる')
+    429 = @('地図を調べる', '得点を見る', '診断する')
+}
+
 $assembly = Join-Path $RepoRoot 'windows/Zork1.Windows/bin/Release/net10.0/Zork1Japanese.dll'
 if (-not (Test-Path -LiteralPath $assembly)) {
     throw "Build output was not found: $assembly"
@@ -227,6 +269,7 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
     $needAxe = $false
     $playerDead = $false
     $healedAfterThief = $false
+    $explorationReachedEnd = $false
 
     function Invoke-JapaneseCommand {
         param([string]$Command)
@@ -235,10 +278,19 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
             return ''
         }
         $process.StandardInput.WriteLine($Command)
-        return Read-ZorkResponse $process.StandardOutput $transcript
+        $response = Read-ZorkResponse $process.StandardOutput $transcript
+        if ($Explore -and
+            $Command -cne 'ランプを点ける' -and
+            $response -match '真っ暗だ|暗すぎて何も見えない') {
+            $process.StandardInput.WriteLine('ランプを点ける')
+            $response += Read-ZorkResponse $process.StandardOutput $transcript
+        }
+        return $response
     }
 
+    $stepNumber = 0
     foreach ($step in $steps) {
+        $stepNumber++
         if ($step.English -eq 'kill troll with sword' -and $trollDead) {
             continue
         }
@@ -320,6 +372,11 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
             $playerDead = $true
             break
         }
+        if ($Explore -and
+            $stepNumber -eq 376 -and
+            $response -match '血まみれの斧がここにある') {
+            [void](Invoke-JapaneseCommand '斧を取る')
+        }
         if ($step.English -eq 'take axe' -and
             $response -match '見当たらない|取れない') {
             # The roaming thief can steal the only safe weapon before this visit.
@@ -373,13 +430,57 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
                 [void](Invoke-JapaneseCommand $recoveryCommand)
             }
         }
+
+        if ($Explore -and $explorationCommands.ContainsKey($stepNumber)) {
+            foreach ($explorationCommand in $explorationCommands[$stepNumber]) {
+                $explorationResponse = Invoke-JapaneseCommand $explorationCommand
+                if ($explorationResponse -match 'あなたは死んだ') {
+                    $playerDead = $true
+                    break
+                }
+            }
+            if ($playerDead) {
+                break
+            }
+            if ($stepNumber -eq 429) {
+                $explorationReachedEnd = $true
+            }
+        }
+
+        if ($Explore -and $stepNumber -in 101, 229, 313) {
+            [void](Invoke-JapaneseCommand 'ランプを消す')
+        }
+        if ($Explore -and $stepNumber -eq 244) {
+            [void](Invoke-JapaneseCommand 'ランプを点ける')
+        }
+        if ($Explore -and $stepNumber -eq 281) {
+            foreach ($discard in @(
+                'マッチを捨てる',
+                '案内を捨てる',
+                '本を捨てる',
+                'ニンニクを捨てる',
+                'ナイフを捨てる',
+                '袋を捨てる',
+                '瓶を捨てる',
+                '鐘を捨てる',
+                '蝋燭を捨てる',
+                '剣を捨てる',
+                '斧を捨てる'
+            )) {
+                [void](Invoke-JapaneseCommand $discard)
+            }
+            [void](Invoke-JapaneseCommand '持ち物')
+        }
     }
 
     if (-not $process.HasExited -and
-        $transcript.ToString().Contains(
+        ($explorationReachedEnd -or $transcript.ToString().Contains(
             '『ZORK』三部作の第一部を制覇した',
-            [StringComparison]::Ordinal)) {
-        [void](Invoke-JapaneseCommand '終了')
+            [StringComparison]::Ordinal))) {
+        $quitResponse = Invoke-JapaneseCommand '終了'
+        if (-not $process.HasExited -and $quitResponse -match '終了するか|Yで終了') {
+            [void](Invoke-JapaneseCommand 'はい')
+        }
     }
 
     if (-not $process.HasExited) {
@@ -394,8 +495,13 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
     $process.Dispose()
 
     $text = $transcript.ToString()
-    $won = $text.Contains('『ZORK』三部作の第一部を制覇した', [StringComparison]::Ordinal) -and
-        $text.Contains('得点 350', [StringComparison]::Ordinal)
+    $won = if ($Explore) {
+        $explorationReachedEnd
+    }
+    else {
+        $text.Contains('『ZORK』三部作の第一部を制覇した', [StringComparison]::Ordinal) -and
+            $text.Contains('得点 350', [StringComparison]::Ordinal)
+    }
     $deathCount = [regex]::Matches($text, 'あなたは死んだ').Count
     if ($won) {
         $logFile = Get-ChildItem -LiteralPath $attemptLog -Filter '*.jsonl' |
@@ -415,6 +521,9 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
         if ($text -match '(?m)^\(with\b') {
             throw "Completed attempt $attempt contains an untranslated implicit-instrument message."
         }
+        if ($Explore -and $text -match 'Frobozz Magic Gunk Company|All-Purpose Gunk|ろうそくには燃えている') {
+            throw "Completed exploration attempt $attempt contains an untranslated or malformed side-path response."
+        }
         $completed++
     }
     Write-Host ('attempt={0} completed={1} deaths={2} successes={3}/{4}' -f `
@@ -425,4 +534,5 @@ if ($completed -lt $Successes) {
     throw "Only $completed of $Successes requested playthroughs completed in $MaxAttempts attempts."
 }
 
-Write-Host "Japanese full playthroughs OK: $completed"
+$testName = if ($Explore) { 'Japanese exploration playthroughs' } else { 'Japanese full playthroughs' }
+Write-Host "${testName} OK: $completed"

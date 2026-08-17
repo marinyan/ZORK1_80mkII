@@ -38,6 +38,14 @@ git clone https://github.com/johnesco/zork1-v2.git .local/zork1-v2-walkthrough
 ./tools/test-japanese-walkthrough.ps1 -Successes 3 -MaxAttempts 60
 ```
 
+寄り道テストは同じ正解ルートの各地で、調べる・読む・聞くなどの任意行動を
+追加します。原作の乱数でお宝が足りなくなる場合があるため、最後の探索地点まで到達し、
+全入力が日本語で未認識語・文型エラー・既知の英語残りがなければ完了とします。
+
+```powershell
+./tools/test-japanese-walkthrough.ps1 -Explore -Successes 1 -MaxAttempts 60
+```
+
 ## プレイログ
 
 通常プレイでは、EXEと同じ場所の`logs`ディレクトリへセッションごとのJSON Linesログを

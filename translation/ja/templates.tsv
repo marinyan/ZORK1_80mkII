@@ -8,6 +8,8 @@ mirror-tingling	You feel a faint tingling transmitted through the {0}.	{0}を通
 bolt-turn-with	The bolt won't turn using the {0}.	{0}を使っても、ボルトは回らない。	句点断片に埋め込まれていた述語を全文へ移す
 with-question	With a {0}?	{0}でだと？	疑問符断片に埋め込まれていた助詞を全文へ移す
 implicit-with	(with the {0})	（{0}で）	原作が補完した道具名を日本語の助詞と括弧で表示する
+candles-burning	The candles are burning.	ろうそくは燃えている。	分割出力される主語と述語を自然な助詞で連結する
+candles-out	The candles are out.	ろうそくは消えている。	分割出力される主語と述語を自然な助詞で連結する
 light-expired	You'd better have more light than from the {0}.	{0}より明るい光を用意した方がいい。	句点断片に埋め込まれていた述語を全文へ移す
 rope-tie-question	Why would you tie up a {0}?	なぜ{0}を縛ろうとするのだ？	疑問符断片に埋め込まれていた述語を全文へ移す
 villain-still-armed	Fortunately, you still have a {0}.	幸い、まだ{0}を持っている。	句点断片に埋め込まれていた述語を全文へ移す

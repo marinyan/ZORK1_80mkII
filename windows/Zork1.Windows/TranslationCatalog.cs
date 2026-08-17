@@ -131,7 +131,12 @@ internal sealed partial class TranslationCatalog
                     if (english.StartsWith($"{preposition} ", StringComparison.Ordinal))
                         placementPrepositions.TryAdd(english[(preposition.Length + 1)..], preposition);
                 }
-                if (!english.Contains(' ') && explicitDictionaryOutput.Add(english))
+                var inputOnlyAlias = row
+                    .GetValueOrDefault("notes", "")
+                    .Contains("入力専用", StringComparison.Ordinal);
+                if (!inputOnlyAlias &&
+                    !english.Contains(' ') &&
+                    explicitDictionaryOutput.Add(english))
                     AddDictionaryOutput(nounOutput, english, phrase, overwrite: true);
             }
         }
@@ -338,6 +343,8 @@ internal sealed partial class TranslationCatalog
                 translated.Insert(2, "with");
             if (translated.Count > 1 && translated[0] == "look")
                 translated[0] = "examine";
+            if (translated.Count > 1 && translated[0] == "knock")
+                translated.Insert(1, "on");
             return string.Join(' ', translated);
         }
 
@@ -373,13 +380,23 @@ internal sealed partial class TranslationCatalog
                         out var instrumentCommand))
                     return instrumentCommand;
                 var noun = TrimParticle(line[..^japanese.Length]);
-                var command = english == "look" ? "examine" : english;
+                var command = english switch
+                {
+                    "look" => "examine",
+                    "knock" => "knock on",
+                    _ => english
+                };
                 return $"{command} {TranslateNoun(noun)}".TrimEnd();
             }
             if (line.Length > japanese.Length && line.StartsWith(japanese, StringComparison.Ordinal))
             {
                 var noun = TrimParticle(line[japanese.Length..]);
-                var command = english == "look" ? "examine" : english;
+                var command = english switch
+                {
+                    "look" => "examine",
+                    "knock" => "knock on",
+                    _ => english
+                };
                 return $"{command} {TranslateNoun(noun)}".TrimEnd();
             }
         }

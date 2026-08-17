@@ -60,6 +60,16 @@ if ($Smoke) {
         @{ Input = 'カナリアのぜんまいを巻く'; Expected = 'wind canary' },
         @{ Input = '進水'; Expected = 'launch boat' },
         @{ Input = '待つ'; Expected = 'wait' },
+        @{ Input = '窓を叩く'; Expected = 'knock on window' },
+        @{ Input = '窓を 叩く'; Expected = 'knock on window' },
+        @{ Input = '案内を読む'; Expected = 'read guide' },
+        @{ Input = '歯磨き粉を調べる'; Expected = 'examine tube' },
+        @{ Input = '制御盤を調べる'; Expected = 'examine panel' },
+        @{ Input = '水門を調べる'; Expected = 'examine gate' },
+        @{ Input = '貯水池を調べる'; Expected = 'examine water' },
+        @{ Input = 'ドームを調べる'; Expected = 'examine dome' },
+        @{ Input = '碑文を読む'; Expected = 'read inscription' },
+        @{ Input = '滝を調べる'; Expected = 'examine water' },
         @{ Input = '松明を取る'; Expected = 'take torch' },
         @{ Input = '蝋燭を取る'; Expected = 'take candles' },
         @{ Input = '鐘を鳴らす'; Expected = 'ring bell' },
@@ -103,6 +113,21 @@ if ($Smoke) {
     if ($implicitToolOutput -cne '（シャベルで）') {
         Write-Error "出力変換テスト失敗: (with the shovel) -> $implicitToolOutput"
         exit 2
+    }
+    foreach ($case in @(
+        @{ Input = 'The candles are burning.'; Expected = 'ろうそくは燃えている。' },
+        @{ Input = 'The candles are out.'; Expected = 'ろうそくは消えている。' },
+        @{ Input = "There's nothing special about the tube."; Expected = 'チューブには、これといって変わったところはない。' },
+        @{ Input = "There's nothing special about the quantity of water."; Expected = '水には、これといって変わったところはない。' },
+        @{ Input = "There's nothing special about the control panel."; Expected = '制御盤には、これといって変わったところはない。' }
+    )) {
+        $actual = dotnet run --no-build --project $project -c Release -- `
+            --translate-output-line $case.Input
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+        if ($actual -cne $case.Expected) {
+            Write-Error "出力変換テスト失敗: $($case.Input) -> $actual (期待値: $($case.Expected))"
+            exit 2
+        }
     }
     $smokeLogRoot = Join-Path $root 'build/smoke-logs'
     $smokeLogDirectory = Join-Path $smokeLogRoot ([Guid]::NewGuid().ToString('N'))

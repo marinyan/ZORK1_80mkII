@@ -168,7 +168,7 @@
 "object.CLIMBABLE-CLIFF.DESC"	"cliff"	"崖"	"draft"	"原文確認済み"	"1dungeon.zil"	"1119"	"CLIMBABLE-CLIFF"	"DESC"
 "object.WHITE-CLIFF.DESC"	"white cliffs"	"白い崖"	"draft"	"原文確認済み"	"1dungeon.zil"	"1127"	"WHITE-CLIFF"	"DESC"
 "object.WRENCH.DESC"	"wrench"	"レンチ"	"draft"	"原文確認済み"	"1dungeon.zil"	"1134"	"WRENCH"	"DESC"
-"object.CONTROL-PANEL.DESC"	"control panel"	"コントロールパネル"	"draft"	"原文確認済み"	"1dungeon.zil"	"1142"	"CONTROL-PANEL"	"DESC"
+"object.CONTROL-PANEL.DESC"	"control panel"	"制御盤"	"draft"	"本文中の呼び名に統一"	"1dungeon.zil"	"1142"	"CONTROL-PANEL"	"DESC"
 "object.NEST.DESC"	"bird's nest"	"鳥の巣"	"draft"	"原文確認済み"	"1dungeon.zil"	"1149"	"NEST"	"DESC"
 "object.NEST.FDESC"	"Beside you on the branch is a small bird's nest."	"すぐそばの枝に、小さな鳥の巣がある。"	"draft"	"原文確認済み"	"1dungeon.zil"	"1151"	"NEST"	"FDESC"
 "object.EGG.DESC"	"jewel-encrusted egg"	"宝石をちりばめた卵"	"draft"	"原文確認済み"	"1dungeon.zil"	"1158"	"EGG"	"DESC"

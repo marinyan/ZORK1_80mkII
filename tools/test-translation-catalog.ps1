@@ -187,6 +187,11 @@ if ($paintingDescription.japanese -notmatch 'あなたにも.*ならず者の仲
     throw 'Painting description must preserve the joke that the player can join the vandals'
 }
 
+$controlPanelName = $objectJa | Where-Object id -eq 'object.CONTROL-PANEL.DESC'
+if ($controlPanelName.japanese -cne '制御盤') {
+    throw 'Control panel object name must match the room description and Japanese input alias'
+}
+
 $sceptreName = $objectJa | Where-Object id -eq 'object.SCEPTRE.DESC'
 $sceptreDescription = $objectJa | Where-Object id -eq 'object.SCEPTRE.FDESC'
 if ($sceptreName.japanese -cne '杖' -or
@@ -242,6 +247,12 @@ $implicitWithTemplate = $templatesJa | Where-Object key -eq 'implicit-with'
 if ($implicitWithTemplate.english -cne '(with the {0})' -or
     $implicitWithTemplate.translation -cne '（{0}で）') {
     throw 'Implicit instrument output must translate the English with fragment'
+}
+$candlesBurningTemplate = $templatesJa | Where-Object key -eq 'candles-burning'
+$candlesOutTemplate = $templatesJa | Where-Object key -eq 'candles-out'
+if ($candlesBurningTemplate.translation -cne 'ろうそくは燃えている。' -or
+    $candlesOutTemplate.translation -cne 'ろうそくは消えている。') {
+    throw 'Candle state output must join its subject and predicate naturally'
 }
 
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
@@ -315,6 +326,14 @@ $requiredInputAliases = [ordered]@{
     'カナリアのぜんまい' = 'canary'
     '機械の蓋' = 'machine'
     '進水' = 'launch boat'
+    '案内' = 'guide'
+    '歯磨き粉' = 'tube'
+    '制御盤' = 'panel'
+    '水門' = 'gate'
+    '貯水池' = 'water'
+    'ドーム' = 'dome'
+    '碑文' = 'inscription'
+    '滝' = 'water'
     '石炭' = 'coal'
     'プラスチック' = 'plastic'
     '空気' = 'air'
