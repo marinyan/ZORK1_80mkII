@@ -238,6 +238,11 @@ $echoTemplate = $templatesJa | Where-Object key -eq 'echo-command'
 if ($echoTemplate.english -cne 'echo echo ...' -or $echoTemplate.translation -cne '叫ぶ、叫ぶ……') {
     throw 'Dynamic ECHO output must use a readable Japanese separator'
 }
+$implicitWithTemplate = $templatesJa | Where-Object key -eq 'implicit-with'
+if ($implicitWithTemplate.english -cne '(with the {0})' -or
+    $implicitWithTemplate.translation -cne '（{0}で）') {
+    throw 'Implicit instrument output must translate the English with fragment'
+}
 
 Assert-CatalogContext $roomCatalog $roomJa @('english', 'source_file', 'line', 'room', 'property') 'Room translation'
 Assert-CatalogContext $objectCatalog $objectJa @('english', 'source_file', 'line', 'object', 'property') 'Object translation'

@@ -412,6 +412,9 @@ for ($attempt = 1; $attempt -le $MaxAttempts -and $completed -lt $Successes; $at
         if ($text -match 'という語は分からない|文の形は理解できない|文には動詞がない') {
             throw "Completed attempt $attempt contains a parser error."
         }
+        if ($text -match '(?m)^\(with\b') {
+            throw "Completed attempt $attempt contains an untranslated implicit-instrument message."
+        }
         $completed++
     }
     Write-Host ('attempt={0} completed={1} deaths={2} successes={3}/{4}' -f `

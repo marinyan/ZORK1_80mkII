@@ -97,6 +97,13 @@ if ($Smoke) {
         Write-Error "出力変換テスト失敗: echo echo ... -> $echoOutput"
         exit 2
     }
+    $implicitToolOutput = dotnet run --no-build --project $project -c Release -- `
+        --translate-output-line '(with the shovel)'
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    if ($implicitToolOutput -cne '（シャベルで）') {
+        Write-Error "出力変換テスト失敗: (with the shovel) -> $implicitToolOutput"
+        exit 2
+    }
     $smokeLogRoot = Join-Path $root 'build/smoke-logs'
     $smokeLogDirectory = Join-Path $smokeLogRoot ([Guid]::NewGuid().ToString('N'))
     dotnet run --no-build --project $project -c Release -- `
