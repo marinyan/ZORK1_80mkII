@@ -464,7 +464,7 @@
 "message.1actions.SCEPTRE-FUNCTION.2604.01"	"A shimmering pot of gold appears at the end of the rainbow."	"虹の端に、きらめく金貨の壺が現れた。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2604"	"SCEPTRE-FUNCTION"	"TELL"
 "message.1actions.SCEPTRE-FUNCTION.2609.01"	"The rainbow seems to have become somewhat run-of-the-mill."	"虹はどこにでもある普通のものへ戻ったようだ。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2609"	"SCEPTRE-FUNCTION"	"TELL"
 "message.1actions.SCEPTRE-FUNCTION.2615.01"	"The structural integrity of the rainbow is severely compromised,\nleaving you hanging in midair, supported only by water vapor. Bye."	"虹の構造は致命的なまでに弱まり、あなたは水蒸気だけに支えられて空中へ取り残された。では、さようなら。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2615"	"SCEPTRE-FUNCTION"	"JIGS-UP"
-"message.1actions.SCEPTRE-FUNCTION.2619.01"	"A dazzling display of color briefly emanates from the sceptre."	"王笏からまばゆい色彩がほとばしり、すぐに消えた。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2619"	"SCEPTRE-FUNCTION"	"TELL"
+"message.1actions.SCEPTRE-FUNCTION.2619.01"	"A dazzling display of color briefly emanates from the sceptre."	"杖からまばゆい色彩がほとばしり、すぐに消えた。"	"draft"	"物体名を杖に統一"	"1actions.zil"	"2619"	"SCEPTRE-FUNCTION"	"TELL"
 "message.1actions.FALLS-ROOM.2624.01"	"You are at the top of Aragain Falls, an enormous waterfall with a\ndrop of about 450 feet. The only path here is on the north end."	"ここはアラゲイン滝の頂上だ。落差はおよそ450フィートにもなる巨大な滝で、道は北端に一本しかない。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2624"	"FALLS-ROOM"	"TELL"
 "message.1actions.FALLS-ROOM.2628.01"	"A solid rainbow spans the falls."	"固まった虹が滝をまたいでいる。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2628"	"FALLS-ROOM"	"TELL"
 "message.1actions.FALLS-ROOM.2631.01"	"A beautiful rainbow can be seen over the falls and to the west."	"滝の上から西へ、美しい虹が見える。"	"draft"	"原文・ルーチン確認済み"	"1actions.zil"	"2631"	"FALLS-ROOM"	"TELL"

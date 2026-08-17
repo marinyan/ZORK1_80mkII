@@ -57,6 +57,13 @@ if ($Smoke) {
         @{ Input = '王笏を振りかざす'; Expected = 'wave sceptre' },
         @{ Input = '王笏を揺らす'; Expected = 'shake sceptre' },
         @{ Input = '王笏を振り回す'; Expected = 'swing sceptre' },
+        @{ Input = '杖を振る'; Expected = 'wave sceptre' },
+        @{ Input = '杖をかざす'; Expected = 'raise sceptre' },
+        @{ Input = '杖を翳す'; Expected = 'raise sceptre' },
+        @{ Input = '杖をかかげる'; Expected = 'raise sceptre' },
+        @{ Input = '杖を掲げる'; Expected = 'raise sceptre' },
+        @{ Input = '王笏を掲げる'; Expected = 'raise sceptre' },
+        @{ Input = '王杖をかざす'; Expected = 'raise sceptre' },
         @{ Input = 'どくろを取る'; Expected = 'take skull' },
         @{ Input = 'ドクロを取る'; Expected = 'take skull' },
         @{ Input = '髑髏を取る'; Expected = 'take skull' }

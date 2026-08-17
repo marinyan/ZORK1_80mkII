@@ -153,6 +153,13 @@ if ($tieVerb.aliases -notmatch '(^| )結びつける( |$)') {
     throw 'TIE must retain 結びつける as an alias'
 }
 
+$raiseVerb = $verbJa | Where-Object verb -eq 'RAISE'
+foreach ($alias in @('かざす', '翳す', 'かかげる', '掲げる')) {
+    if ($raiseVerb.aliases -notmatch ('(^| )' + [regex]::Escape($alias) + '( |$)')) {
+        throw "RAISE must retain $alias as an alias"
+    }
+}
+
 $versionNotice = $messageJa | Where-Object id -eq 'message.gverbs.V-VERSION.111.01'
 if ($versionNotice.japanese -notmatch 'Copyright \(c\) 2025 Microsoft' -or
     $versionNotice.japanese -match '無断複製|転載を禁ず') {
@@ -178,6 +185,13 @@ $paintingDescription = $objectJa | Where-Object id -eq 'object.PAINTING.FDESC'
 if ($paintingDescription.japanese -notmatch 'あなたにも.*ならず者の仲間入り' -or
     $paintingDescription.japanese -match '破壊者にもまだ手の届く宝') {
     throw 'Painting description must preserve the joke that the player can join the vandals'
+}
+
+$sceptreName = $objectJa | Where-Object id -eq 'object.SCEPTRE.DESC'
+$sceptreDescription = $objectJa | Where-Object id -eq 'object.SCEPTRE.FDESC'
+if ($sceptreName.japanese -cne '杖' -or
+    $sceptreDescription.japanese -notmatch '古代エジプトの王笏と思われる、装飾された杖') {
+    throw 'Sceptre must use 杖 as its playable name while preserving its royal origin'
 }
 
 $damLobbyDescription = $roomJa | Where-Object id -eq 'room.DAM-LOBBY.LDESC'
@@ -290,6 +304,9 @@ $requiredInputAliases = [ordered]@{
     'どくろ' = 'skull'
     'ドクロ' = 'skull'
     '髑髏' = 'skull'
+    '杖' = 'sceptre'
+    '王笏' = 'sceptre'
+    '王杖' = 'sceptre'
     '石炭' = 'coal'
     'プラスチック' = 'plastic'
     '空気' = 'air'
