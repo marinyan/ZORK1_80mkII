@@ -622,6 +622,9 @@ internal sealed partial class TranslationCatalog
     private bool TryTranslateTake(string arguments, out string command)
     {
         arguments = arguments.Trim();
+        if (TryTranslateTakeAll(arguments, out command))
+            return true;
+
         var sourceMarker = arguments.IndexOf("から", StringComparison.Ordinal);
         if (sourceMarker <= 0)
         {
@@ -643,6 +646,42 @@ internal sealed partial class TranslationCatalog
                 arguments[..directMarker],
                 arguments[(directMarker + 1)..sourceMarker],
                 out command);
+
+        command = "";
+        return false;
+    }
+
+    private bool TryTranslateTakeAll(string arguments, out string command)
+    {
+        if (arguments.EndsWith('を'))
+            arguments = arguments[..^1];
+
+        foreach (var allWord in new[] { "全部", "全て", "すべて" })
+        {
+            if (arguments == allWord)
+            {
+                command = "take all";
+                return true;
+            }
+            if (!arguments.EndsWith(allWord, StringComparison.Ordinal))
+                continue;
+
+            var exception = arguments[..^allWord.Length];
+            foreach (var marker in new[] {
+                "以外は", "以外を", "以外の", "以外",
+                "を除いて", "を除き", "を除く"
+            })
+            {
+                if (!exception.EndsWith(marker, StringComparison.Ordinal))
+                    continue;
+                var nounJapanese = exception[..^marker.Length];
+                var noun = TranslateNoun(nounJapanese);
+                if (nounJapanese.Length == 0 || noun == nounJapanese)
+                    break;
+                command = $"take all except {noun}";
+                return true;
+            }
+        }
 
         command = "";
         return false;
