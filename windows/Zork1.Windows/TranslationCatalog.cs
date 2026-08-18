@@ -276,6 +276,9 @@ internal sealed partial class TranslationCatalog
                     !compact.EndsWith(japanese, StringComparison.Ordinal))
                     continue;
                 if (english is "drop" or "put" &&
+                    TryTranslateAll(compact[..^japanese.Length], "drop", out var dropAll))
+                    return dropAll;
+                if (english is "drop" or "put" &&
                     TryTranslatePlacement(compact[..^japanese.Length], out var placement))
                     return placement;
                 if (english == "attack" &&
@@ -293,7 +296,7 @@ internal sealed partial class TranslationCatalog
                 if (english == "give" &&
                     TryTranslateGive(compact[..^japanese.Length], out var give))
                     return give;
-                if (english == "take" &&
+                if (english is "take" or "pick" &&
                     TryTranslateTake(compact[..^japanese.Length], out var take))
                     return take;
                 if (english is "inflat" or "light" &&
@@ -353,6 +356,9 @@ internal sealed partial class TranslationCatalog
             if (line.Length > japanese.Length && line.EndsWith(japanese, StringComparison.Ordinal))
             {
                 if (english is "drop" or "put" &&
+                    TryTranslateAll(line[..^japanese.Length], "drop", out var dropAll))
+                    return dropAll;
+                if (english is "drop" or "put" &&
                     TryTranslatePlacement(line[..^japanese.Length], out var placement))
                     return placement;
                 if (english == "attack" &&
@@ -370,7 +376,7 @@ internal sealed partial class TranslationCatalog
                 if (english == "give" &&
                     TryTranslateGive(line[..^japanese.Length], out var give))
                     return give;
-                if (english == "take" &&
+                if (english is "take" or "pick" &&
                     TryTranslateTake(line[..^japanese.Length], out var take))
                     return take;
                 if (english is "inflat" or "light" &&
@@ -622,7 +628,7 @@ internal sealed partial class TranslationCatalog
     private bool TryTranslateTake(string arguments, out string command)
     {
         arguments = arguments.Trim();
-        if (TryTranslateTakeAll(arguments, out command))
+        if (TryTranslateAll(arguments, "take", out command))
             return true;
 
         var sourceMarker = arguments.IndexOf("から", StringComparison.Ordinal);
@@ -651,7 +657,7 @@ internal sealed partial class TranslationCatalog
         return false;
     }
 
-    private bool TryTranslateTakeAll(string arguments, out string command)
+    private bool TryTranslateAll(string arguments, string verb, out string command)
     {
         if (arguments.EndsWith('を'))
             arguments = arguments[..^1];
@@ -660,7 +666,7 @@ internal sealed partial class TranslationCatalog
         {
             if (arguments == allWord)
             {
-                command = "take all";
+                command = $"{verb} all";
                 return true;
             }
             if (!arguments.EndsWith(allWord, StringComparison.Ordinal))
@@ -678,7 +684,7 @@ internal sealed partial class TranslationCatalog
                 var noun = TranslateNoun(nounJapanese);
                 if (nounJapanese.Length == 0 || noun == nounJapanese)
                     break;
-                command = $"take all except {noun}";
+                command = $"{verb} all except {noun}";
                 return true;
             }
         }

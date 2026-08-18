@@ -66,6 +66,12 @@ if ($Smoke) {
         @{ Input = '瓶以外を全部取る'; Expected = 'take all except bottle' },
         @{ Input = '瓶以外はすべて取る'; Expected = 'take all except bottle' },
         @{ Input = '瓶を除いて全部取る'; Expected = 'take all except bottle' },
+        @{ Input = '全部拾う'; Expected = 'take all' },
+        @{ Input = '袋以外全部拾う'; Expected = 'take all except bag' },
+        @{ Input = '全部落とす'; Expected = 'drop all' },
+        @{ Input = '全てを捨てる'; Expected = 'drop all' },
+        @{ Input = '瓶以外全部落とす'; Expected = 'drop all except bottle' },
+        @{ Input = '袋を除いてすべてを捨てる'; Expected = 'drop all except bag' },
         @{ Input = '窓を叩く'; Expected = 'knock on window' },
         @{ Input = '窓を 叩く'; Expected = 'knock on window' },
         @{ Input = '案内を読む'; Expected = 'read guide' },
@@ -105,6 +111,36 @@ if ($Smoke) {
             Write-Error "入力変換テスト失敗: $($case.Input) -> $actual (期待値: $($case.Expected))"
             exit 2
         }
+    }
+    $bulkTransferOutput = @(
+        '北',
+        '東',
+        '窓を開ける',
+        '窓に入る',
+        '全部拾う',
+        '西',
+        '全部落とす',
+        '瓶以外全部拾う',
+        '袋以外全部落とす',
+        '全部拾う',
+        '持ち物',
+        '終了',
+        'はい'
+    ) | dotnet run --no-build --project $project -c Release -- --no-log
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    $bulkTransferText = $bulkTransferOutput -join "`n"
+    foreach ($expectation in @(
+        "ガラス瓶：取った。`n茶色の袋：取った。",
+        "茶色の袋：置いた。`nガラス瓶：置いた。",
+        "茶色の袋：取った。`n剣：取った。`n真鍮製ランタン：取った。",
+        "真鍮製ランタン：置いた。`n剣：置いた。",
+        "持ち物：`nガラス瓶`nガラス瓶の中にあるもの：`n水`n真鍮製ランタン`n剣`n茶色の袋"
+    )) {
+        if ($bulkTransferText.Contains($expectation, [StringComparison]::Ordinal)) {
+            continue
+        }
+        Write-Error "一括取得・投棄テスト失敗: 必要な応答がない: $expectation"
+        exit 2
     }
     $echoOutput = dotnet run --no-build --project $project -c Release -- `
         --translate-output-line 'echo echo ...'
