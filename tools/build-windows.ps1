@@ -72,6 +72,30 @@ if ($Smoke) {
         @{ Input = '全てを捨てる'; Expected = 'drop all' },
         @{ Input = '瓶以外全部落とす'; Expected = 'drop all except bottle' },
         @{ Input = '袋を除いてすべてを捨てる'; Expected = 'drop all except bag' },
+        @{ Input = '瓶と袋を拾う'; Expected = 'take bottle and bag' },
+        @{ Input = '瓶、袋を取る'; Expected = 'take bottle and bag' },
+        @{ Input = '瓶および袋を取る'; Expected = 'take bottle and bag' },
+        @{ Input = '瓶と袋の両方を拾う'; Expected = 'take bottle and bag' },
+        @{ Input = '取る 瓶と袋'; Expected = 'take bottle and bag' },
+        @{ Input = '落とし戸と蓋を調べる'; Expected = 'examine trap door and cover' },
+        @{ Input = '瓶と袋以外全部拾う'; Expected = 'take all except bottle and bag' },
+        @{ Input = '瓶と袋を落とす'; Expected = 'drop bottle and bag' },
+        @{ Input = '瓶と袋を調べる'; Expected = 'examine bottle and bag' },
+        @{ Input = '瓶以外全部調べる'; Expected = 'examine all except bottle' },
+        @{ Input = '瓶と袋を押す'; Expected = 'push bottle and bag' },
+        @{ Input = '全部を棚の中に置く'; Expected = 'put all in case' },
+        @{ Input = '棚の中に瓶以外全部を置く'; Expected = 'put all except bottle in case' },
+        @{ Input = '瓶と袋を棚の中に置く'; Expected = 'put bottle and bag in case' },
+        @{ Input = '置く 全部 棚'; Expected = 'put all in case' },
+        @{ Input = '置く 瓶と袋 棚の中'; Expected = 'put bottle and bag in case' },
+        @{ Input = '瓶と袋を棚の中に移す'; Expected = 'put bottle and bag in case' },
+        @{ Input = '棚の後ろに瓶と袋を置く'; Expected = 'put bottle and bag behind case' },
+        @{ Input = '棚から全部取る'; Expected = 'take all from case' },
+        @{ Input = '棚から瓶以外全部取る'; Expected = 'take all except bottle from case' },
+        @{ Input = '全部を棚から取る'; Expected = 'take all from case' },
+        @{ Input = '瓶と袋を泥棒に渡す'; Expected = 'give bottle and bag to thief' },
+        @{ Input = '泥棒に瓶以外全部を渡す'; Expected = 'give all except bottle to thief' },
+        @{ Input = '渡す 瓶と袋 泥棒'; Expected = 'give bottle and bag to thief' },
         @{ Input = '窓を叩く'; Expected = 'knock on window' },
         @{ Input = '窓を 叩く'; Expected = 'knock on window' },
         @{ Input = '案内を読む'; Expected = 'read guide' },
@@ -140,6 +164,45 @@ if ($Smoke) {
             continue
         }
         Write-Error "一括取得・投棄テスト失敗: 必要な応答がない: $expectation"
+        exit 2
+    }
+    $multipleObjectOutput = @(
+        '北',
+        '東',
+        '窓を開ける',
+        '窓に入る',
+        '瓶と袋を調べる',
+        '瓶と袋を押す',
+        '瓶と袋を拾う',
+        '西',
+        '棚を開ける',
+        '全部を棚の中に置く',
+        '棚から瓶以外全部取る',
+        '袋を棚の中に置く',
+        '棚から全部取る',
+        '瓶と袋を落とす',
+        '瓶と袋以外全部拾う',
+        '持ち物',
+        '終了',
+        'はい'
+    ) | dotnet run --no-build --project $project -c Release -- --no-log
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+    $multipleObjectText = $multipleObjectOutput -join "`n"
+    foreach ($expectation in @(
+        "ガラス瓶：ガラス瓶の中にあるもの：`n水`n茶色の袋：茶色の袋は閉まっている。",
+        "ガラス瓶：「押す」：",
+        "茶色の袋：「押す」：",
+        "ガラス瓶：取った。`n茶色の袋：取った。",
+        "茶色の袋：できた。`nガラス瓶：できた。",
+        "茶色の袋：取った。`nガラス瓶：取った。",
+        "ガラス瓶：置いた。`n茶色の袋：置いた。",
+        "剣：取った。`n真鍮製ランタン：取った。",
+        "持ち物：`n真鍮製ランタン`n剣"
+    )) {
+        if ($multipleObjectText.Contains($expectation, [StringComparison]::Ordinal)) {
+            continue
+        }
+        Write-Error "複数対象入力テスト失敗: 必要な応答がない: $expectation"
         exit 2
     }
     $echoOutput = dotnet run --no-build --project $project -c Release -- `
